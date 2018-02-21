@@ -128,9 +128,9 @@ func outToGenerator(ctx android.ModuleContext, out string) string {
 	case strings.HasSuffix(out, "GenCallingConv.inc"):
 		return "-gen-callingconv"
 	case strings.HasSuffix(out, "GenIntrinsicEnums.inc"):
-		return "-gen-tgt-intrinsic-enums"
+		return "-gen-intrinsic-enums"
 	case strings.HasSuffix(out, "GenIntrinsicImpl.inc"):
-		return "-gen-tgt-intrinsic-impl"
+		return "-gen-intrinsic-impl"
 	case strings.HasSuffix(out, "GenDecoderTables.inc"):
 		return "-gen-arm-decoder"
 	case strings.HasSuffix(out, "Options.inc"):
