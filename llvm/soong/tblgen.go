@@ -64,8 +64,8 @@ func (t *tblgen) GenerateAndroidBuildActions(ctx android.ModuleContext) {
 
 	includes := []string{
 		"-I " + ctx.ModuleDir(),
-		"-I external/llvm/include",
-		"-I external/llvm/lib/Target",
+		"-I external/llvm-project/llvm/include",
+		"-I external/llvm-project/llvm/lib/Target",
 		"-I " + filepath.Dir(in.String()),
 	}
 
