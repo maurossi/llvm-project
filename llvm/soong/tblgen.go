@@ -162,6 +162,10 @@ func (t *tblgen) GeneratedHeaderDirs() android.Paths {
 }
 
 func (t *tblgen) GeneratedSourceFiles() android.Paths {
+	return nil
+}
+
+func (t *tblgen) GeneratedDeps() android.Paths {
 	return t.generatedHeaders
 }
 
