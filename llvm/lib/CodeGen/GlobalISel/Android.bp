@@ -3,7 +3,7 @@ cc_library_static {
     defaults: [
         "llvm-lib-defaults",
     ],
-    // Only pull in this one file to ensure we aren't building with this
-    // experimental feature just yet.
-    srcs: ["GlobalISel.cpp"],
+    // Aarch64 and AMDGPU targets require GlobalIsel
+    // Experimental feature enabled by building all srcs
+    srcs: ["*.cpp"],
 }
