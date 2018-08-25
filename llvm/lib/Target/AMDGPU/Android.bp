@@ -1,0 +1,50 @@
+cc_library_static {
+    name: "libLLVMAMDGPUCodeGen",
+    defaults: [
+        "llvm-lib-defaults",
+        "llvm-amdgpu-defaults",
+    ],
+    srcs: ["*.cpp"],
+
+    // Global ISEL is an experimental feature.  If LLVM_BUILD_GLOBAL_ISEL is not
+    // set, these files fail compilation based on a macro check.
+    exclude_srcs: [
+        "AMDGPUCallLowering.cpp",
+    ],
+}
+
+cc_defaults {
+    name: "llvm-amdgpu-defaults",
+    generated_headers: ["llvm-gen-amdgpu"],
+    static_libs: ["llvm-amdgpu-headers"],
+}
+
+cc_library_static {
+    name: "llvm-amdgpu-headers",
+    host_supported: true,
+    target: {
+        windows: {
+            enabled: true,
+        },
+    },
+    export_include_dirs: ["."],
+}
+
+llvm_tblgen {
+    name: "llvm-gen-amdgpu",
+    in: "AMDGPU.td",
+    outs: [
+        "AMDGPUGenRegisterInfo.inc",
+        "AMDGPUGenInstrInfo.inc",
+        "AMDGPUGenMCCodeEmitter.inc",
+        "AMDGPUGenAsmWriter.inc",
+        "AMDGPUGenAsmMatcher.inc",
+        "AMDGPUGenDAGISel.inc",
+        "AMDGPUGenCallingConv.inc",
+        "AMDGPUGenSubtargetInfo.inc",
+        "AMDGPUGenIntrinsics.inc",
+        "AMDGPUGenDFAPacketizer.inc",
+    ],
+}
+
+subdirs = ["*"]
