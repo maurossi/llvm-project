@@ -321,5 +321,5 @@ cc_library_shared {
 subdirs = [
     "soong",
     "lib",
-    "utils/*",
+    "utils/TableGen",
 ]
