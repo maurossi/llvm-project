@@ -1,0 +1,8 @@
+cc_library_static {
+    name: "libLLVMAMDGPUAsmParser",
+    defaults: [
+        "llvm-lib-defaults",
+        "llvm-amdgpu-defaults",
+    ],
+    srcs: ["*.cpp"],
+}
