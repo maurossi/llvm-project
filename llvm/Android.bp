@@ -321,6 +321,5 @@ cc_library_shared {
 subdirs = [
     "soong",
     "lib",
-    "tools/*",
     "utils/*",
 ]
