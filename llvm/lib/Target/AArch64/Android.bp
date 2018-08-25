@@ -5,13 +5,6 @@ cc_library_static {
         "llvm-aarch64-defaults",
     ],
     srcs: ["*.cpp"],
-
-    // Global ISEL is an experimental feature.  If LLVM_BUILD_GLOBAL_ISEL is not
-    // set, these files fail compilation based on a macro check.
-    exclude_srcs: [
-        "AArch64CallLowering.cpp",
-        "AArch64RegisterBankInfo.cpp",
-    ],
 }
 
 cc_defaults {
@@ -49,6 +42,8 @@ llvm_tblgen {
         "AArch64GenDisassemblerTables.inc",
         "AArch64GenMCPseudoLowering.inc",
         "AArch64GenSystemOperands.inc",
+        "AArch64GenRegisterBank.inc",
+        "AArch64GenGlobalISel.inc",
     ],
 }
 
