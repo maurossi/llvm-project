@@ -5,12 +5,6 @@ cc_library_static {
         "llvm-amdgpu-defaults",
     ],
     srcs: ["*.cpp"],
-
-    // Global ISEL is an experimental feature.  If LLVM_BUILD_GLOBAL_ISEL is not
-    // set, these files fail compilation based on a macro check.
-    exclude_srcs: [
-        "AMDGPUCallLowering.cpp",
-    ],
 }
 
 cc_defaults {
@@ -44,6 +38,8 @@ llvm_tblgen {
         "AMDGPUGenSubtargetInfo.inc",
         "AMDGPUGenIntrinsics.inc",
         "AMDGPUGenDFAPacketizer.inc",
+        "AMDGPUGenRegisterBank.inc",
+        "AMDGPUGenGlobalISel.inc",
     ],
 }
 
