@@ -128,6 +128,10 @@ func outToGenerator(ctx android.ModuleContext, out string) string {
 		return "-gen-opt-parser-defs"
 	case strings.HasSuffix(out, "GenDFAPacketizer.inc"):
 		return "-gen-dfa-packetizer"
+	case strings.HasSuffix(out, "GenRegisterBank.inc"):
+		return "-gen-register-bank"
+	case strings.HasSuffix(out, "GenGlobalISel.inc"):
+		return "-gen-global-isel"
 	case out == "Attributes.inc", out == "AttributesCompatFunc.inc":
 		return "-gen-attrs"
 	case out == "Intrinsics.gen":
