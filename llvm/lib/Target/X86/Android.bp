@@ -46,6 +46,7 @@ llvm_tblgen {
         "X86GenFastISel.inc",
         "X86GenSubtargetInfo.inc",
         "X86GenCallingConv.inc",
+        "X86GenRegisterBank.inc",
     ],
 }
 
