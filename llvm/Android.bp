@@ -140,7 +140,7 @@ cc_library_headers {
 llvm_tblgen {
     name: "llvm-gen-attributes",
     in: "include/llvm/IR/Attributes.td",
-    outs: ["llvm/IR/Attributes.inc"],
+    outs: ["llvm/IR/Attributes.gen"],
 }
 
 llvm_tblgen {
