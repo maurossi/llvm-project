@@ -40,6 +40,7 @@ llvm_tblgen {
         "AMDGPUGenDFAPacketizer.inc",
         "AMDGPUGenRegisterBank.inc",
         "AMDGPUGenGlobalISel.inc",
+        "AMDGPUGenMCPseudoLowering.inc",
     ],
 }
 
