@@ -132,6 +132,8 @@ func outToGenerator(ctx android.ModuleContext, out string) string {
 		return "-gen-register-bank"
 	case strings.HasSuffix(out, "GenGlobalISel.inc"):
 		return "-gen-global-isel"
+	case strings.HasSuffix(out, "X86GenEVEX2VEXTables.inc"):
+		return "-gen-x86-EVEX2VEX-tables"
 	case out == "Attributes.gen", out == "AttributesCompatFunc.inc":
 		return "-gen-attrs"
 	case out == "Intrinsics.gen":
