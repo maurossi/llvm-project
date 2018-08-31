@@ -47,6 +47,7 @@ llvm_tblgen {
         "ARMGenCallingConv.inc",
         "ARMGenSubtargetInfo.inc",
         "ARMGenDisassemblerTables.inc",
+        "ARMGenRegisterBank.inc",
     ],
 }
 
