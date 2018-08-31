@@ -47,6 +47,7 @@ llvm_tblgen {
         "X86GenSubtargetInfo.inc",
         "X86GenCallingConv.inc",
         "X86GenRegisterBank.inc",
+        "X86GenEVEX2VEXTables.inc",
     ],
 }
 
