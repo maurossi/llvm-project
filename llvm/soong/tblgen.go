@@ -110,6 +110,8 @@ func outToGenerator(ctx android.ModuleContext, out string) string {
 		return "-gen-dag-isel"
 	case strings.HasSuffix(out, "GenDisassemblerTables.inc"):
 		return "-gen-disassembler"
+	case strings.HasSuffix(out, "GenSearchableTables.inc"):
+		return "-gen-searchable-tables"
 	case strings.HasSuffix(out, "GenSystemOperands.inc"):
 		return "-gen-searchable-tables"
 	case strings.HasSuffix(out, "GenSystemRegister.inc"):
