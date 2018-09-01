@@ -114,6 +114,8 @@ func outToGenerator(ctx android.ModuleContext, out string) string {
 		return "-gen-searchable-tables"
 	case strings.HasSuffix(out, "GenSystemRegister.inc"):
 		return "-gen-searchable-tables"
+	case strings.HasSuffix(out, "InstCombineTables.inc"):
+		return "-gen-searchable-tables"
 	case strings.HasSuffix(out, "GenEDInfo.inc"):
 		return "-gen-enhanced-disassembly-info"
 	case strings.HasSuffix(out, "GenFastISel.inc"):
