@@ -41,6 +41,7 @@ llvm_tblgen {
         "AMDGPUGenRegisterBank.inc",
         "AMDGPUGenGlobalISel.inc",
         "AMDGPUGenMCPseudoLowering.inc",
+        "AMDGPUGenSearchableTables.inc",
     ],
 }
 
