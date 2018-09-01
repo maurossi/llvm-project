@@ -122,8 +122,10 @@ func outToGenerator(ctx android.ModuleContext, out string) string {
 		return "-gen-subtarget"
 	case strings.HasSuffix(out, "GenCallingConv.inc"):
 		return "-gen-callingconv"
-	case strings.HasSuffix(out, "GenIntrinsics.inc"):
-		return "-gen-tgt-intrinsic"
+	case strings.HasSuffix(out, "GenIntrinsicEnums.inc"):
+		return "-gen-tgt-intrinsic-enums"
+	case strings.HasSuffix(out, "GenIntrinsicImpl.inc"):
+		return "-gen-tgt-intrinsic-impl"
 	case strings.HasSuffix(out, "GenDecoderTables.inc"):
 		return "-gen-arm-decoder"
 	case strings.HasSuffix(out, "Options.inc"):
@@ -138,8 +140,10 @@ func outToGenerator(ctx android.ModuleContext, out string) string {
 		return "-gen-x86-EVEX2VEX-tables"
 	case out == "Attributes.inc", out == "AttributesCompatFunc.inc":
 		return "-gen-attrs"
-	case out == "Intrinsics.inc":
-		return "-gen-intrinsic"
+	case out == "IntrinsicEnums.inc":
+		return "-gen-intrinsic-enums"
+	case out == "IntrinsicImpl.inc":
+		return "-gen-intrinsic-impl"
 	}
 
 	ctx.ModuleErrorf("couldn't map output file %q to a generator", out)
