@@ -218,6 +218,7 @@ cc_library_shared {
         "libLLVMLinker",
         "libLLVMipo",
         "libLLVMDebugInfoDWARF",
+        "libLLVMDebugInfoMSF",
         "libLLVMDebugInfoPDB",
         "libLLVMSymbolize",
         "libLLVMIRReader",
