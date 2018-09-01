@@ -164,6 +164,7 @@ llvm_arm_static_libraries = [
     "libLLVMARMInfo",
     "libLLVMARMDesc",
     "libLLVMARMDisassembler",
+    "libLLVMARMUtils",
 ]
 
 llvm_x86_static_libraries = [
