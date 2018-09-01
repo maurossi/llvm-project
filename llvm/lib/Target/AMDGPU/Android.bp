@@ -9,7 +9,7 @@ cc_library_static {
 
 cc_defaults {
     name: "llvm-amdgpu-defaults",
-    generated_headers: ["llvm-gen-amdgpu"],
+    generated_headers: ["llvm-gen-amdgpu", "llvm-gen-r600"],
     static_libs: ["llvm-amdgpu-headers"],
 }
 
@@ -38,10 +38,24 @@ llvm_tblgen {
         "AMDGPUGenSubtargetInfo.inc",
         "AMDGPUGenIntrinsicEnums.inc",
         "AMDGPUGenIntrinsicImpl.inc",
-        "AMDGPUGenDFAPacketizer.inc",
         "AMDGPUGenRegisterBank.inc",
         "AMDGPUGenGlobalISel.inc",
         "AMDGPUGenMCPseudoLowering.inc",
+    ],
+}
+
+llvm_tblgen {
+    name: "llvm-gen-r600",
+    in: "R600.td",
+    outs: [
+        "R600GenAsmWriter.inc",
+        "R600GenCallingConv.inc",
+        "R600GenDAGISel.inc",
+        "R600GenDFAPacketizer.inc",
+        "R600GenInstrInfo.inc",
+        "R600GenMCCodeEmitter.inc",
+        "R600GenRegisterInfo.inc",
+        "R600GenSubtargetInfo.inc",
     ],
 }
 
