@@ -254,6 +254,7 @@ cc_library_shared {
         "libLLVMRuntimeDyld",
         "libLLVMMCJIT",
         "libLLVMOrcJIT",
+        "libLLVMBinaryFormat",
     ],
 
     export_include_dirs: ["include"],
