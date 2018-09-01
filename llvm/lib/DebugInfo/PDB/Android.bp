@@ -5,6 +5,6 @@ cc_library_static {
     ],
     srcs: [
         "*.cpp",
-        "Raw/*.cpp",
+        "Native/*.cpp",
     ],
 }
