@@ -49,6 +49,7 @@ llvm_tblgen {
         "ARMGenDisassemblerTables.inc",
         "ARMGenRegisterBank.inc",
         "ARMGenGlobalISel.inc",
+        "ARMGenSystemRegister.inc",
     ],
 }
 
