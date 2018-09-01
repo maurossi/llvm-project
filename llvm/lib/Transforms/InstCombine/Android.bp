@@ -3,5 +3,12 @@ cc_library_static {
     defaults: [
         "llvm-lib-defaults",
     ],
+    generated_headers: ["llvm-gen-instcombine"],
     srcs: ["*.cpp"],
+}
+
+llvm_tblgen {
+    name: "llvm-gen-instcombine",
+    in: "InstCombineTables.td",
+    outs: ["InstCombineTables.inc"],
 }
