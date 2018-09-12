@@ -157,7 +157,7 @@ llvm_tblgen {
 genrule {
     name: "llvm-gen-revision",
     out: ["llvm/Support/VCSRevision.h"],
-    srcs: [".git/logs/HEAD"],
+    srcs: [".git/logs/HEAD*"],
     tool_files: ["git_sha1_gen.py"],
     cmd: "python $(location git_sha1_gen.py) --output $(out)",
 }
