@@ -619,7 +619,7 @@
 #define LLVM_USE_OPROFILE 0
 
 /* Major version of the LLVM API */
-#define LLVM_VERSION_MAJOR 14
+#define LLVM_VERSION_MAJOR 15
 
 /* Minor version of the LLVM API */
 #define LLVM_VERSION_MINOR 0
@@ -658,13 +658,13 @@
 #define PACKAGE_NAME "LLVM"
 
 /* Define to the full name and version of this package. */
-#define PACKAGE_STRING "LLVM 14.0.0"
+#define PACKAGE_STRING "LLVM 15.0.0"
 
 /* Define to the one symbol short name of this package. */
 #define PACKAGE_TARNAME "llvm"
 
 /* Define to the version of this package. */
-#define PACKAGE_VERSION "14.0.0"
+#define PACKAGE_VERSION "15.0.0"
 
 /* Define as the return type of signal handlers (`int' or `void'). */
 #define RETSIGTYPE void
