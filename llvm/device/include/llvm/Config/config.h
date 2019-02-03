@@ -7,6 +7,15 @@
 /* Bug report URL. */
 #define BUG_REPORT_URL "http://llvm.org/bugs/"
 
+/* Define to 1 to enable backtraces, and to 0 otherwise. */
+#define ENABLE_BACKTRACES 0
+
+/* Define to 1 to enable crash overrides, and to 0 otherwise. */
+#define ENABLE_CRASH_OVERRIDES 0
+
+/* Define to 1 to enable crash memory dumps, and to 0 otherwise. */
+#define LLVM_ENABLE_CRASH_DUMPS 0
+
 /* Relative directory for resource files */
 #define CLANG_RESOURCE_DIR ""
 
