@@ -100,7 +100,7 @@
 #define LLVM_PREFIX "/opt/llvm-android"
 
 /* Major version of the LLVM API */
-#define LLVM_VERSION_MAJOR 10
+#define LLVM_VERSION_MAJOR 11
 
 /* Minor version of the LLVM API */
 #define LLVM_VERSION_MINOR 0
@@ -109,7 +109,7 @@
 #define LLVM_VERSION_PATCH 0
 
 /* LLVM version string */
-#define LLVM_VERSION_STRING "10.0.0"
+#define LLVM_VERSION_STRING "11.0.0"
 
 #include "llvm/Config/llvm-platform-config.h"
 
