@@ -273,6 +273,9 @@ cc_library_shared {
         "libLLVMMCJIT",
         "libLLVMOrcJIT",
         "libLLVMBinaryFormat",
+        "libLLVMMIRParser",
+        "libLLVMRemarks",
+        "libLLVMJITLink",
     ],
 
     export_include_dirs: ["include"],
