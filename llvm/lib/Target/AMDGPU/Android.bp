@@ -42,6 +42,7 @@ llvm_tblgen {
         "AMDGPUGenGlobalISel.inc",
         "AMDGPUGenMCPseudoLowering.inc",
         "AMDGPUGenSearchableTables.inc",
+        "AMDGPUGenDisassemblerTables.inc",
     ],
 }
 
