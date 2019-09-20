@@ -216,6 +216,7 @@ llvm_amdgpu_static_libraries = [
     "libLLVMAMDGPUAsmParser",
     "libLLVMAMDGPUAsmPrinter",
     "libLLVMAMDGPUUtils",
+    "libLLVMAMDGPUDisassembler",
 ]
 
 
