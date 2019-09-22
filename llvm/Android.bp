@@ -277,6 +277,7 @@ cc_library_shared {
         "libLLVMMIRParser",
         "libLLVMRemarks",
         "libLLVMJITLink",
+        "libLLVMCoroutines",
     ],
 
     export_include_dirs: ["include"],
