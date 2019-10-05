@@ -241,6 +241,7 @@ cc_library_shared {
         "libLLVMBitReader",
         "libLLVMPasses",
         "libLLVMDemangle",
+        "libLLVMBitstreamReader",
 
         // post static libraries
         "libLLVMLTO",
