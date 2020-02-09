@@ -44,6 +44,7 @@ llvm_tblgen {
         "AArch64GenSystemOperands.inc",
         "AArch64GenRegisterBank.inc",
         "AArch64GenGlobalISel.inc",
+        "AArch64GenGICombiner.inc",
     ],
 }
 
