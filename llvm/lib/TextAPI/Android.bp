@@ -1,0 +1,10 @@
+cc_library_static {
+    name: "libLLVMTextAPI",
+    defaults: [
+        "llvm-lib-defaults",
+    ],
+    srcs: [
+        "ELF/*.cpp",
+        "MachO/*.cpp",
+    ],
+}
