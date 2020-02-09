@@ -39,6 +39,7 @@ var (
 		Command:     "${llvmTblgen} ${includes} ${generator} -d ${depfile} -o ${out} ${in}",
 		CommandDeps: []string{"${llvmTblgen}"},
 		Description: "LLVM TableGen $in => $out",
+		Restat:      true,
 	}, "includes", "depfile", "generator")
 )
 
