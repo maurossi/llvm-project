@@ -1,11 +1,9 @@
-cc_binary_host {
-    name: "llvm-tblgen",
+cc_library_static {
+    name: "libLLVMTableGenGlobalISel",
     defaults: ["llvm-defaults-no-generated-headers"],
     srcs: ["*.cpp"],
 
     static_libs: [
-        "libLLVMTableGenGlobalISel",
-        "libLLVMTableGen",
         "libLLVMSupport",
     ],
 
@@ -33,5 +31,3 @@ cc_binary_host {
         },
     },
 }
-
-subdirs = ["*"]
