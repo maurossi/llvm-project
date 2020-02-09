@@ -279,6 +279,7 @@ cc_library_shared {
         "libLLVMRemarks",
         "libLLVMJITLink",
         "libLLVMCoroutines",
+        "libLLVMTextAPI",
     ],
 
     export_include_dirs: ["include"],
