@@ -151,6 +151,20 @@ llvm_tblgen {
     outs: [
         "llvm/IR/IntrinsicEnums.inc",
         "llvm/IR/IntrinsicImpl.inc",
+        "llvm/IR/IntrinsicsAArch64.h",
+        "llvm/IR/IntrinsicsAMDGPU.h",
+        "llvm/IR/IntrinsicsARM.h",
+        "llvm/IR/IntrinsicsBPF.h",
+        "llvm/IR/IntrinsicsHexagon.h",
+        "llvm/IR/IntrinsicsMips.h",
+        "llvm/IR/IntrinsicsNVPTX.h",
+        "llvm/IR/IntrinsicsPowerPC.h",
+        "llvm/IR/IntrinsicsR600.h",
+        "llvm/IR/IntrinsicsRISCV.h",
+        "llvm/IR/IntrinsicsS390.h",
+        "llvm/IR/IntrinsicsWebAssembly.h",
+        "llvm/IR/IntrinsicsX86.h",
+        "llvm/IR/IntrinsicsXCore.h",
     ],
 }
 
