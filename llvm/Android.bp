@@ -295,6 +295,7 @@ cc_library_shared {
         "libLLVMCoroutines",
         "libLLVMTextAPI",
         "libLLVMCFGuard",
+        "libLLVMOrcError",
     ],
 
     export_include_dirs: ["include"],
