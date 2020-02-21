@@ -151,6 +151,34 @@ func outToGenerator(ctx android.ModuleContext, out string) string {
 		return "-gen-intrinsic-enums"
 	case out == "IntrinsicImpl.inc":
 		return "-gen-intrinsic-impl"
+	case out == "IntrinsicsAArch64.h":
+		return "-gen-intrinsic-enums -intrinsic-prefix=aarch64"
+	case out == "IntrinsicsAMDGPU.h":
+		return "-gen-intrinsic-enums -intrinsic-prefix=amdgcn"
+	case out == "IntrinsicsARM.h":
+		return "-gen-intrinsic-enums -intrinsic-prefix=arm"
+	case out == "IntrinsicsBPF.h":
+		return "-gen-intrinsic-enums -intrinsic-prefix=bpf"
+	case out == "IntrinsicsHexagon.h":
+		return "-gen-intrinsic-enums -intrinsic-prefix=hexagon"
+	case out == "IntrinsicsMips.h":
+		return "-gen-intrinsic-enums -intrinsic-prefix=mips"
+	case out == "IntrinsicsNVPTX.h":
+		return "-gen-intrinsic-enums -intrinsic-prefix=nvvm"
+	case out == "IntrinsicsPowerPC.h":
+		return "-gen-intrinsic-enums -intrinsic-prefix=ppc"
+	case out == "IntrinsicsR600.h":
+		return "-gen-intrinsic-enums -intrinsic-prefix=r600"
+	case out == "IntrinsicsRISCV.h":
+		return "-gen-intrinsic-enums -intrinsic-prefix=riscv"
+	case out == "IntrinsicsS390.h":
+		return "-gen-intrinsic-enums -intrinsic-prefix=s390"
+	case out == "IntrinsicsWebAssembly.h":
+		return "-gen-intrinsic-enums -intrinsic-prefix=wasm"
+	case out == "IntrinsicsX86.h":
+		return "-gen-intrinsic-enums -intrinsic-prefix=x86"
+	case out == "IntrinsicsXCore.h":
+		return "-gen-intrinsic-enums -intrinsic-prefix=xcore"
 	}
 
 	ctx.ModuleErrorf("couldn't map output file %q to a generator", out)
