@@ -294,6 +294,7 @@ cc_library_shared {
         "libLLVMJITLink",
         "libLLVMCoroutines",
         "libLLVMTextAPI",
+        "libLLVMCFGuard",
     ],
 
     export_include_dirs: ["include"],
