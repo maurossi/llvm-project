@@ -1,6 +1,6 @@
 bootstrap_go_package {
     name: "soong-llvm",
-    pkgPath: "android/soong/external/llvm",
+    pkgPath: "android/soong/external/llvm-project/llvm",
     deps: [
         "blueprint",
         "blueprint-pathtools",
