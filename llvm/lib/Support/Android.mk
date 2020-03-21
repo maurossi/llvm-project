@@ -4,6 +4,7 @@ include $(LLVM10_ROOT_PATH)/llvm.mk
 
 support_SRC_FILES := \
   AArch64TargetParser.cpp \
+  ABIBreak.cpp \
   ARMTargetParser.cpp \
   AMDGPUMetadata.cpp \
   APFloat.cpp \
@@ -40,6 +41,7 @@ support_SRC_FILES := \
   Error.cpp \
   ErrorHandling.cpp \
   FileCheck.cpp \
+  FileCollector.cpp \
   FileUtilities.cpp \
   FileOutputBuffer.cpp \
   FoldingSet.cpp \
@@ -52,7 +54,6 @@ support_SRC_FILES := \
   IntEqClasses.cpp \
   IntervalMap.cpp \
   ItaniumManglingCanonicalizer.cpp \
-  JamCRC.cpp \
   JSON.cpp \
   KnownBits.cpp \
   LEB128.cpp \
@@ -66,7 +67,6 @@ support_SRC_FILES := \
   MD5.cpp \
   NativeFormatting.cpp \
   Optional.cpp \
-  Options.cpp \
   Parallel.cpp \
   PluginLoader.cpp \
   PrettyStackTrace.cpp \
@@ -118,7 +118,6 @@ support_SRC_FILES := \
   Errno.cpp \
   Host.cpp \
   Memory.cpp \
-  Mutex.cpp \
   Path.cpp \
   Process.cpp \
   Program.cpp \
