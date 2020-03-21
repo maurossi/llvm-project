@@ -21,17 +21,21 @@ tablegen_SRC_FILES := \
   DAGISelMatcherGen.cpp \
   DAGISelMatcherOpt.cpp \
   DAGISelMatcher.cpp \
+  DFAEmitter.cpp \
   DFAPacketizerEmitter.cpp \
   DisassemblerEmitter.cpp \
   ExegesisEmitter.cpp \
   FastISelEmitter.cpp \
   FixedLenDecoderEmitter.cpp \
+  GICombinerEmitter.cpp \
   GlobalISelEmitter.cpp \
   InfoByHwMode.cpp \
   InstrDocsEmitter.cpp \
   InstrInfoEmitter.cpp \
   IntrinsicEmitter.cpp \
+  OptEmitter.cpp \
   OptParserEmitter.cpp \
+  OptRSTEmitter.cpp \
   PredicateExpander.cpp \
   PseudoLoweringEmitter.cpp \
   RISCVCompressInstEmitter.cpp \
