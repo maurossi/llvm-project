@@ -14,7 +14,6 @@ mc_SRC_FILES := \
   MCAsmStreamer.cpp \
   MCAssembler.cpp \
   MCCodeEmitter.cpp \
-  MCCodePadder.cpp \
   MCCodeView.cpp \
   MCContext.cpp \
   MCDwarf.cpp \
