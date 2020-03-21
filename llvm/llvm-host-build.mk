@@ -54,7 +54,7 @@ endif
 LOCAL_CPPFLAGS :=	\
 	$(LOCAL_CPPFLAGS)	\
 	-Wno-sign-promo         \
-	-std=c++11
+	-std=c++14
 
 LOCAL_CPPFLAGS_linux := \
 	-Woverloaded-virtual

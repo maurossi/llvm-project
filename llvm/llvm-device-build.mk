@@ -59,7 +59,7 @@ LOCAL_CPPFLAGS :=	\
 	$(LOCAL_CPPFLAGS)	\
 	-Woverloaded-virtual	\
 	-Wno-sign-promo         \
-	-std=c++11
+	-std=c++14
 
 # Make sure bionic is first so we can include system headers.
 LOCAL_C_INCLUDES :=	\
