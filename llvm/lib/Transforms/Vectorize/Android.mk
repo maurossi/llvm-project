@@ -8,9 +8,9 @@ transforms_vectorize_SRC_FILES := \
   Vectorize.cpp \
   VPlan.cpp \
   VPlanHCFGBuilder.cpp \
-  VPlanHCFGTransforms.cpp \
   VPlanPredicator.cpp \
   VPlanSLP.cpp \
+  VPlanTransforms.cpp \
   VPlanVerifier.cpp
 
 # For the host
