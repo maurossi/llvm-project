@@ -1,6 +1,6 @@
 LOCAL_PATH := $(call my-dir)
 
-LLVM90_ROOT_PATH := $(LOCAL_PATH)/../..
+LLVM10_ROOT_PATH := $(LOCAL_PATH)/../..
 
 
 #===---------------------------------------------------------------===
@@ -11,60 +11,60 @@ llvm_dwp_SRC_FILES := \
   llvm-dwp.cpp
 
 llvm_dwp_STATIC_LIBRARIES := \
-  libLLVM90DebugInfoDWARF \
-  libLLVM90Object \
-  libLLVM90BitReader \
-  libLLVM90ARMCodeGen \
-  libLLVM90ARMAsmParser \
-  libLLVM90ARMAsmPrinter \
-  libLLVM90ARMInfo \
-  libLLVM90ARMDesc \
-  libLLVM90ARMDisassembler \
-  libLLVM90MipsCodeGen \
-  libLLVM90MipsInfo \
-  libLLVM90MipsDesc \
-  libLLVM90MipsAsmParser \
-  libLLVM90MipsAsmPrinter \
-  libLLVM90MipsDisassembler \
-  libLLVM90X86CodeGen \
-  libLLVM90X86Info \
-  libLLVM90X86Desc \
-  libLLVM90X86AsmParser \
-  libLLVM90X86AsmPrinter \
-  libLLVM90X86Utils \
-  libLLVM90X86Disassembler \
-  libLLVM90AArch64CodeGen \
-  libLLVM90AArch64Info \
-  libLLVM90AArch64Desc \
-  libLLVM90AArch64AsmParser \
-  libLLVM90AArch64AsmPrinter \
-  libLLVM90AArch64Utils \
-  libLLVM90AArch64Disassembler \
-  libLLVM90ExecutionEngine \
-  libLLVM90RuntimeDyld \
-  libLLVM90MCJIT \
-  libLLVM90OrcJIT \
-  libLLVM90AsmPrinter \
-  libLLVM90SelectionDAG \
-  libLLVM90CodeGen \
-  libLLVM90Object \
-  libLLVM90ScalarOpts \
-  libLLVM90InstCombine \
-  libLLVM90Instrumentation \
-  libLLVM90TransformObjCARC \
-  libLLVM90TransformUtils \
-  libLLVM90Vectorize \
-  libLLVM90Analysis \
-  libLLVM90Target \
-  libLLVM90MCDisassembler \
-  libLLVM90MC \
-  libLLVM90MCParser \
-  libLLVM90Core \
-  libLLVM90AsmParser \
-  libLLVM90Option \
-  libLLVM90LTO \
-  libLLVM90Support \
-  libLLVM90ProfileData
+  libLLVM10DebugInfoDWARF \
+  libLLVM10Object \
+  libLLVM10BitReader \
+  libLLVM10ARMCodeGen \
+  libLLVM10ARMAsmParser \
+  libLLVM10ARMAsmPrinter \
+  libLLVM10ARMInfo \
+  libLLVM10ARMDesc \
+  libLLVM10ARMDisassembler \
+  libLLVM10MipsCodeGen \
+  libLLVM10MipsInfo \
+  libLLVM10MipsDesc \
+  libLLVM10MipsAsmParser \
+  libLLVM10MipsAsmPrinter \
+  libLLVM10MipsDisassembler \
+  libLLVM10X86CodeGen \
+  libLLVM10X86Info \
+  libLLVM10X86Desc \
+  libLLVM10X86AsmParser \
+  libLLVM10X86AsmPrinter \
+  libLLVM10X86Utils \
+  libLLVM10X86Disassembler \
+  libLLVM10AArch64CodeGen \
+  libLLVM10AArch64Info \
+  libLLVM10AArch64Desc \
+  libLLVM10AArch64AsmParser \
+  libLLVM10AArch64AsmPrinter \
+  libLLVM10AArch64Utils \
+  libLLVM10AArch64Disassembler \
+  libLLVM10ExecutionEngine \
+  libLLVM10RuntimeDyld \
+  libLLVM10MCJIT \
+  libLLVM10OrcJIT \
+  libLLVM10AsmPrinter \
+  libLLVM10SelectionDAG \
+  libLLVM10CodeGen \
+  libLLVM10Object \
+  libLLVM10ScalarOpts \
+  libLLVM10InstCombine \
+  libLLVM10Instrumentation \
+  libLLVM10TransformObjCARC \
+  libLLVM10TransformUtils \
+  libLLVM10Vectorize \
+  libLLVM10Analysis \
+  libLLVM10Target \
+  libLLVM10MCDisassembler \
+  libLLVM10MC \
+  libLLVM10MCParser \
+  libLLVM10Core \
+  libLLVM10AsmParser \
+  libLLVM10Option \
+  libLLVM10LTO \
+  libLLVM10Support \
+  libLLVM10ProfileData
 
 include $(CLEAR_VARS)
 
@@ -79,7 +79,7 @@ LOCAL_STATIC_LIBRARIES := $(llvm_dwp_STATIC_LIBRARIES)
 
 LOCAL_LDLIBS += -lpthread -lm -ldl
 
-include $(LLVM90_ROOT_PATH)/llvm.mk
-include $(LLVM90_HOST_BUILD_MK)
-include $(LLVM90_GEN_INTRINSICS_MK)
+include $(LLVM10_ROOT_PATH)/llvm.mk
+include $(LLVM10_HOST_BUILD_MK)
+include $(LLVM10_GEN_INTRINSICS_MK)
 include $(BUILD_HOST_EXECUTABLE)

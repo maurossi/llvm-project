@@ -1,4 +1,4 @@
-ATTRIBUTETD90 := $(LLVM90_ROOT_PATH)/include/llvm/IR/Attributes.td
+ATTRIBUTETD10 := $(LLVM10_ROOT_PATH)/include/llvm/IR/Attributes.td
 
 ifeq ($(LOCAL_MODULE_CLASS),)
 	LOCAL_MODULE_CLASS := STATIC_LIBRARIES
@@ -7,9 +7,9 @@ endif
 GENFILE := $(addprefix $(call local-generated-sources-dir)/llvm/IR/,Attributes.inc)
 LOCAL_GENERATED_SOURCES += $(GENFILE)
 $(GENFILE): TBLGEN_LOCAL_MODULE := $(LOCAL_MODULE)
-$(GENFILE): $(ATTRIBUTETD90) | $(LLVM90_TBLGEN)
+$(GENFILE): $(ATTRIBUTETD10) | $(LLVM10_TBLGEN)
 ifeq ($(LOCAL_IS_HOST_MODULE),true)
-	$(call transform-host-td-to-out90,attrs)
+	$(call transform-host-td-to-out10,attrs)
 else
-	$(call transform-device-td-to-out90,attrs)
+	$(call transform-device-td-to-out10,attrs)
 endif

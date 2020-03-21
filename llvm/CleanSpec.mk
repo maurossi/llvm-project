@@ -47,10 +47,10 @@
 # ************************************************
 # NEWER CLEAN STEPS MUST BE AT THE END OF THE LIST
 # ************************************************
-$(call add-clean-step, rm -rf $(OUT_DIR)/target/product/stingray/obj/STATIC_LIBRARIES/libLLVM90*)
-$(call add-clean-step, rm -rf $(OUT_DIR)/target/product/stingray/obj/STATIC_LIBRARIES/libLLVM90ARMCodeGen_intermediates*)
-$(call add-clean-step, rm -rf $(OUT_DIR)/host/$(HOST_PREBUILT_TAG)/obj/STATIC_LIBRARIES/libLLVM90ARM*)
-$(call add-clean-step, rm -rf $(PRODUCT_OUT)/obj/STATIC_LIBRARIES/libLLVM90ARM*)
-$(call add-clean-step, rm -rf $(PRODUCT_OUT)/obj/STATIC_LIBRARIES/libLLVM90*)
-$(call add-clean-step, rm -rf $(PRODUCT_OUT)/obj/SHARED_LIBRARIES/libLLVM90*)
-$(call add-clean-step, rm -f external/llvm90/tools/llvm-config/BuildVariables.inc)
+$(call add-clean-step, rm -rf $(OUT_DIR)/target/product/stingray/obj/STATIC_LIBRARIES/libLLVM10*)
+$(call add-clean-step, rm -rf $(OUT_DIR)/target/product/stingray/obj/STATIC_LIBRARIES/libLLVM10ARMCodeGen_intermediates*)
+$(call add-clean-step, rm -rf $(OUT_DIR)/host/$(HOST_PREBUILT_TAG)/obj/STATIC_LIBRARIES/libLLVM10ARM*)
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/obj/STATIC_LIBRARIES/libLLVM10ARM*)
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/obj/STATIC_LIBRARIES/libLLVM10*)
+$(call add-clean-step, rm -rf $(PRODUCT_OUT)/obj/SHARED_LIBRARIES/libLLVM10*)
+$(call add-clean-step, rm -f external/llvm10/tools/llvm-config/BuildVariables.inc)

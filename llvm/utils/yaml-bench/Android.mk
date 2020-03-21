@@ -1,13 +1,13 @@
 LOCAL_PATH := $(call my-dir)
 
-LLVM90_ROOT_PATH := $(LOCAL_PATH)/../..
+LLVM10_ROOT_PATH := $(LOCAL_PATH)/../..
 
 
 yaml_bench_SRC_FILES := \
   YAMLBench.cpp
 
 yaml_bench_STATIC_LIBRARIES := \
-  libLLVM90Support \
+  libLLVM10Support \
 
 # yaml-bench executable for the host
 # =====================================================
@@ -23,6 +23,6 @@ LOCAL_SRC_FILES := $(yaml_bench_SRC_FILES)
 
 LOCAL_STATIC_LIBRARIES := $(yaml_bench_STATIC_LIBRARIES)
 
-include $(LLVM90_ROOT_PATH)/llvm.mk
-include $(LLVM90_HOST_BUILD_MK)
+include $(LLVM10_ROOT_PATH)/llvm.mk
+include $(LLVM10_HOST_BUILD_MK)
 include $(BUILD_HOST_EXECUTABLE)

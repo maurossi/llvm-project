@@ -9,13 +9,13 @@ include $(CLEAR_VARS)
 
 LOCAL_SRC_FILES := $(line_editor_SRC_FILES)
 
-LOCAL_MODULE:= libLLVM90LineEditor
+LOCAL_MODULE:= libLLVM10LineEditor
 
 LOCAL_MODULE_TAGS := optional
 
-include $(LLVM90_HOST_BUILD_MK)
-include $(LLVM90_GEN_ATTRIBUTES_MK)
-include $(LLVM90_GEN_INTRINSICS_MK)
+include $(LLVM10_HOST_BUILD_MK)
+include $(LLVM10_GEN_ATTRIBUTES_MK)
+include $(LLVM10_GEN_INTRINSICS_MK)
 include $(BUILD_HOST_STATIC_LIBRARY)
 
 # For the device
@@ -25,12 +25,12 @@ include $(CLEAR_VARS)
 
 LOCAL_SRC_FILES := $(line_editor_SRC_FILES)
 
-LOCAL_MODULE:= libLLVM90LineEditor
+LOCAL_MODULE:= libLLVM10LineEditor
 
 LOCAL_MODULE_TAGS := optional
 
-include $(LLVM90_DEVICE_BUILD_MK)
-include $(LLVM90_GEN_ATTRIBUTES_MK)
-include $(LLVM90_GEN_INTRINSICS_MK)
+include $(LLVM10_DEVICE_BUILD_MK)
+include $(LLVM10_GEN_ATTRIBUTES_MK)
+include $(LLVM10_GEN_INTRINSICS_MK)
 include $(BUILD_STATIC_LIBRARY)
 endif

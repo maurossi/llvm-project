@@ -1,6 +1,6 @@
 LOCAL_PATH := $(call my-dir)
 
-LLVM90_ROOT_PATH := $(LOCAL_PATH)/../..
+LLVM10_ROOT_PATH := $(LOCAL_PATH)/../..
 
 
 #===---------------------------------------------------------------===
@@ -21,16 +21,16 @@ llvm_readobj_SRC_FILES := \
   Win64EHDumper.cpp \
 
 llvm_readobj_STATIC_LIBRARIES := \
-  libLLVM90ARMInfo \
-  libLLVM90AArch64Info \
-  libLLVM90MipsInfo \
-  libLLVM90X86Info \
-  libLLVM90Object \
-  libLLVM90BitReader \
-  libLLVM90MC \
-  libLLVM90MCParser \
-  libLLVM90Core \
-  libLLVM90Support \
+  libLLVM10ARMInfo \
+  libLLVM10AArch64Info \
+  libLLVM10MipsInfo \
+  libLLVM10X86Info \
+  libLLVM10Object \
+  libLLVM10BitReader \
+  libLLVM10MC \
+  libLLVM10MCParser \
+  libLLVM10Core \
+  libLLVM10Support \
 
 include $(CLEAR_VARS)
 
@@ -45,7 +45,7 @@ LOCAL_STATIC_LIBRARIES := $(llvm_readobj_STATIC_LIBRARIES)
 
 LOCAL_LDLIBS += -lpthread -lm -ldl
 
-include $(LLVM90_ROOT_PATH)/llvm.mk
-include $(LLVM90_HOST_BUILD_MK)
-include $(LLVM90_GEN_INTRINSICS_MK)
+include $(LLVM10_ROOT_PATH)/llvm.mk
+include $(LLVM10_HOST_BUILD_MK)
+include $(LLVM10_GEN_INTRINSICS_MK)
 include $(BUILD_HOST_EXECUTABLE)

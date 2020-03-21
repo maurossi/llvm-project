@@ -15,11 +15,11 @@ LOCAL_LDLIBS_darwin := -lpthread -ldl
 LOCAL_LDLIBS_linux := -lpthread -ldl
 
 LOCAL_STATIC_LIBRARIES := \
-  libLLVM90AsmParser \
-  libLLVM90BitWriter \
-  libLLVM90Core \
-  libLLVM90Support
+  libLLVM10AsmParser \
+  libLLVM10BitWriter \
+  libLLVM10Core \
+  libLLVM10Support
 
-include $(LLVM90_HOST_BUILD_MK)
-include $(LLVM90_GEN_ATTRIBUTES_MK)
+include $(LLVM10_HOST_BUILD_MK)
+include $(LLVM10_GEN_ATTRIBUTES_MK)
 include $(BUILD_HOST_EXECUTABLE)

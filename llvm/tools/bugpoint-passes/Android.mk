@@ -1,7 +1,7 @@
 LOCAL_PATH := $(call my-dir)
 
-LLVM90_ROOT_PATH := $(LOCAL_PATH)/../..
-include $(LLVM90_ROOT_PATH)/llvm.mk
+LLVM10_ROOT_PATH := $(LOCAL_PATH)/../..
+include $(LLVM10_ROOT_PATH)/llvm.mk
 
 bugpoint_passes_SRC_FILES := \
   TestPasses.cpp
@@ -16,7 +16,7 @@ LOCAL_MODULE := BugpointPasses
 LOCAL_MODULE_CLASS := SHARED_LIBRARIES # needed for tblgen
 LOCAL_LDFLAGS_darwin := -Wl,-undefined -Wl,dynamic_lookup
 
-include $(LLVM90_HOST_BUILD_MK)
-include $(LLVM90_GEN_ATTRIBUTES_MK)
-include $(LLVM90_GEN_INTRINSICS_MK)
+include $(LLVM10_HOST_BUILD_MK)
+include $(LLVM10_GEN_ATTRIBUTES_MK)
+include $(LLVM10_GEN_INTRINSICS_MK)
 include $(BUILD_HOST_SHARED_LIBRARY)

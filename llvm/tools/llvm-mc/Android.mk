@@ -1,6 +1,6 @@
 LOCAL_PATH := $(call my-dir)
 
-LLVM90_ROOT_PATH := $(LOCAL_PATH)/../..
+LLVM10_ROOT_PATH := $(LOCAL_PATH)/../..
 
 
 #===---------------------------------------------------------------===
@@ -12,42 +12,42 @@ llvm_mc_SRC_FILES := \
   Disassembler.cpp
 
 llvm_mc_STATIC_LIBRARIES := \
-  libLLVM90ARMAsmParser \
-  libLLVM90ARMInfo \
-  libLLVM90ARMDesc \
-  libLLVM90ARMAsmPrinter \
-  libLLVM90ARMDisassembler \
-  libLLVM90AArch64Info \
-  libLLVM90AArch64AsmParser \
-  libLLVM90AArch64Desc \
-  libLLVM90AArch64AsmPrinter \
-  libLLVM90AArch64Utils \
-  libLLVM90AArch64Disassembler \
-  libLLVM90MipsInfo \
-  libLLVM90MipsAsmParser \
-  libLLVM90MipsDesc \
-  libLLVM90MipsAsmPrinter \
-  libLLVM90MipsDisassembler \
-  libLLVM90X86Info \
-  libLLVM90X86Desc \
-  libLLVM90X86AsmParser \
-  libLLVM90X86AsmPrinter \
-  libLLVM90X86Utils \
-  libLLVM90X86Disassembler \
-  libLLVM90X86CodeGen \
-  libLLVM90AsmPrinter \
-  libLLVM90CodeGen \
-  libLLVM90TransformUtils \
-  libLLVM90Target \
-  libLLVM90Analysis \
-  libLLVM90MC \
-  libLLVM90Object \
-  libLLVM90BitReader \
-  libLLVM90MCParser \
-  libLLVM90Core \
-  libLLVM90AsmParser \
-  libLLVM90Support \
-  libLLVM90MCDisassembler \
+  libLLVM10ARMAsmParser \
+  libLLVM10ARMInfo \
+  libLLVM10ARMDesc \
+  libLLVM10ARMAsmPrinter \
+  libLLVM10ARMDisassembler \
+  libLLVM10AArch64Info \
+  libLLVM10AArch64AsmParser \
+  libLLVM10AArch64Desc \
+  libLLVM10AArch64AsmPrinter \
+  libLLVM10AArch64Utils \
+  libLLVM10AArch64Disassembler \
+  libLLVM10MipsInfo \
+  libLLVM10MipsAsmParser \
+  libLLVM10MipsDesc \
+  libLLVM10MipsAsmPrinter \
+  libLLVM10MipsDisassembler \
+  libLLVM10X86Info \
+  libLLVM10X86Desc \
+  libLLVM10X86AsmParser \
+  libLLVM10X86AsmPrinter \
+  libLLVM10X86Utils \
+  libLLVM10X86Disassembler \
+  libLLVM10X86CodeGen \
+  libLLVM10AsmPrinter \
+  libLLVM10CodeGen \
+  libLLVM10TransformUtils \
+  libLLVM10Target \
+  libLLVM10Analysis \
+  libLLVM10MC \
+  libLLVM10Object \
+  libLLVM10BitReader \
+  libLLVM10MCParser \
+  libLLVM10Core \
+  libLLVM10AsmParser \
+  libLLVM10Support \
+  libLLVM10MCDisassembler \
 
 include $(CLEAR_VARS)
 
@@ -62,7 +62,7 @@ LOCAL_STATIC_LIBRARIES := $(llvm_mc_STATIC_LIBRARIES)
 
 LOCAL_LDLIBS += -lpthread -lm -ldl
 
-include $(LLVM90_ROOT_PATH)/llvm.mk
-include $(LLVM90_HOST_BUILD_MK)
-include $(LLVM90_GEN_INTRINSICS_MK)
+include $(LLVM10_ROOT_PATH)/llvm.mk
+include $(LLVM10_HOST_BUILD_MK)
+include $(LLVM10_GEN_INTRINSICS_MK)
 include $(BUILD_HOST_EXECUTABLE)

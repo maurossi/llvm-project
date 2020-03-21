@@ -12,12 +12,12 @@ LOCAL_SRC_FILES := $(llvm_dis_SRC_FILES)
 LOCAL_LDLIBS += -lpthread -lm -ldl
 
 LOCAL_STATIC_LIBRARIES := \
-  libLLVM90Analysis \
-  libLLVM90BitReader \
-  libLLVM90Core \
-  libLLVM90Support
+  libLLVM10Analysis \
+  libLLVM10BitReader \
+  libLLVM10Core \
+  libLLVM10Support
 
-include $(LLVM90_HOST_BUILD_MK)
-include $(LLVM90_GEN_ATTRIBUTES_MK)
-include $(LLVM90_GEN_INTRINSICS_MK)
+include $(LLVM10_HOST_BUILD_MK)
+include $(LLVM10_GEN_ATTRIBUTES_MK)
+include $(LLVM10_GEN_INTRINSICS_MK)
 include $(BUILD_HOST_EXECUTABLE)

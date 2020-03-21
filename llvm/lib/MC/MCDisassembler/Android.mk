@@ -13,12 +13,12 @@ include $(CLEAR_VARS)
 
 LOCAL_SRC_FILES := $(mc_disassembler_SRC_FILES)
 
-LOCAL_MODULE:= libLLVM90MCDisassembler
+LOCAL_MODULE:= libLLVM10MCDisassembler
 
 LOCAL_MODULE_HOST_OS := darwin linux windows
 
 
-include $(LLVM90_HOST_BUILD_MK)
+include $(LLVM10_HOST_BUILD_MK)
 include $(BUILD_HOST_STATIC_LIBRARY)
 
 # For the device
@@ -28,10 +28,10 @@ ifneq (true,$(DISABLE_LLVM_DEVICE_BUILDS))
 
 LOCAL_SRC_FILES := $(mc_disassembler_SRC_FILES)
 
-LOCAL_MODULE:= libLLVM90MCDisassembler
+LOCAL_MODULE:= libLLVM10MCDisassembler
 
 LOCAL_MODULE_HOST_OS := darwin linux windows
 
-include $(LLVM90_DEVICE_BUILD_MK)
+include $(LLVM10_DEVICE_BUILD_MK)
 include $(BUILD_STATIC_LIBRARY)
 endif

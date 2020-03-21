@@ -1,6 +1,6 @@
 LOCAL_PATH := $(call my-dir)
 
-LLVM90_ROOT_PATH := $(LOCAL_PATH)/../..
+LLVM10_ROOT_PATH := $(LOCAL_PATH)/../..
 
 
 #===---------------------------------------------------------------===
@@ -11,63 +11,63 @@ llvm_llc_SRC_FILES := \
   llc.cpp
 
 llvm_llc_mips_STATIC_LIBRARIES := \
-  libLLVM90MipsAsmParser \
-  libLLVM90MipsInfo \
-  libLLVM90MipsCodeGen \
-  libLLVM90MipsDesc \
-  libLLVM90MipsAsmPrinter \
+  libLLVM10MipsAsmParser \
+  libLLVM10MipsInfo \
+  libLLVM10MipsCodeGen \
+  libLLVM10MipsDesc \
+  libLLVM10MipsAsmPrinter \
 
 llvm_llc_x86_STATIC_LIBRARIES := \
-  libLLVM90X86Info \
-  libLLVM90X86AsmParser \
-  libLLVM90X86CodeGen \
-  libLLVM90X86Disassembler \
-  libLLVM90X86Desc \
-  libLLVM90X86AsmPrinter \
-  libLLVM90X86Utils
+  libLLVM10X86Info \
+  libLLVM10X86AsmParser \
+  libLLVM10X86CodeGen \
+  libLLVM10X86Disassembler \
+  libLLVM10X86Desc \
+  libLLVM10X86AsmPrinter \
+  libLLVM10X86Utils
 
 llvm_llc_arm_STATIC_LIBRARIES := \
-  libLLVM90ARMCodeGen \
-  libLLVM90ARMDisassembler \
-  libLLVM90ARMAsmParser \
-  libLLVM90ARMAsmPrinter \
-  libLLVM90ARMDesc \
-  libLLVM90ARMInfo
+  libLLVM10ARMCodeGen \
+  libLLVM10ARMDisassembler \
+  libLLVM10ARMAsmParser \
+  libLLVM10ARMAsmPrinter \
+  libLLVM10ARMDesc \
+  libLLVM10ARMInfo
 
 llvm_llc_STATIC_LIBRARIES := \
-  libLLVM90AsmPrinter \
-  libLLVM90IRReader \
-  libLLVM90AsmParser \
-  libLLVM90BitReader \
-  libLLVM90BitWriter \
-  libLLVM90SelectionDAG \
-  libLLVM90InstCombine \
-  libLLVM90CodeGen \
-  libLLVM90Instrumentation \
-  libLLVM90Object \
-  libLLVM90ipo \
-  libLLVM90Linker \
-  libLLVM90MCDisassembler \
-  libLLVM90MC \
-  libLLVM90MIRParser \
-  libLLVM90MCParser \
-  libLLVM90ScalarOpts \
-  libLLVM90TransformUtils \
-  libLLVM90Vectorize \
-  libLLVM90Analysis \
-  libLLVM90Target \
-  libLLVM90Core \
-  libLLVM90Support \
-  libLLVM90Object
+  libLLVM10AsmPrinter \
+  libLLVM10IRReader \
+  libLLVM10AsmParser \
+  libLLVM10BitReader \
+  libLLVM10BitWriter \
+  libLLVM10SelectionDAG \
+  libLLVM10InstCombine \
+  libLLVM10CodeGen \
+  libLLVM10Instrumentation \
+  libLLVM10Object \
+  libLLVM10ipo \
+  libLLVM10Linker \
+  libLLVM10MCDisassembler \
+  libLLVM10MC \
+  libLLVM10MIRParser \
+  libLLVM10MCParser \
+  libLLVM10ScalarOpts \
+  libLLVM10TransformUtils \
+  libLLVM10Vectorize \
+  libLLVM10Analysis \
+  libLLVM10Target \
+  libLLVM10Core \
+  libLLVM10Support \
+  libLLVM10Object
 
 llvm_llc_aarch64_STATIC_LIBRARIES := \
-  libLLVM90AArch64Info \
-  libLLVM90AArch64AsmParser \
-  libLLVM90AArch64CodeGen \
-  libLLVM90AArch64Disassembler \
-  libLLVM90AArch64Desc \
-  libLLVM90AArch64AsmPrinter \
-  libLLVM90AArch64Utils
+  libLLVM10AArch64Info \
+  libLLVM10AArch64AsmParser \
+  libLLVM10AArch64CodeGen \
+  libLLVM10AArch64Disassembler \
+  libLLVM10AArch64Desc \
+  libLLVM10AArch64AsmPrinter \
+  libLLVM10AArch64Utils
 
 
 
@@ -93,10 +93,10 @@ LOCAL_STATIC_LIBRARIES := \
 
 LOCAL_LDLIBS += -lpthread -lm -ldl
 
-include $(LLVM90_ROOT_PATH)/llvm.mk
-include $(LLVM90_HOST_BUILD_MK)
-include $(LLVM90_GEN_ATTRIBUTES_MK)
-include $(LLVM90_GEN_INTRINSICS_MK)
+include $(LLVM10_ROOT_PATH)/llvm.mk
+include $(LLVM10_HOST_BUILD_MK)
+include $(LLVM10_GEN_ATTRIBUTES_MK)
+include $(LLVM10_GEN_INTRINSICS_MK)
 include $(BUILD_HOST_EXECUTABLE)
 
 
@@ -104,7 +104,7 @@ include $(BUILD_HOST_EXECUTABLE)
 # llc command line tool (target)
 #===---------------------------------------------------------------===
 
-ifeq (,$(filter $(TARGET_ARCH),$(LLVM90_SUPPORTED_ARCH)))
+ifeq (,$(filter $(TARGET_ARCH),$(LLVM10_SUPPORTED_ARCH)))
 $(warning TODO $(TARGET_ARCH): Enable llc build)
 endif
 
@@ -128,9 +128,9 @@ LOCAL_STATIC_LIBRARIES_arm64 += $(llvm_llc_arm_STATIC_LIBRARIES)
 
 LOCAL_STATIC_LIBRARIES += $(llvm_llc_STATIC_LIBRARIES)
 
-include $(LLVM90_ROOT_PATH)/llvm.mk
-include $(LLVM90_DEVICE_BUILD_MK)
-include $(LLVM90_GEN_ATTRIBUTES_MK)
-include $(LLVM90_GEN_INTRINSICS_MK)
+include $(LLVM10_ROOT_PATH)/llvm.mk
+include $(LLVM10_DEVICE_BUILD_MK)
+include $(LLVM10_GEN_ATTRIBUTES_MK)
+include $(LLVM10_GEN_INTRINSICS_MK)
 include $(BUILD_EXECUTABLE)
 endif

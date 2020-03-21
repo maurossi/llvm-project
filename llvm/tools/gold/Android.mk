@@ -16,15 +16,15 @@
 
 LOCAL_PATH:= $(call my-dir)
 
-LLVM90_ROOT_PATH := $(LOCAL_PATH)/../../
-include $(LLVM90_ROOT_PATH)/llvm.mk
+LLVM10_ROOT_PATH := $(LOCAL_PATH)/../../
+include $(LLVM10_ROOT_PATH)/llvm.mk
 
 # For the host only
 # =====================================================
 include $(CLEAR_VARS)
-include $(CLEAR_TBLGEN_VARS90)
+include $(CLEAR_TBLGEN_VARS10)
 
-LOCAL_MODULE := LLVM90gold
+LOCAL_MODULE := LLVM10gold
 
 LOCAL_MODULE_CLASS := SHARED_LIBRARIES
 
@@ -33,7 +33,7 @@ llvm_gold_SRC_FILES := \
 
 LOCAL_SRC_FILES := $(llvm_gold_SRC_FILES)
 
-LOCAL_SHARED_LIBRARIES := libLLVM90
+LOCAL_SHARED_LIBRARIES := libLLVM10
 
 ifndef USE_MINGW
 LOCAL_LDLIBS += -lpthread -ldl
@@ -41,7 +41,7 @@ endif
 
 LOCAL_C_INCLUDES += toolchain/binutils/binutils-2.25/include
 
-include $(LLVM90_HOST_BUILD_MK)
-include $(LLVM90_GEN_ATTRIBUTES_MK)
-include $(LLVM90_GEN_INTRINSICS_MK)
+include $(LLVM10_HOST_BUILD_MK)
+include $(LLVM10_GEN_ATTRIBUTES_MK)
+include $(LLVM10_GEN_INTRINSICS_MK)
 include $(BUILD_HOST_SHARED_LIBRARY)
