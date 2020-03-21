@@ -206,14 +206,14 @@ ifneq ($(filter %GenIntrinsicEnums.inc,$(tblgen_gen_tables)),)
 $(generated_sources)/%GenIntrinsicEnums.inc: TBLGEN_LOCAL_MODULE := $(LOCAL_MODULE)
 $(generated_sources)/%GenIntrinsicEnums.inc: $(tblgen_source_dir)/%.td \
                                      $(tblgen_td_deps) $(LLVM10_TBLGEN)
-	$(call transform-td-to-out10,tgt-intrinsic-enums)
+	$(call transform-td-to-out10,intrinsic-enums)
 endif
 
 ifneq ($(filter %GenIntrinsicImpl.inc,$(tblgen_gen_tables)),)
 $(generated_sources)/%GenIntrinsicImpl.inc: TBLGEN_LOCAL_MODULE := $(LOCAL_MODULE)
 $(generated_sources)/%GenIntrinsicImpl.inc: $(tblgen_source_dir)/%.td \
                                      $(tblgen_td_deps) $(LLVM10_TBLGEN)
-	$(call transform-td-to-out10,tgt-intrinsic-impl)
+	$(call transform-td-to-out10,intrinsic-impl)
 endif
 
 ifneq ($(filter %GenSearchableTables.inc,$(tblgen_gen_tables)),)
