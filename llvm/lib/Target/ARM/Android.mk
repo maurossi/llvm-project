@@ -22,7 +22,6 @@ arm_codegen_SRC_FILES := \
   ARMBaseRegisterInfo.cpp \
   ARMBasicBlockInfo.cpp \
   ARMCallingConv.cpp \
-  ARMCodeGenPrepare.cpp \
   ARMConstantIslandPass.cpp \
   ARMConstantPoolValue.cpp \
   ARMExpandPseudoInsts.cpp \
@@ -32,6 +31,7 @@ arm_codegen_SRC_FILES := \
   ARMISelDAGToDAG.cpp \
   ARMISelLowering.cpp \
   ARMInstrInfo.cpp \
+  ARMParallelDSP.cpp \
   ARMLoadStoreOptimizer.cpp \
   ARMLowOverheadLoops.cpp \
   ARMMCInstLower.cpp \
@@ -39,13 +39,15 @@ arm_codegen_SRC_FILES := \
   ARMMacroFusion.cpp \
   ARMRegisterInfo.cpp \
   ARMOptimizeBarriersPass.cpp \
-  ARMParallelDSP.cpp \
   ARMSelectionDAGInfo.cpp \
   ARMSubtarget.cpp \
   ARMTargetMachine.cpp \
   ARMTargetObjectFile.cpp \
   ARMTargetTransformInfo.cpp \
   MLxExpansionPass.cpp \
+  MVEGatherScatterLowering.cpp \
+  MVETailPredication.cpp \
+  MVEVPTBlockPass.cpp \
   Thumb1FrameLowering.cpp \
   Thumb1InstrInfo.cpp \
   ThumbRegisterInfo.cpp \
