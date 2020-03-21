@@ -7,8 +7,7 @@ x86_disassembler_TBLGEN_TABLES10 := \
   X86GenSubtargetInfo.inc
 
 x86_disassembler_SRC_FILES := \
-  X86Disassembler.cpp \
-  X86DisassemblerDecoder.cpp
+  X86Disassembler.cpp
 
 
 # For the device

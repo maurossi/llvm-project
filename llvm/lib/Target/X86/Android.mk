@@ -15,6 +15,7 @@ x86_codegen_TBLGEN_TABLES10 := \
 
 x86_codegen_SRC_FILES := \
   X86AsmPrinter.cpp \
+  X86AvoidTrailingCall.cpp \
   X86CallFrameOptimization.cpp \
   X86CallingConv.cpp \
   X86CmovConversion.cpp \
@@ -55,7 +56,7 @@ x86_codegen_SRC_FILES := \
   X86TargetTransformInfo.cpp \
   X86VZeroUpper.cpp \
   X86WinAllocaExpander.cpp \
-  X86WinEHState.cpp \
+  X86WinEHState.cpp
 
 ifeq ($(FORCE_BUILD_LLVM_GLOBAL_ISEL),true)
 x86_codegen_TBLGEN_TABLES10 += \
