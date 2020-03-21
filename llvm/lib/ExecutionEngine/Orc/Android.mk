@@ -4,6 +4,7 @@ orcjit_SRC_FILES := \
   CompileOnDemandLayer.cpp \
   CompileUtils.cpp \
   Core.cpp \
+  DebugUtils.cpp \
   ExecutionUtils.cpp \
   IndirectionUtils.cpp \
   IRCompileLayer.cpp \
@@ -18,11 +19,11 @@ orcjit_SRC_FILES := \
   ObjectTransformLayer.cpp \
   OrcABISupport.cpp \
   OrcCBindings.cpp \
-  OrcError.cpp \
   OrcMCJITReplacement.cpp \
-  RPCUtils.cpp \
   RTDyldObjectLinkingLayer.cpp \
-  ThreadSafeModule.cpp
+  ThreadSafeModule.cpp \
+  Speculation.cpp \
+  SpeculateAnalyses.cpp
 
 # For the host
 # =====================================================
