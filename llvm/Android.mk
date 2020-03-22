@@ -35,6 +35,7 @@ subdirs := \
   lib/ExecutionEngine/JITLink \
   lib/ExecutionEngine/MCJIT \
   lib/ExecutionEngine/Orc \
+  lib/ExecutionEngine/OrcError \
   lib/ExecutionEngine/Interpreter \
   lib/Fuzzer \
   lib/CodeGen \

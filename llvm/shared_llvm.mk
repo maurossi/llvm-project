@@ -91,6 +91,7 @@ llvm_host_static_libraries := \
   libLLVM10RuntimeDyld \
   libLLVM10MCJIT \
   libLLVM10OrcJIT \
+  libLLVM10OrcError \
   libLLVM10JITLink
 
 llvm_device_static_libraries := \
@@ -98,6 +99,7 @@ llvm_device_static_libraries := \
   libLLVM10RuntimeDyld \
   libLLVM10MCJIT \
   libLLVM10OrcJIT \
+  libLLVM10OrcError \
   libLLVM10JITLink
 
 # HOST LLVM shared library build
