@@ -39,6 +39,7 @@ amdgpu_codegen_SRC_FILES := \
   AMDGPUInstrInfo.cpp \
   AMDGPUISelDAGToDAG.cpp \
   AMDGPUISelLowering.cpp \
+  AMDGPUGlobalISelUtils.cpp \
   AMDGPULibCalls.cpp \
   AMDGPULibFunc.cpp \
   AMDGPULowerIntrinsics.cpp \
@@ -63,6 +64,7 @@ amdgpu_codegen_SRC_FILES := \
   AMDGPUInline.cpp \
   AMDGPUPerfHintAnalysis.cpp \
   AMDILCFGStructurizer.cpp \
+  AMDGPUPrintfRuntimeBinding.cpp \
   GCNHazardRecognizer.cpp \
   GCNIterativeScheduler.cpp \
   GCNMinRegStrategy.cpp \
