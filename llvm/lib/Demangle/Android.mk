@@ -1,7 +1,10 @@
 LOCAL_PATH:= $(call my-dir)
 
 demangle_SRC_FILES := \
-  ItaniumDemangle.cpp
+  Demangle.cpp \
+  ItaniumDemangle.cpp \
+  MicrosoftDemangle.cpp \
+  MicrosoftDemangleNodes.cpp
 
 # For the host
 # =====================================================
