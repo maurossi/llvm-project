@@ -24,9 +24,11 @@ analysis_SRC_FILES := \
   CostModel.cpp \
   CodeMetrics.cpp \
   ConstantFolding.cpp \
+  DDG.cpp \
   Delinearization.cpp \
   DemandedBits.cpp \
   DependenceAnalysis.cpp \
+  DependenceGraphBuilder.cpp \
   DivergenceAnalysis.cpp \
   DomPrinter.cpp \
   DomTreeUpdater.cpp \
@@ -52,6 +54,7 @@ analysis_SRC_FILES := \
   Loads.cpp \
   LoopAccessAnalysis.cpp \
   LoopAnalysisManager.cpp \
+  LoopCacheAnalysis.cpp \
   LoopUnrollAnalyzer.cpp \
   LoopInfo.cpp \
   LoopPass.cpp \
@@ -95,7 +98,8 @@ analysis_SRC_FILES := \
   ValueLattice.cpp \
   ValueLatticeUtils.cpp \
   ValueTracking.cpp \
-  VectorUtils.cpp
+  VectorUtils.cpp \
+  VFABIDemangling.cpp
 
 # For the host
 # =====================================================
