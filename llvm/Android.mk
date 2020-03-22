@@ -67,6 +67,7 @@ subdirs := \
   lib/Target \
   lib/TextAPI \
   lib/Transforms/AggressiveInstCombine \
+  lib/Transforms/CFGuard \
   lib/Transforms/Coroutines \
   lib/Transforms/Hello \
   lib/Transforms/IPO \

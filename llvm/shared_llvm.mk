@@ -83,7 +83,8 @@ llvm_post_static_libraries := \
   libLLVM10Coroutines \
   libLLVM10Remarks \
   libLLVM10MIRParser \
-  libLLVM10TextAPI
+  libLLVM10TextAPI \
+  libLLVM10CFGuard
 
 llvm_host_static_libraries := \
   libLLVM10ExecutionEngine \
