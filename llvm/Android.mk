@@ -65,6 +65,7 @@ subdirs := \
   lib/Support \
   lib/TableGen \
   lib/Target \
+  lib/TextAPI \
   lib/Transforms/AggressiveInstCombine \
   lib/Transforms/Coroutines \
   lib/Transforms/Hello \
