@@ -23,6 +23,8 @@ object_SRC_FILES := \
   RelocationResolver.cpp \
   SymbolicFile.cpp \
   SymbolSize.cpp \
+  TapiFile.cpp \
+  TapiUniversal.cpp \
   WasmObjectFile.cpp \
   WindowsMachineFlag.cpp \
   WindowsResource.cpp \
