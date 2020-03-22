@@ -13,7 +13,8 @@ llvm_pre_static_libraries := \
   libLLVM10BitWriter \
   libLLVM10BitReader \
   libLLVM10BitstreamReader \
-  libLLVM10GlobalISel
+  libLLVM10GlobalISel \
+  libLLVM10Passes
 
 llvm_arm_static_libraries := \
   libLLVM10ARMCodeGen \
