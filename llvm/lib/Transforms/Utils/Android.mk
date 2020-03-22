@@ -12,7 +12,9 @@ transforms_utils_SRC_FILES := \
   CloneFunction.cpp \
   CloneModule.cpp \
   CodeExtractor.cpp \
+  CodeMoverUtils.cpp \
   CtorUtils.cpp \
+  Debugify.cpp \
   DemoteRegToStack.cpp \
   EntryExitInstrumenter.cpp \
   EscapeEnumerator.cpp \
@@ -24,6 +26,7 @@ transforms_utils_SRC_FILES := \
   GuardUtils.cpp \
   InlineFunction.cpp \
   ImportedFunctionsInliningStatistics.cpp \
+  InjectTLIMappings.cpp \
   InstructionNamer.cpp \
   IntegerDivision.cpp \
   LCSSA.cpp \
@@ -42,6 +45,7 @@ transforms_utils_SRC_FILES := \
   LowerSwitch.cpp \
   Mem2Reg.cpp \
   MetaRenamer.cpp \
+  MisExpect.cpp \
   ModuleUtils.cpp \
   NameAnonGlobals.cpp \
   PredicateInfo.cpp \
