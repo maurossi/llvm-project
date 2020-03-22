@@ -9,7 +9,8 @@ binary_format_SRC_FILES := \
   MsgPackDocumentYAML.cpp \
   MsgPackReader.cpp \
   MsgPackWriter.cpp \
-  Wasm.cpp
+  Wasm.cpp \
+  XCOFF.cpp
 
 # For the host
 # =====================================================
