@@ -46,8 +46,10 @@ transforms_scalar_SRC_FILES := \
   LoopUnswitch.cpp \
   LoopVersioningLICM.cpp \
   LowerAtomic.cpp \
+  LowerConstantIntrinsics.cpp \
   LowerExpectIntrinsic.cpp \
   LowerGuardIntrinsic.cpp \
+  LowerMatrixIntrinsics.cpp \
   LowerWidenableCondition.cpp \
   MakeGuardsExplicit.cpp \
   MemCpyOptimizer.cpp \
