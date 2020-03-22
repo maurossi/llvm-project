@@ -16,6 +16,7 @@ instrumentation_SRC_FILES := \
   PGOMemOPSizeOpt.cpp \
   PoisonChecking.cpp \
   SanitizerCoverage.cpp \
+  ValueProfileCollector.cpp \
   ThreadSanitizer.cpp \
   HWAddressSanitizer.cpp
 
