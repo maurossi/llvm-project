@@ -58,6 +58,7 @@ endif
 LOCAL_CPPFLAGS :=	\
 	$(LOCAL_CPPFLAGS)	\
 	-Woverloaded-virtual	\
+	-Wno-sign-compare	\
 	-Wno-sign-promo         \
 	-std=c++14
 

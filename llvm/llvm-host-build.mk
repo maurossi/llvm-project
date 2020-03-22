@@ -53,6 +53,7 @@ endif
 
 LOCAL_CPPFLAGS :=	\
 	$(LOCAL_CPPFLAGS)	\
+	-Wno-sign-compare	\
 	-Wno-sign-promo         \
 	-std=c++14
 
