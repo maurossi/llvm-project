@@ -59,7 +59,8 @@ aarch64_codegen_SRC_FILES := \
 ifeq ($(FORCE_BUILD_LLVM_GLOBAL_ISEL),true)
 aarch64_codegen_TBLGEN_TABLES10 += \
   AArch64GenRegisterBank.inc \
-  AArch64GenGlobalISel.inc
+  AArch64GenGlobalISel.inc \
+  AArch64GenGICombiner.inc
 
 aarch64_codegen_SRC_FILES += \
   AArch64CallLowering.cpp \
