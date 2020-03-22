@@ -1,7 +1,9 @@
 LOCAL_PATH:= $(call my-dir)
 
 passes_SRC_FILES := \
-  PassBuilder.cpp
+  PassBuilder.cpp \
+  PassPlugin.cpp \
+  StandardInstrumentations.cpp
 
 # For the host
 # =====================================================
