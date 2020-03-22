@@ -1,9 +1,13 @@
 LOCAL_PATH:= $(call my-dir)
 
 remarks_SRC_FILES := \
+  BitstreamRemarkParser.cpp \
+  BitstreamRemarkSerializer.cpp \
   Remark.cpp \
   RemarkFormat.cpp \
+  RemarkLinker.cpp \
   RemarkParser.cpp \
+  RemarkSerializer.cpp \
   RemarkStringTable.cpp \
   YAMLRemarkParser.cpp \
   YAMLRemarkSerializer.cpp
