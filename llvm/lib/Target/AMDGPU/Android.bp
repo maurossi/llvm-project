@@ -55,6 +55,7 @@ llvm_tblgen {
     outs: [
         "AMDGPUGenGlobalISel.inc",
         "AMDGPUGenPreLegalizeGICombiner.inc",
+        "AMDGPUGenPostLegalizeGICombiner.inc",
     ],
 }
 
