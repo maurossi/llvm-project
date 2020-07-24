@@ -179,6 +179,12 @@ func outToGenerator(ctx android.ModuleContext, out string) string {
 		return "-gen-intrinsic-enums -intrinsic-prefix=x86"
 	case out == "IntrinsicsXCore.h":
 		return "-gen-intrinsic-enums -intrinsic-prefix=xcore"
+	case out == "OMP.h.inc":
+		return "--gen-directive-decl"
+	case out == "OMP.cpp.inc":
+		return "--gen-directive-gen"
+	case out == "OMP.cpp":
+		return "--gen-directive-impl"
 	}
 
 	ctx.ModuleErrorf("couldn't map output file %q to a generator", out)
