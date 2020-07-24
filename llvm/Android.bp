@@ -127,12 +127,17 @@ cc_library_headers {
         "llvm-gen-intrinsics",
         "llvm-gen-revision",
         "llvm-gen-extension",
+        "llvm-gen-omp_gen",
     ],
     export_generated_headers: [
         "llvm-gen-attributes",
         "llvm-gen-intrinsics",
         "llvm-gen-revision",
         "llvm-gen-extension",
+        "llvm-gen-omp_gen",
+    ],
+    generated_sources: [
+        "llvm-gen-omp_cpp",
     ],
     target: {
         windows: {
@@ -168,6 +173,21 @@ llvm_tblgen {
         "llvm/IR/IntrinsicsX86.h",
         "llvm/IR/IntrinsicsXCore.h",
     ],
+}
+
+llvm_tblgen {
+    name: "llvm-gen-omp_gen",
+    in: "include/llvm/Frontend/OpenMP/OMP.td",
+    outs: [
+        "llvm/Frontend/OpenMP/OMP.h.inc",
+        "llvm/Frontend/OpenMP/OMP.cpp.inc",
+    ],
+}
+
+llvm_tblgen {
+    name: "llvm-gen-omp_cpp",
+    in: "include/llvm/Frontend/OpenMP/OMP.td",
+    outs: ["lib/Frontend/OpenMP/OMP.cpp"],
 }
 
 genrule {
