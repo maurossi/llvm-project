@@ -126,11 +126,13 @@ cc_library_headers {
         "llvm-gen-attributes",
         "llvm-gen-intrinsics",
         "llvm-gen-revision",
+        "llvm-gen-extension",
     ],
     export_generated_headers: [
         "llvm-gen-attributes",
         "llvm-gen-intrinsics",
         "llvm-gen-revision",
+        "llvm-gen-extension",
     ],
     target: {
         windows: {
@@ -174,6 +176,14 @@ genrule {
     srcs: [".git/logs/HEAD*"],
     tool_files: ["git_sha1_gen.py"],
     cmd: "python $(location git_sha1_gen.py) --output $(out)",
+}
+
+genrule {
+    name: "llvm-gen-extension",
+    out: ["llvm/Support/Extension.def"],
+    srcs: [".git/logs/HEAD*"],
+    tool_files: ["utils/gn/secondary/llvm/include/llvm/Support/write_extension_def.py"],
+    cmd: "python $(location utils/gn/secondary/llvm/include/llvm/Support/write_extension_def.py) --output $(out)",
 }
 
 force_build_llvm_components_defaults {
