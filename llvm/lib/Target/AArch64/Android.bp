@@ -4,7 +4,10 @@ cc_library_static {
         "llvm-lib-defaults",
         "llvm-aarch64-defaults",
     ],
-    srcs: ["*.cpp"],
+    srcs: [
+        "*.cpp",
+        "GISel/*.cpp",
+    ],
 }
 
 cc_defaults {
