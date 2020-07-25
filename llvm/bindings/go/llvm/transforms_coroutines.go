@@ -10,7 +10,7 @@
 //
 //===----------------------------------------------------------------------===//
 
-package llvm
+package llvm10
 
 /*
 #include "llvm-c/Transforms/Coroutines.h"

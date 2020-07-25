@@ -1,7 +1,7 @@
 cc_library_static {
-    name: "libLLVMProfileData",
+    name: "libLLVM10ProfileData",
     defaults: [
-        "llvm-lib-defaults",
+        "llvm10-lib-defaults",
     ],
     srcs: ["*.cpp"],
 }

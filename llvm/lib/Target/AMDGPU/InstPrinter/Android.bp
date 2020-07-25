@@ -1,8 +1,8 @@
 cc_library_static {
-    name: "libLLVMAMDGPUAsmPrinter",
+    name: "libLLVM10AMDGPUAsmPrinter",
     defaults: [
-        "llvm-lib-defaults",
-        "llvm-amdgpu-defaults",
+        "llvm10-lib-defaults",
+        "llvm10-amdgpu-defaults",
     ],
     srcs: ["*.cpp"],
 }

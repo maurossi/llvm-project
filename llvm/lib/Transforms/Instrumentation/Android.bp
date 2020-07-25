@@ -1,7 +1,7 @@
 cc_library_static {
-    name: "libLLVMInstrumentation",
+    name: "libLLVM10Instrumentation",
     defaults: [
-        "llvm-lib-defaults",
+        "llvm10-lib-defaults",
     ],
     srcs: ["*.cpp"],
 }

@@ -1,7 +1,7 @@
 cc_library_static {
-    name: "libLLVMOrcError",
+    name: "libLLVM10OrcError",
     defaults: [
-        "llvm-lib-defaults",
+        "llvm10-lib-defaults",
     ],
     srcs: ["*.cpp"],
 }

@@ -1,7 +1,7 @@
 cc_library_static {
-    name: "libLLVMLinker",
+    name: "libLLVM10Linker",
     defaults: [
-        "llvm-lib-defaults",
+        "llvm10-lib-defaults",
     ],
     srcs: ["*.cpp"],
 }

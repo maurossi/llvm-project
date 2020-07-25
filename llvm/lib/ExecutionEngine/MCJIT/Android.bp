@@ -1,7 +1,7 @@
 cc_library_static {
-    name: "libLLVMMCJIT",
+    name: "libLLVM10MCJIT",
     defaults: [
-        "llvm-lib-defaults",
+        "llvm10-lib-defaults",
     ],
     srcs: ["*.cpp"],
 }

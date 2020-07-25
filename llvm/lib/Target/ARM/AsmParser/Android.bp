@@ -1,8 +1,8 @@
 cc_library_static {
-    name: "libLLVMARMAsmParser",
+    name: "libLLVM10ARMAsmParser",
     defaults: [
-        "llvm-lib-defaults",
-        "llvm-arm-defaults",
+        "llvm10-lib-defaults",
+        "llvm10-arm-defaults",
     ],
     srcs: ["*.cpp"],
 }

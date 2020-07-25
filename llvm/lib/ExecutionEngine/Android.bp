@@ -1,7 +1,7 @@
 cc_library_static {
-    name: "libLLVMExecutionEngine",
+    name: "libLLVM10ExecutionEngine",
     defaults: [
-        "llvm-lib-defaults",
+        "llvm10-lib-defaults",
     ],
     srcs: ["*.cpp"],
 }

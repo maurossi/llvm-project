@@ -1,7 +1,7 @@
 cc_library_static {
-    name: "libLLVMDebugInfoPDB",
+    name: "libLLVM10DebugInfoPDB",
     defaults: [
-        "llvm-lib-defaults",
+        "llvm10-lib-defaults",
     ],
     srcs: [
         "*.cpp",

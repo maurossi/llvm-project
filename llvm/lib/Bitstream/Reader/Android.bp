@@ -1,7 +1,7 @@
 cc_library_static {
-    name: "libLLVMBitstreamReader",
+    name: "libLLVM10BitstreamReader",
     defaults: [
-        "llvm-lib-defaults",
+        "llvm10-lib-defaults",
     ],
     srcs: ["*.cpp"],
 }

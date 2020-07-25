@@ -1,8 +1,8 @@
 cc_library_static {
-    name: "libLLVMAArch64Utils",
+    name: "libLLVM10AArch64Utils",
     defaults: [
-        "llvm-lib-defaults",
-        "llvm-aarch64-defaults",
+        "llvm10-lib-defaults",
+        "llvm10-aarch64-defaults",
     ],
     srcs: ["*.cpp"],
 }

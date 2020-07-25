@@ -1,20 +1,20 @@
 cc_library_static {
-    name: "libLLVMAArch64CodeGen",
+    name: "libLLVM10AArch64CodeGen",
     defaults: [
-        "llvm-lib-defaults",
-        "llvm-aarch64-defaults",
+        "llvm10-lib-defaults",
+        "llvm10-aarch64-defaults",
     ],
     srcs: ["*.cpp"],
 }
 
 cc_defaults {
-    name: "llvm-aarch64-defaults",
-    generated_headers: ["llvm-gen-aarch64"],
-    static_libs: ["llvm-aarch64-headers"],
+    name: "llvm10-aarch64-defaults",
+    generated_headers: ["llvm10-gen-aarch64"],
+    static_libs: ["llvm10-aarch64-headers"],
 }
 
 cc_library_static {
-    name: "llvm-aarch64-headers",
+    name: "llvm10-aarch64-headers",
     vendor_available: true,
     host_supported: true,
     target: {
@@ -25,8 +25,8 @@ cc_library_static {
     export_include_dirs: ["."],
 }
 
-llvm_tblgen {
-    name: "llvm-gen-aarch64",
+llvm10_tblgen {
+    name: "llvm10-gen-aarch64",
     in: "AArch64.td",
     outs: [
         "AArch64GenRegisterInfo.inc",
