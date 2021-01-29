@@ -12,6 +12,7 @@ cc_defaults {
     generated_headers: [
         "llvm-gen-amdgpu",
         "llvm-gen-amdgpuisel",
+        "llvm-gen-instcombine",
         "llvm-gen-r600",
     ],
     static_libs: ["llvm-amdgpu-headers"],
@@ -58,6 +59,12 @@ llvm_tblgen {
         "AMDGPUGenPostLegalizeGICombiner.inc",
         "AMDGPUGenRegBankGICombiner.inc",
     ],
+}
+
+llvm_tblgen {
+    name: "llvm-gen-instcombine",
+    in: "InstCombineTables.td",
+    outs: ["InstCombineTables.inc"],
 }
 
 llvm_tblgen {
