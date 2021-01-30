@@ -328,6 +328,7 @@ cc_library_shared {
         "libLLVMCFGuard",
         "libLLVMOrcError",
         "libLLVMFrontendOpenMP",
+        "libLLVMHelloNew",
     ],
 
     export_include_dirs: ["include"],
