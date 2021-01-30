@@ -1,5 +1,5 @@
 cc_library_static {
-    name: "libLLVMOrcError",
+    name: "libLLVMOrcShared",
     defaults: [
         "llvm-lib-defaults",
     ],
