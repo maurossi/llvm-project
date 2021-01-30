@@ -89,6 +89,7 @@ cc_library_static {
         "RegionInfo.cpp",
         "RegionPass.cpp",
         "RegionPrinter.cpp",
+        "ReleaseModeModelRunner.cpp",
         "ScalarEvolution.cpp",
         "ScalarEvolutionAliasAnalysis.cpp",
         "ScalarEvolutionDivision.cpp",
