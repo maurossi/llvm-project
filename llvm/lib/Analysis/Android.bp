@@ -30,6 +30,7 @@ cc_library_static {
         "ConstantFolding.cpp",
         "ConstraintSystem.cpp",
         "DDG.cpp",
+        "DDGPrinter.cpp",
         "Delinearization.cpp",
         "DemandedBits.cpp",
         "DependenceAnalysis.cpp",
