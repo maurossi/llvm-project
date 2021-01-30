@@ -329,6 +329,7 @@ cc_library_shared {
         "libLLVMFrontendOpenMP",
         "libLLVMHelloNew",
         "libLLVMOrcShared",
+        "libLLVMOrcTargetProcess",
     ],
 
     export_include_dirs: ["include"],
