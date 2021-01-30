@@ -189,6 +189,8 @@ func outToGenerator(ctx android.ModuleContext, out string) string {
 		return "-gen-intrinsic-enums -intrinsic-prefix=x86"
 	case out == "IntrinsicsXCore.h":
 		return "-gen-intrinsic-enums -intrinsic-prefix=xcore"
+	case out == "IntrinsicsVE.h":
+		return "-gen-intrinsic-enums -intrinsic-prefix=ve"
 	case out == "OMP.h.inc":
 		return "--gen-directive-decl"
 	case out == "OMP.cpp.inc":
