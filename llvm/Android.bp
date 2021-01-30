@@ -172,6 +172,7 @@ llvm_tblgen {
         "llvm/IR/IntrinsicsWebAssembly.h",
         "llvm/IR/IntrinsicsX86.h",
         "llvm/IR/IntrinsicsXCore.h",
+        "llvm/IR/IntrinsicsVE.h",
     ],
 }
 
