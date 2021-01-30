@@ -92,6 +92,7 @@ cc_library_static {
         "RegionPass.cpp",
         "RegionPrinter.cpp",
         "ReleaseModeModelRunner.cpp",
+        "ReplayInlineAdvisor.cpp",
         "ScalarEvolution.cpp",
         "ScalarEvolutionAliasAnalysis.cpp",
         "ScalarEvolutionDivision.cpp",
