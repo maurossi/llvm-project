@@ -149,6 +149,9 @@
 /* Define if this is Unixish platform */
 #define LLVM_ON_UNIX 1
 
+/* Define to 1 if you have the <sysexits.h> header file. */
+#define HAVE_SYSEXITS_H 1
+
 /* Define if this is Win32ish platform */
 /* #undef LLVM_ON_WIN32 */
 
