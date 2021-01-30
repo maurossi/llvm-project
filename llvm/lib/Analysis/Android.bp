@@ -28,6 +28,7 @@ cc_library_static {
         "CostModel.cpp",
         "CodeMetrics.cpp",
         "ConstantFolding.cpp",
+        "ConstraintSystem.cpp",
         "DDG.cpp",
         "Delinearization.cpp",
         "DemandedBits.cpp",
