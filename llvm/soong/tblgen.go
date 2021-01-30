@@ -143,6 +143,8 @@ func outToGenerator(ctx android.ModuleContext, out string) string {
 		return "-gen-global-isel-combiner -combiners=\"AArch64PreLegalizerCombinerHelper\""
 	case strings.HasSuffix(out, "AArch64GenPostLegalizeGICombiner.inc"):
 		return "-gen-global-isel-combiner -combiners=\"AArch64PostLegalizerCombinerHelper\""
+	case strings.HasSuffix(out, "AArch64GenPostLegalizeGILowering.inc"):
+		return "-gen-global-isel-combiner -combiners=\"AArch64PostLegalizerLoweringHelper\""
 	case strings.HasSuffix(out, "AMDGPUGenPreLegalizeGICombiner.inc"):
 		return "-gen-global-isel-combiner -combiners=\"AMDGPUPreLegalizerCombinerHelper\""
 	case strings.HasSuffix(out, "AMDGPUGenPostLegalizeGICombiner.inc"):
