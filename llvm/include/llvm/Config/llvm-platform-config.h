@@ -152,6 +152,9 @@
 /* Define to 1 if you have the <sysexits.h> header file. */
 #define HAVE_SYSEXITS_H 1
 
+/* Define to 1 to enable the experimental new pass manager by default */
+#define LLVM_ENABLE_NEW_PASS_MANAGER 0
+
 /* Define if this is Win32ish platform */
 /* #undef LLVM_ON_WIN32 */
 
