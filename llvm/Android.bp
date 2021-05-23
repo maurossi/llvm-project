@@ -267,6 +267,7 @@ llvm_amdgpu_static_libraries = [
 
 cc_library_shared {
     host_supported: true,
+    vendor_available: true,
     name: "libLLVM",
     defaults: [
         "llvm-defaults",
