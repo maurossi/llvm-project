@@ -1,14 +1,14 @@
 cc_defaults {
-    name: "llvm-defaults",
-    defaults: ["llvm-defaults-no-generated-headers"],
-    header_libs: ["llvm-headers"],
+    name: "llvm11-defaults",
+    defaults: ["llvm11-defaults-no-generated-headers"],
+    header_libs: ["llvm11-headers"],
 }
 
 // This module defines all of the defaults used to compiled llvm, except for
 // the generated headers.  It is necessary to avoid a circular dependency
 // from the tblgen tool used to generate the headers to the generated headers.
 llvm_defaults {
-    name: "llvm-defaults-no-generated-headers",
+    name: "llvm11-defaults-no-generated-headers",
 
     host_supported: true,
     clang: true,
@@ -43,7 +43,7 @@ llvm_defaults {
         "-Wno-error=unreachable-code-loop-increment",
     ],
 
-    header_libs: ["llvm-headers-no-generated-headers"],
+    header_libs: ["llvm11-headers-no-generated-headers"],
 
     target: {
         android: {
@@ -98,7 +98,7 @@ llvm_defaults {
 }
 
 cc_library_headers {
-    name: "llvm-headers-no-generated-headers",
+    name: "llvm11-headers-no-generated-headers",
     vendor_available: true,
     host_supported: true,
     export_include_dirs: ["include"],
@@ -119,27 +119,27 @@ cc_library_headers {
 }
 
 cc_library_headers {
-    name: "llvm-headers",
+    name: "llvm11-headers",
     vendor_available: true,
     host_supported: true,
-    header_libs: ["llvm-headers-no-generated-headers"],
-    export_header_lib_headers: ["llvm-headers-no-generated-headers"],
+    header_libs: ["llvm11-headers-no-generated-headers"],
+    export_header_lib_headers: ["llvm11-headers-no-generated-headers"],
     generated_headers: [
-        "llvm-gen-attributes",
-        "llvm-gen-intrinsics",
-        "llvm-gen-revision",
-        "llvm-gen-extension",
-        "llvm-gen-omp_gen",
+        "llvm11-gen-attributes",
+        "llvm11-gen-intrinsics",
+        "llvm11-gen-revision",
+        "llvm11-gen-extension",
+        "llvm11-gen-omp_gen",
     ],
     export_generated_headers: [
-        "llvm-gen-attributes",
-        "llvm-gen-intrinsics",
-        "llvm-gen-revision",
-        "llvm-gen-extension",
-        "llvm-gen-omp_gen",
+        "llvm11-gen-attributes",
+        "llvm11-gen-intrinsics",
+        "llvm11-gen-revision",
+        "llvm11-gen-extension",
+        "llvm11-gen-omp_gen",
     ],
     generated_sources: [
-        "llvm-gen-omp_cpp",
+        "llvm11-gen-omp_cpp",
     ],
     target: {
         windows: {
@@ -148,14 +148,14 @@ cc_library_headers {
     },
 }
 
-llvm_tblgen {
-    name: "llvm-gen-attributes",
+llvm11_tblgen {
+    name: "llvm11-gen-attributes",
     in: "include/llvm/IR/Attributes.td",
     outs: ["llvm/IR/Attributes.inc"],
 }
 
-llvm_tblgen {
-    name: "llvm-gen-intrinsics",
+llvm11_tblgen {
+    name: "llvm11-gen-intrinsics",
     in: "include/llvm/IR/Intrinsics.td",
     outs: [
         "llvm/IR/IntrinsicEnums.inc",
@@ -177,8 +177,8 @@ llvm_tblgen {
     ],
 }
 
-llvm_tblgen {
-    name: "llvm-gen-omp_gen",
+llvm11_tblgen {
+    name: "llvm11-gen-omp_gen",
     in: "include/llvm/Frontend/OpenMP/OMP.td",
     outs: [
         "llvm/Frontend/OpenMP/OMP.h.inc",
@@ -186,14 +186,14 @@ llvm_tblgen {
     ],
 }
 
-llvm_tblgen {
-    name: "llvm-gen-omp_cpp",
+llvm11_tblgen {
+    name: "llvm11-gen-omp_cpp",
     in: "include/llvm/Frontend/OpenMP/OMP.td",
     outs: ["lib/Frontend/OpenMP/OMP.cpp"],
 }
 
 genrule {
-    name: "llvm-gen-revision",
+    name: "llvm11-gen-revision",
     out: ["llvm/Support/VCSRevision.h"],
     srcs: [".git/logs/HEAD*"],
     tool_files: ["git_sha1_gen.py"],
@@ -201,15 +201,15 @@ genrule {
 }
 
 genrule {
-    name: "llvm-gen-extension",
+    name: "llvm11-gen-extension",
     out: ["llvm/Support/Extension.def"],
     srcs: [".git/logs/HEAD*"],
     tool_files: ["utils/gn/secondary/llvm/include/llvm/Support/write_extension_def.py"],
     cmd: "python $(location utils/gn/secondary/llvm/include/llvm/Support/write_extension_def.py) --output $(out)",
 }
 
-force_build_llvm_components_defaults {
-    name: "force_build_llvm_components",
+force_build_llvm11_components_defaults {
+    name: "force_build_llvm11_components",
     // Host build disabled by soong/llvm.go unless FORCE_BUILD_LLVM_COMPONENTS
     // environment variable is set
 }
@@ -217,119 +217,119 @@ force_build_llvm_components_defaults {
 // LLVM shared library build
 
 llvm_arm_static_libraries = [
-    "libLLVMARMCodeGen",
-    "libLLVMARMAsmParser",
-    "libLLVMARMAsmPrinter",
-    "libLLVMARMInfo",
-    "libLLVMARMDesc",
-    "libLLVMARMDisassembler",
-    "libLLVMARMUtils",
+    "libLLVM11ARMCodeGen",
+    "libLLVM11ARMAsmParser",
+    "libLLVM11ARMAsmPrinter",
+    "libLLVM11ARMInfo",
+    "libLLVM11ARMDesc",
+    "libLLVM11ARMDisassembler",
+    "libLLVM11ARMUtils",
 ]
 
 llvm_x86_static_libraries = [
-    "libLLVMX86CodeGen",
-    "libLLVMX86Info",
-    "libLLVMX86Desc",
-    "libLLVMX86AsmParser",
-    "libLLVMX86AsmPrinter",
-    "libLLVMX86Utils",
-    "libLLVMX86Disassembler",
+    "libLLVM11X86CodeGen",
+    "libLLVM11X86Info",
+    "libLLVM11X86Desc",
+    "libLLVM11X86AsmParser",
+    "libLLVM11X86AsmPrinter",
+    "libLLVM11X86Utils",
+    "libLLVM11X86Disassembler",
 ]
 
 llvm_mips_static_libraries = [
-    "libLLVMMipsCodeGen",
-    "libLLVMMipsInfo",
-    "libLLVMMipsDesc",
-    "libLLVMMipsAsmParser",
-    "libLLVMMipsAsmPrinter",
-    "libLLVMMipsDisassembler",
+    "libLLVM11MipsCodeGen",
+    "libLLVM11MipsInfo",
+    "libLLVM11MipsDesc",
+    "libLLVM11MipsAsmParser",
+    "libLLVM11MipsAsmPrinter",
+    "libLLVM11MipsDisassembler",
 ]
 
 llvm_aarch64_static_libraries = [
-    "libLLVMAArch64CodeGen",
-    "libLLVMAArch64Info",
-    "libLLVMAArch64Desc",
-    "libLLVMAArch64AsmParser",
-    "libLLVMAArch64AsmPrinter",
-    "libLLVMAArch64Utils",
-    "libLLVMAArch64Disassembler",
+    "libLLVM11AArch64CodeGen",
+    "libLLVM11AArch64Info",
+    "libLLVM11AArch64Desc",
+    "libLLVM11AArch64AsmParser",
+    "libLLVM11AArch64AsmPrinter",
+    "libLLVM11AArch64Utils",
+    "libLLVM11AArch64Disassembler",
 ]
 
 llvm_amdgpu_static_libraries = [
-    "libLLVMAMDGPUCodeGen",
-    "libLLVMAMDGPUInfo",
-    "libLLVMAMDGPUDesc",
-    "libLLVMAMDGPUAsmParser",
-    "libLLVMAMDGPUAsmPrinter",
-    "libLLVMAMDGPUUtils",
-    "libLLVMAMDGPUDisassembler",
+    "libLLVM11AMDGPUCodeGen",
+    "libLLVM11AMDGPUInfo",
+    "libLLVM11AMDGPUDesc",
+    "libLLVM11AMDGPUAsmParser",
+    "libLLVM11AMDGPUAsmPrinter",
+    "libLLVM11AMDGPUUtils",
+    "libLLVM11AMDGPUDisassembler",
 ]
 
 
 cc_library_shared {
     host_supported: true,
     vendor_available: true,
-    name: "libLLVM",
+    name: "libLLVM11",
     defaults: [
-        "llvm-defaults",
-        "force_build_llvm_components",
+        "llvm11-defaults",
+        "force_build_llvm11_components",
     ],
 
     whole_static_libs: [
         // pre static libraries
-        "libLLVMLinker",
-        "libLLVMipo",
-        "libLLVMDebugInfoDWARF",
-        "libLLVMDebugInfoMSF",
-        "libLLVMDebugInfoPDB",
-        "libLLVMSymbolize",
-        "libLLVMIRReader",
-        "libLLVMBitWriter",
-        "libLLVMBitReader",
-        "libLLVMPasses",
-        "libLLVMDemangle",
-        "libLLVMBitstreamReader",
+        "libLLVM11Linker",
+        "libLLVM11ipo",
+        "libLLVM11DebugInfoDWARF",
+        "libLLVM11DebugInfoMSF",
+        "libLLVM11DebugInfoPDB",
+        "libLLVM11Symbolize",
+        "libLLVM11IRReader",
+        "libLLVM11BitWriter",
+        "libLLVM11BitReader",
+        "libLLVM11Passes",
+        "libLLVM11Demangle",
+        "libLLVM11BitstreamReader",
 
         // post static libraries
-        "libLLVMLTO",
-        "libLLVMAsmPrinter",
-        "libLLVMSelectionDAG",
-        "libLLVMCodeGen",
-        "libLLVMDebugInfoCodeView",
-        "libLLVMObject",
-        "libLLVMScalarOpts",
-        "libLLVMAggressiveInstCombine",
-        "libLLVMInstCombine",
-        "libLLVMInstrumentation",
-        "libLLVMTransformObjCARC",
-        "libLLVMTransformUtils",
-        "libLLVMAnalysis",
-        "libLLVMTarget",
-        "libLLVMGlobalISel",
-        "libLLVMMCDisassembler",
-        "libLLVMMC",
-        "libLLVMMCParser",
-        "libLLVMCore",
-        "libLLVMAsmParser",
-        "libLLVMOption",
-        "libLLVMSupport",
-        "libLLVMVectorize",
-        "libLLVMProfileData",
-        "libLLVMProfileDataCoverage",
-        "libLLVMLibDriver",
-        "libLLVMExecutionEngine",
-        "libLLVMRuntimeDyld",
-        "libLLVMMCJIT",
-        "libLLVMOrcJIT",
-        "libLLVMBinaryFormat",
-        "libLLVMMIRParser",
-        "libLLVMRemarks",
-        "libLLVMJITLink",
-        "libLLVMCoroutines",
-        "libLLVMTextAPI",
-        "libLLVMCFGuard",
-        "libLLVMOrcError",
-        "libLLVMFrontendOpenMP",
+        "libLLVM11LTO",
+        "libLLVM11AsmPrinter",
+        "libLLVM11SelectionDAG",
+        "libLLVM11CodeGen",
+        "libLLVM11DebugInfoCodeView",
+        "libLLVM11Object",
+        "libLLVM11ScalarOpts",
+        "libLLVM11AggressiveInstCombine",
+        "libLLVM11InstCombine",
+        "libLLVM11Instrumentation",
+        "libLLVM11TransformObjCARC",
+        "libLLVM11TransformUtils",
+        "libLLVM11Analysis",
+        "libLLVM11Target",
+        "libLLVM11GlobalISel",
+        "libLLVM11MCDisassembler",
+        "libLLVM11MC",
+        "libLLVM11MCParser",
+        "libLLVM11Core",
+        "libLLVM11AsmParser",
+        "libLLVM11Option",
+        "libLLVM11Support",
+        "libLLVM11Vectorize",
+        "libLLVM11ProfileData",
+        "libLLVM11ProfileDataCoverage",
+        "libLLVM11LibDriver",
+        "libLLVM11ExecutionEngine",
+        "libLLVM11RuntimeDyld",
+        "libLLVM11MCJIT",
+        "libLLVM11OrcJIT",
+        "libLLVM11BinaryFormat",
+        "libLLVM11MIRParser",
+        "libLLVM11Remarks",
+        "libLLVM11JITLink",
+        "libLLVM11Coroutines",
+        "libLLVM11TextAPI",
+        "libLLVM11CFGuard",
+        "libLLVM11OrcError",
+        "libLLVM11FrontendOpenMP",
     ],
 
     export_include_dirs: ["include"],

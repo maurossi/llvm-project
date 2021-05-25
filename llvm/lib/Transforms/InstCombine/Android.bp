@@ -1,14 +1,14 @@
 cc_library_static {
-    name: "libLLVMInstCombine",
+    name: "libLLVM11InstCombine",
     defaults: [
-        "llvm-lib-defaults",
+        "llvm11-lib-defaults",
     ],
-    generated_headers: ["llvm-gen-instcombine"],
+    generated_headers: ["llvm11-gen-instcombine"],
     srcs: ["*.cpp"],
 }
 
-llvm_tblgen {
-    name: "llvm-gen-instcombine",
+llvm11_tblgen {
+    name: "llvm11-gen-instcombine",
     in: "InstCombineTables.td",
     outs: ["InstCombineTables.inc"],
 }

@@ -1,7 +1,7 @@
 cc_library_static {
-    name: "libLLVMProfileDataCoverage",
+    name: "libLLVM11ProfileDataCoverage",
     defaults: [
-        "llvm-lib-defaults",
+        "llvm11-lib-defaults",
     ],
     srcs: ["*.cpp"],
 }

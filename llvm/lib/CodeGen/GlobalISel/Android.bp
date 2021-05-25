@@ -1,7 +1,7 @@
 cc_library_static {
-    name: "libLLVMGlobalISel",
+    name: "libLLVM11GlobalISel",
     defaults: [
-        "llvm-lib-defaults",
+        "llvm11-lib-defaults",
     ],
     // Aarch64 and AMDGPU targets require GlobalIsel
     // Experimental feature enabled by building all srcs

@@ -13,6 +13,6 @@
 
 // +build !byollvm
 
-package llvm
+package llvm11
 
 var _ run_build_sh

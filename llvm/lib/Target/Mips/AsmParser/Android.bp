@@ -1,8 +1,8 @@
 cc_library_static {
-    name: "libLLVMMipsAsmParser",
+    name: "libLLVM11MipsAsmParser",
     defaults: [
-        "llvm-lib-defaults",
-        "llvm-mips-defaults",
+        "llvm11-lib-defaults",
+        "llvm11-mips-defaults",
     ],
     srcs: ["*.cpp"],
 }

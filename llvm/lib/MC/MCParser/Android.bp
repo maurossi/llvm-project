@@ -1,7 +1,7 @@
 cc_library_static {
-    name: "libLLVMMCParser",
+    name: "libLLVM11MCParser",
     defaults: [
-        "llvm-lib-defaults",
+        "llvm11-lib-defaults",
     ],
     srcs: ["*.cpp"],
 }
