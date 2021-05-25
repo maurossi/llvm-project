@@ -1,7 +1,7 @@
 cc_library_static {
-    name: "libLLVMAggressiveInstCombine",
+    name: "libLLVM12AggressiveInstCombine",
     defaults: [
-        "llvm-lib-defaults",
+        "llvm12-lib-defaults",
     ],
     srcs: ["*.cpp"],
 }

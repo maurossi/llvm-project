@@ -1,7 +1,7 @@
 cc_library_static {
-    name: "libLLVMJITLink",
+    name: "libLLVM12JITLink",
     defaults: [
-        "llvm-lib-defaults",
+        "llvm12-lib-defaults",
     ],
     srcs: ["*.cpp"],
 }

@@ -1,7 +1,7 @@
 cc_library_static {
-    name: "libLLVMRemarks",
+    name: "libLLVM12Remarks",
     defaults: [
-        "llvm-lib-defaults",
+        "llvm12-lib-defaults",
     ],
     srcs: ["*.cpp"],
 }
