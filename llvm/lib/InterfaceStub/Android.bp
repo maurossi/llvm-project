@@ -1,9 +1,9 @@
 cc_library_static {
-    name: "libLLVMTextAPI",
+    name: "libLLVMInterfaceStub",
     defaults: [
         "llvm-lib-defaults",
     ],
     srcs: [
-        "MachO/*.cpp",
+        "*.cpp",
     ],
 }
