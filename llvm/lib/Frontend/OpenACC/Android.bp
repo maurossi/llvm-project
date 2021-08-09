@@ -1,5 +1,5 @@
 cc_library_static {
-    name: "libLLVMFrontendOpenMP",
+    name: "libLLVMFrontendOpenACC",
     defaults: [
         "llvm-lib-defaults",
     ],
@@ -7,6 +7,6 @@ cc_library_static {
 }
 
 cc_defaults {
-    name: "llvm-omp-defaults",
-    generated_headers: ["llvm-gen-omp_gen"],
+    name: "llvm-acc-defaults",
+    generated_headers: ["llvm-gen-acc_gen"],
 }
