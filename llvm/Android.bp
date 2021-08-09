@@ -130,6 +130,7 @@ cc_library_headers {
         "llvm-gen-revision",
         "llvm-gen-extension",
         "llvm-gen-omp_gen",
+        "llvm-gen-acc_gen",
     ],
     export_generated_headers: [
         "llvm-gen-attributes",
@@ -137,9 +138,7 @@ cc_library_headers {
         "llvm-gen-revision",
         "llvm-gen-extension",
         "llvm-gen-omp_gen",
-    ],
-    generated_sources: [
-        "llvm-gen-omp_cpp",
+        "llvm-gen-acc_gen",
     ],
     target: {
         windows: {
@@ -183,14 +182,17 @@ llvm_tblgen {
     in: "include/llvm/Frontend/OpenMP/OMP.td",
     outs: [
         "llvm/Frontend/OpenMP/OMP.h.inc",
-        "llvm/Frontend/OpenMP/OMP.cpp.inc",
+        "llvm/Frontend/OpenMP/OMP.inc",
     ],
 }
 
 llvm_tblgen {
-    name: "llvm-gen-omp_cpp",
-    in: "include/llvm/Frontend/OpenMP/OMP.td",
-    outs: ["lib/Frontend/OpenMP/OMP.cpp"],
+    name: "llvm-gen-acc_gen",
+    in: "include/llvm/Frontend/OpenACC/ACC.td",
+    outs: [
+        "llvm/Frontend/OpenMP/ACC.h.inc",
+        "llvm/Frontend/OpenMP/ACC.inc",
+    ],
 }
 
 genrule {
