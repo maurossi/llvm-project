@@ -1,7 +1,7 @@
 cc_library_static {
-    name: "libLLVMTextAPI",
+    name: "libLLVM13TextAPI",
     defaults: [
-        "llvm-lib-defaults",
+        "llvm13-lib-defaults",
     ],
     srcs: [
         "*.cpp",

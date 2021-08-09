@@ -1,7 +1,7 @@
 cc_library_static {
-    name: "libLLVMIRReader",
+    name: "libLLVM13IRReader",
     defaults: [
-        "llvm-lib-defaults",
+        "llvm13-lib-defaults",
     ],
     srcs: ["*.cpp"],
 }

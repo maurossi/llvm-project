@@ -1,7 +1,7 @@
 cc_library_static {
-    name: "libLLVMObject",
+    name: "libLLVM13Object",
     defaults: [
-        "llvm-lib-defaults",
+        "llvm13-lib-defaults",
     ],
     srcs: ["*.cpp"],
 }

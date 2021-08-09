@@ -10,7 +10,7 @@
 //
 //===----------------------------------------------------------------------===//
 
-package llvm
+package llvm13
 
 /*
 #include "llvm-c/Analysis.h" // If you are getting an error here read bindings/go/README.txt

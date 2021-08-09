@@ -1,14 +1,14 @@
 cc_defaults {
-    name: "llvm-defaults",
-    defaults: ["llvm-defaults-no-generated-headers"],
-    header_libs: ["llvm-headers"],
+    name: "llvm13-defaults",
+    defaults: ["llvm13-defaults-no-generated-headers"],
+    header_libs: ["llvm13-headers"],
 }
 
 // This module defines all of the defaults used to compiled llvm, except for
 // the generated headers.  It is necessary to avoid a circular dependency
 // from the tblgen tool used to generate the headers to the generated headers.
 llvm_defaults {
-    name: "llvm-defaults-no-generated-headers",
+    name: "llvm13-defaults-no-generated-headers",
 
     host_supported: true,
     clang: true,
@@ -43,7 +43,7 @@ llvm_defaults {
         "-Wno-error=unreachable-code-loop-increment",
     ],
 
-    header_libs: ["llvm-headers-no-generated-headers"],
+    header_libs: ["llvm13-headers-no-generated-headers"],
 
     target: {
         android: {
@@ -98,7 +98,7 @@ llvm_defaults {
 }
 
 cc_library_headers {
-    name: "llvm-headers-no-generated-headers",
+    name: "llvm13-headers-no-generated-headers",
     vendor_available: true,
     host_supported: true,
     export_include_dirs: ["include"],
@@ -119,26 +119,26 @@ cc_library_headers {
 }
 
 cc_library_headers {
-    name: "llvm-headers",
+    name: "llvm13-headers",
     vendor_available: true,
     host_supported: true,
-    header_libs: ["llvm-headers-no-generated-headers"],
-    export_header_lib_headers: ["llvm-headers-no-generated-headers"],
+    header_libs: ["llvm13-headers-no-generated-headers"],
+    export_header_lib_headers: ["llvm13-headers-no-generated-headers"],
     generated_headers: [
-        "llvm-gen-attributes",
-        "llvm-gen-intrinsics",
-        "llvm-gen-revision",
-        "llvm-gen-extension",
-        "llvm-gen-omp_gen",
-        "llvm-gen-acc_gen",
+        "llvm13-gen-attributes",
+        "llvm13-gen-intrinsics",
+        "llvm13-gen-revision",
+        "llvm13-gen-extension",
+        "llvm13-gen-omp_gen",
+        "llvm13-gen-acc_gen",
     ],
     export_generated_headers: [
-        "llvm-gen-attributes",
-        "llvm-gen-intrinsics",
-        "llvm-gen-revision",
-        "llvm-gen-extension",
-        "llvm-gen-omp_gen",
-        "llvm-gen-acc_gen",
+        "llvm13-gen-attributes",
+        "llvm13-gen-intrinsics",
+        "llvm13-gen-revision",
+        "llvm13-gen-extension",
+        "llvm13-gen-omp_gen",
+        "llvm13-gen-acc_gen",
     ],
     target: {
         windows: {
@@ -147,14 +147,14 @@ cc_library_headers {
     },
 }
 
-llvm_tblgen {
-    name: "llvm-gen-attributes",
+llvm13_tblgen {
+    name: "llvm13-gen-attributes",
     in: "include/llvm/IR/Attributes.td",
     outs: ["llvm/IR/Attributes.inc"],
 }
 
-llvm_tblgen {
-    name: "llvm-gen-intrinsics",
+llvm13_tblgen {
+    name: "llvm13-gen-intrinsics",
     in: "include/llvm/IR/Intrinsics.td",
     outs: [
         "llvm/IR/IntrinsicEnums.inc",
@@ -177,8 +177,8 @@ llvm_tblgen {
     ],
 }
 
-llvm_tblgen {
-    name: "llvm-gen-omp_gen",
+llvm13_tblgen {
+    name: "llvm13-gen-omp_gen",
     in: "include/llvm/Frontend/OpenMP/OMP.td",
     outs: [
         "llvm/Frontend/OpenMP/OMP.h.inc",
@@ -186,8 +186,8 @@ llvm_tblgen {
     ],
 }
 
-llvm_tblgen {
-    name: "llvm-gen-acc_gen",
+llvm13_tblgen {
+    name: "llvm13-gen-acc_gen",
     in: "include/llvm/Frontend/OpenACC/ACC.td",
     outs: [
         "llvm/Frontend/OpenMP/ACC.h.inc",
@@ -196,7 +196,7 @@ llvm_tblgen {
 }
 
 genrule {
-    name: "llvm-gen-revision",
+    name: "llvm13-gen-revision",
     out: ["llvm/Support/VCSRevision.h"],
     srcs: [".git/logs/HEAD*"],
     tool_files: ["git_sha1_gen.py"],
@@ -204,15 +204,15 @@ genrule {
 }
 
 genrule {
-    name: "llvm-gen-extension",
+    name: "llvm13-gen-extension",
     out: ["llvm/Support/Extension.def"],
     srcs: [".git/logs/HEAD*"],
     tool_files: ["utils/gn/secondary/llvm/include/llvm/Support/write_extension_def.py"],
     cmd: "python $(location utils/gn/secondary/llvm/include/llvm/Support/write_extension_def.py) --output $(out)",
 }
 
-force_build_llvm_components_defaults {
-    name: "force_build_llvm_components",
+force_build_llvm13_components_defaults {
+    name: "force_build_llvm13_components",
     // Host build disabled by soong/llvm.go unless FORCE_BUILD_LLVM_COMPONENTS
     // environment variable is set
 }
@@ -220,122 +220,122 @@ force_build_llvm_components_defaults {
 // LLVM shared library build
 
 llvm_arm_static_libraries = [
-    "libLLVMARMCodeGen",
-    "libLLVMARMAsmParser",
-    "libLLVMARMAsmPrinter",
-    "libLLVMARMInfo",
-    "libLLVMARMDesc",
-    "libLLVMARMDisassembler",
-    "libLLVMARMUtils",
+    "libLLVM13ARMCodeGen",
+    "libLLVM13ARMAsmParser",
+    "libLLVM13ARMAsmPrinter",
+    "libLLVM13ARMInfo",
+    "libLLVM13ARMDesc",
+    "libLLVM13ARMDisassembler",
+    "libLLVM13ARMUtils",
 ]
 
 llvm_x86_static_libraries = [
-    "libLLVMX86CodeGen",
-    "libLLVMX86Info",
-    "libLLVMX86Desc",
-    "libLLVMX86AsmParser",
-    "libLLVMX86AsmPrinter",
-    "libLLVMX86Utils",
-    "libLLVMX86Disassembler",
+    "libLLVM13X86CodeGen",
+    "libLLVM13X86Info",
+    "libLLVM13X86Desc",
+    "libLLVM13X86AsmParser",
+    "libLLVM13X86AsmPrinter",
+    "libLLVM13X86Utils",
+    "libLLVM13X86Disassembler",
 ]
 
 llvm_mips_static_libraries = [
-    "libLLVMMipsCodeGen",
-    "libLLVMMipsInfo",
-    "libLLVMMipsDesc",
-    "libLLVMMipsAsmParser",
-    "libLLVMMipsAsmPrinter",
-    "libLLVMMipsDisassembler",
+    "libLLVM13MipsCodeGen",
+    "libLLVM13MipsInfo",
+    "libLLVM13MipsDesc",
+    "libLLVM13MipsAsmParser",
+    "libLLVM13MipsAsmPrinter",
+    "libLLVM13MipsDisassembler",
 ]
 
 llvm_aarch64_static_libraries = [
-    "libLLVMAArch64CodeGen",
-    "libLLVMAArch64Info",
-    "libLLVMAArch64Desc",
-    "libLLVMAArch64AsmParser",
-    "libLLVMAArch64AsmPrinter",
-    "libLLVMAArch64Utils",
-    "libLLVMAArch64Disassembler",
+    "libLLVM13AArch64CodeGen",
+    "libLLVM13AArch64Info",
+    "libLLVM13AArch64Desc",
+    "libLLVM13AArch64AsmParser",
+    "libLLVM13AArch64AsmPrinter",
+    "libLLVM13AArch64Utils",
+    "libLLVM13AArch64Disassembler",
 ]
 
 llvm_amdgpu_static_libraries = [
-    "libLLVMAMDGPUCodeGen",
-    "libLLVMAMDGPUInfo",
-    "libLLVMAMDGPUDesc",
-    "libLLVMAMDGPUAsmParser",
-    "libLLVMAMDGPUAsmPrinter",
-    "libLLVMAMDGPUUtils",
-    "libLLVMAMDGPUDisassembler",
+    "libLLVM13AMDGPUCodeGen",
+    "libLLVM13AMDGPUInfo",
+    "libLLVM13AMDGPUDesc",
+    "libLLVM13AMDGPUAsmParser",
+    "libLLVM13AMDGPUAsmPrinter",
+    "libLLVM13AMDGPUUtils",
+    "libLLVM13AMDGPUDisassembler",
 ]
 
 
 cc_library_shared {
     host_supported: true,
     vendor_available: true,
-    name: "libLLVM",
+    name: "libLLVM13",
     defaults: [
-        "llvm-defaults",
-        "force_build_llvm_components",
+        "llvm13-defaults",
+        "force_build_llvm13_components",
     ],
 
     whole_static_libs: [
         // pre static libraries
-        "libLLVMLinker",
-        "libLLVMipo",
-        "libLLVMDebugInfoDWARF",
-        "libLLVMDebugInfoMSF",
-        "libLLVMDebugInfoPDB",
-        "libLLVMSymbolize",
-        "libLLVMIRReader",
-        "libLLVMBitWriter",
-        "libLLVMBitReader",
-        "libLLVMPasses",
-        "libLLVMDemangle",
-        "libLLVMBitstreamReader",
+        "libLLVM13Linker",
+        "libLLVM13ipo",
+        "libLLVM13DebugInfoDWARF",
+        "libLLVM13DebugInfoMSF",
+        "libLLVM13DebugInfoPDB",
+        "libLLVM13Symbolize",
+        "libLLVM13IRReader",
+        "libLLVM13BitWriter",
+        "libLLVM13BitReader",
+        "libLLVM13Passes",
+        "libLLVM13Demangle",
+        "libLLVM13BitstreamReader",
 
         // post static libraries
-        "libLLVMLTO",
-        "libLLVMAsmPrinter",
-        "libLLVMSelectionDAG",
-        "libLLVMCodeGen",
-        "libLLVMDebugInfoCodeView",
-        "libLLVMObject",
-        "libLLVMScalarOpts",
-        "libLLVMAggressiveInstCombine",
-        "libLLVMInstCombine",
-        "libLLVMInstrumentation",
-        "libLLVMTransformObjCARC",
-        "libLLVMTransformUtils",
-        "libLLVMAnalysis",
-        "libLLVMTarget",
-        "libLLVMGlobalISel",
-        "libLLVMMCDisassembler",
-        "libLLVMMC",
-        "libLLVMMCParser",
-        "libLLVMCore",
-        "libLLVMAsmParser",
-        "libLLVMOption",
-        "libLLVMSupport",
-        "libLLVMVectorize",
-        "libLLVMProfileData",
-        "libLLVMProfileDataCoverage",
-        "libLLVMLibDriver",
-        "libLLVMExecutionEngine",
-        "libLLVMRuntimeDyld",
-        "libLLVMMCJIT",
-        "libLLVMOrcJIT",
-        "libLLVMBinaryFormat",
-        "libLLVMMIRParser",
-        "libLLVMRemarks",
-        "libLLVMJITLink",
-        "libLLVMCoroutines",
-        "libLLVMTextAPI",
-        "libLLVMCFGuard",
-        "libLLVMFrontendOpenMP",
-        "libLLVMHelloNew",
-        "libLLVMOrcShared",
-        "libLLVMOrcTargetProcess",
-        "libLLVMInterfaceStub",
+        "libLLVM13LTO",
+        "libLLVM13AsmPrinter",
+        "libLLVM13SelectionDAG",
+        "libLLVM13CodeGen",
+        "libLLVM13DebugInfoCodeView",
+        "libLLVM13Object",
+        "libLLVM13ScalarOpts",
+        "libLLVM13AggressiveInstCombine",
+        "libLLVM13InstCombine",
+        "libLLVM13Instrumentation",
+        "libLLVM13TransformObjCARC",
+        "libLLVM13TransformUtils",
+        "libLLVM13Analysis",
+        "libLLVM13Target",
+        "libLLVM13GlobalISel",
+        "libLLVM13MCDisassembler",
+        "libLLVM13MC",
+        "libLLVM13MCParser",
+        "libLLVM13Core",
+        "libLLVM13AsmParser",
+        "libLLVM13Option",
+        "libLLVM13Support",
+        "libLLVM13Vectorize",
+        "libLLVM13ProfileData",
+        "libLLVM13ProfileDataCoverage",
+        "libLLVM13LibDriver",
+        "libLLVM13ExecutionEngine",
+        "libLLVM13RuntimeDyld",
+        "libLLVM13MCJIT",
+        "libLLVM13OrcJIT",
+        "libLLVM13BinaryFormat",
+        "libLLVM13MIRParser",
+        "libLLVM13Remarks",
+        "libLLVM13JITLink",
+        "libLLVM13Coroutines",
+        "libLLVM13TextAPI",
+        "libLLVM13CFGuard",
+        "libLLVM13FrontendOpenMP",
+        "libLLVM13HelloNew",
+        "libLLVM13OrcShared",
+        "libLLVM13OrcTargetProcess",
+        "libLLVM13InterfaceStub",
     ],
 
     export_include_dirs: ["include"],
