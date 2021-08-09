@@ -4,6 +4,6 @@ cc_library_static {
         "llvm-lib-defaults",
     ],
     srcs: [
-        "MachO/*.cpp",
+        "*.cpp",
     ],
 }
