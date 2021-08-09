@@ -335,6 +335,7 @@ cc_library_shared {
         "libLLVMHelloNew",
         "libLLVMOrcShared",
         "libLLVMOrcTargetProcess",
+        "libLLVMInterfaceStub",
     ],
 
     export_include_dirs: ["include"],
