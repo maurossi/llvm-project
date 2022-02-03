@@ -1,14 +1,14 @@
 cc_defaults {
-    name: "llvm-defaults",
-    defaults: ["llvm-defaults-no-generated-headers"],
-    header_libs: ["llvm-headers"],
+    name: "llvm14-defaults",
+    defaults: ["llvm14-defaults-no-generated-headers"],
+    header_libs: ["llvm14-headers"],
 }
 
 // This module defines all of the defaults used to compiled llvm, except for
 // the generated headers.  It is necessary to avoid a circular dependency
 // from the tblgen tool used to generate the headers to the generated headers.
 llvm_defaults {
-    name: "llvm-defaults-no-generated-headers",
+    name: "llvm14-defaults-no-generated-headers",
 
     host_supported: true,
     clang: true,
@@ -44,7 +44,7 @@ llvm_defaults {
         "-Wno-error=unreachable-code-loop-increment",
     ],
 
-    header_libs: ["llvm-headers-no-generated-headers"],
+    header_libs: ["llvm14-headers-no-generated-headers"],
 
     target: {
         android: {
@@ -99,7 +99,7 @@ llvm_defaults {
 }
 
 cc_library_headers {
-    name: "llvm-headers-no-generated-headers",
+    name: "llvm14-headers-no-generated-headers",
     vendor_available: true,
     host_supported: true,
     export_include_dirs: ["include"],
@@ -120,26 +120,26 @@ cc_library_headers {
 }
 
 cc_library_headers {
-    name: "llvm-headers",
+    name: "llvm14-headers",
     vendor_available: true,
     host_supported: true,
-    header_libs: ["llvm-headers-no-generated-headers"],
-    export_header_lib_headers: ["llvm-headers-no-generated-headers"],
+    header_libs: ["llvm14-headers-no-generated-headers"],
+    export_header_lib_headers: ["llvm14-headers-no-generated-headers"],
     generated_headers: [
-        "llvm-gen-attributes",
-        "llvm-gen-intrinsics",
-        "llvm-gen-revision",
-        "llvm-gen-extension",
-        "llvm-gen-omp_gen",
-        "llvm-gen-acc_gen",
+        "llvm14-gen-attributes",
+        "llvm14-gen-intrinsics",
+        "llvm14-gen-revision",
+        "llvm14-gen-extension",
+        "llvm14-gen-omp_gen",
+        "llvm14-gen-acc_gen",
     ],
     export_generated_headers: [
-        "llvm-gen-attributes",
-        "llvm-gen-intrinsics",
-        "llvm-gen-revision",
-        "llvm-gen-extension",
-        "llvm-gen-omp_gen",
-        "llvm-gen-acc_gen",
+        "llvm14-gen-attributes",
+        "llvm14-gen-intrinsics",
+        "llvm14-gen-revision",
+        "llvm14-gen-extension",
+        "llvm14-gen-omp_gen",
+        "llvm14-gen-acc_gen",
     ],
     target: {
         windows: {
@@ -148,14 +148,14 @@ cc_library_headers {
     },
 }
 
-llvm_tblgen {
-    name: "llvm-gen-attributes",
+llvm14_tblgen {
+    name: "llvm14-gen-attributes",
     in: "include/llvm/IR/Attributes.td",
     outs: ["llvm/IR/Attributes.inc"],
 }
 
-llvm_tblgen {
-    name: "llvm-gen-intrinsics",
+llvm14_tblgen {
+    name: "llvm14-gen-intrinsics",
     in: "include/llvm/IR/Intrinsics.td",
     outs: [
         "llvm/IR/IntrinsicEnums.inc",
@@ -178,8 +178,8 @@ llvm_tblgen {
     ],
 }
 
-llvm_tblgen {
-    name: "llvm-gen-omp_gen",
+llvm14_tblgen {
+    name: "llvm14-gen-omp_gen",
     in: "include/llvm/Frontend/OpenMP/OMP.td",
     outs: [
         "llvm/Frontend/OpenMP/OMP.h.inc",
@@ -187,8 +187,8 @@ llvm_tblgen {
     ],
 }
 
-llvm_tblgen {
-    name: "llvm-gen-acc_gen",
+llvm14_tblgen {
+    name: "llvm14-gen-acc_gen",
     in: "include/llvm/Frontend/OpenACC/ACC.td",
     outs: [
         "llvm/Frontend/OpenMP/ACC.h.inc",
@@ -197,7 +197,7 @@ llvm_tblgen {
 }
 
 genrule {
-    name: "llvm-gen-revision",
+    name: "llvm14-gen-revision",
     out: ["llvm/Support/VCSRevision.h"],
     srcs: [".git/logs/HEAD*"],
     tool_files: ["git_sha1_gen.py"],
@@ -205,15 +205,15 @@ genrule {
 }
 
 genrule {
-    name: "llvm-gen-extension",
+    name: "llvm14-gen-extension",
     out: ["llvm/Support/Extension.def"],
     srcs: [".git/logs/HEAD*"],
     tool_files: ["utils/gn/secondary/llvm/include/llvm/Support/write_extension_def.py"],
     cmd: "python $(location utils/gn/secondary/llvm/include/llvm/Support/write_extension_def.py) --output $(out)",
 }
 
-force_build_llvm_components_defaults {
-    name: "force_build_llvm_components",
+force_build_llvm14_components_defaults {
+    name: "force_build_llvm14_components",
     // Host build disabled by soong/llvm.go unless FORCE_BUILD_LLVM_COMPONENTS
     // environment variable is set
 }
@@ -221,123 +221,123 @@ force_build_llvm_components_defaults {
 // LLVM shared library build
 
 llvm_arm_static_libraries = [
-    "libLLVMARMCodeGen",
-    "libLLVMARMAsmParser",
-    "libLLVMARMAsmPrinter",
-    "libLLVMARMInfo",
-    "libLLVMARMDesc",
-    "libLLVMARMDisassembler",
-    "libLLVMARMUtils",
+    "libLLVM14ARMCodeGen",
+    "libLLVM14ARMAsmParser",
+    "libLLVM14ARMAsmPrinter",
+    "libLLVM14ARMInfo",
+    "libLLVM14ARMDesc",
+    "libLLVM14ARMDisassembler",
+    "libLLVM14ARMUtils",
 ]
 
 llvm_x86_static_libraries = [
-    "libLLVMX86CodeGen",
-    "libLLVMX86Info",
-    "libLLVMX86Desc",
-    "libLLVMX86AsmParser",
-    "libLLVMX86AsmPrinter",
-    "libLLVMX86Utils",
-    "libLLVMX86Disassembler",
+    "libLLVM14X86CodeGen",
+    "libLLVM14X86Info",
+    "libLLVM14X86Desc",
+    "libLLVM14X86AsmParser",
+    "libLLVM14X86AsmPrinter",
+    "libLLVM14X86Utils",
+    "libLLVM14X86Disassembler",
 ]
 
 llvm_mips_static_libraries = [
-    "libLLVMMipsCodeGen",
-    "libLLVMMipsInfo",
-    "libLLVMMipsDesc",
-    "libLLVMMipsAsmParser",
-    "libLLVMMipsAsmPrinter",
-    "libLLVMMipsDisassembler",
+    "libLLVM14MipsCodeGen",
+    "libLLVM14MipsInfo",
+    "libLLVM14MipsDesc",
+    "libLLVM14MipsAsmParser",
+    "libLLVM14MipsAsmPrinter",
+    "libLLVM14MipsDisassembler",
 ]
 
 llvm_aarch64_static_libraries = [
-    "libLLVMAArch64CodeGen",
-    "libLLVMAArch64Info",
-    "libLLVMAArch64Desc",
-    "libLLVMAArch64AsmParser",
-    "libLLVMAArch64AsmPrinter",
-    "libLLVMAArch64Utils",
-    "libLLVMAArch64Disassembler",
+    "libLLVM14AArch64CodeGen",
+    "libLLVM14AArch64Info",
+    "libLLVM14AArch64Desc",
+    "libLLVM14AArch64AsmParser",
+    "libLLVM14AArch64AsmPrinter",
+    "libLLVM14AArch64Utils",
+    "libLLVM14AArch64Disassembler",
 ]
 
 llvm_amdgpu_static_libraries = [
-    "libLLVMAMDGPUCodeGen",
-    "libLLVMAMDGPUInfo",
-    "libLLVMAMDGPUDesc",
-    "libLLVMAMDGPUAsmParser",
-    "libLLVMAMDGPUAsmPrinter",
-    "libLLVMAMDGPUUtils",
-    "libLLVMAMDGPUDisassembler",
+    "libLLVM14AMDGPUCodeGen",
+    "libLLVM14AMDGPUInfo",
+    "libLLVM14AMDGPUDesc",
+    "libLLVM14AMDGPUAsmParser",
+    "libLLVM14AMDGPUAsmPrinter",
+    "libLLVM14AMDGPUUtils",
+    "libLLVM14AMDGPUDisassembler",
 ]
 
 
 cc_library_shared {
     host_supported: true,
     vendor_available: true,
-    name: "libLLVM",
+    name: "libLLVM14",
     defaults: [
-        "llvm-defaults",
-        "force_build_llvm_components",
+        "llvm14-defaults",
+        "force_build_llvm14_components",
     ],
 
     whole_static_libs: [
         // pre static libraries
-        "libLLVMLinker",
-        "libLLVMipo",
-        "libLLVMDebugInfoDWARF",
-        "libLLVMDebugInfoMSF",
-        "libLLVMDebugInfoPDB",
-        "libLLVMSymbolize",
-        "libLLVMIRReader",
-        "libLLVMBitWriter",
-        "libLLVMBitReader",
-        "libLLVMPasses",
-        "libLLVMDemangle",
-        "libLLVMBitstreamReader",
+        "libLLVM14Linker",
+        "libLLVM14ipo",
+        "libLLVM14DebugInfoDWARF",
+        "libLLVM14DebugInfoMSF",
+        "libLLVM14DebugInfoPDB",
+        "libLLVM14Symbolize",
+        "libLLVM14IRReader",
+        "libLLVM14BitWriter",
+        "libLLVM14BitReader",
+        "libLLVM14Passes",
+        "libLLVM14Demangle",
+        "libLLVM14BitstreamReader",
 
         // post static libraries
-        "libLLVMLTO",
-        "libLLVMAsmPrinter",
-        "libLLVMSelectionDAG",
-        "libLLVMCodeGen",
-        "libLLVMDebugInfoCodeView",
-        "libLLVMObject",
-        "libLLVMScalarOpts",
-        "libLLVMAggressiveInstCombine",
-        "libLLVMInstCombine",
-        "libLLVMInstrumentation",
-        "libLLVMTransformObjCARC",
-        "libLLVMTransformUtils",
-        "libLLVMAnalysis",
-        "libLLVMTarget",
-        "libLLVMGlobalISel",
-        "libLLVMMCDisassembler",
-        "libLLVMMC",
-        "libLLVMMCParser",
-        "libLLVMCore",
-        "libLLVMAsmParser",
-        "libLLVMOption",
-        "libLLVMSupport",
-        "libLLVMVectorize",
-        "libLLVMProfileData",
-        "libLLVMProfileDataCoverage",
-        "libLLVMLibDriver",
-        "libLLVMExecutionEngine",
-        "libLLVMRuntimeDyld",
-        "libLLVMMCJIT",
-        "libLLVMOrcJIT",
-        "libLLVMBinaryFormat",
-        "libLLVMMIRParser",
-        "libLLVMRemarks",
-        "libLLVMJITLink",
-        "libLLVMCoroutines",
-        "libLLVMTextAPI",
-        "libLLVMCFGuard",
-        "libLLVMFrontendOpenMP",
-        "libLLVMHelloNew",
-        "libLLVMOrcShared",
-        "libLLVMOrcTargetProcess",
-        "libLLVMInterfaceStub",
-        "libLLVMDebuginfod",
+        "libLLVM14LTO",
+        "libLLVM14AsmPrinter",
+        "libLLVM14SelectionDAG",
+        "libLLVM14CodeGen",
+        "libLLVM14DebugInfoCodeView",
+        "libLLVM14Object",
+        "libLLVM14ScalarOpts",
+        "libLLVM14AggressiveInstCombine",
+        "libLLVM14InstCombine",
+        "libLLVM14Instrumentation",
+        "libLLVM14TransformObjCARC",
+        "libLLVM14TransformUtils",
+        "libLLVM14Analysis",
+        "libLLVM14Target",
+        "libLLVM14GlobalISel",
+        "libLLVM14MCDisassembler",
+        "libLLVM14MC",
+        "libLLVM14MCParser",
+        "libLLVM14Core",
+        "libLLVM14AsmParser",
+        "libLLVM14Option",
+        "libLLVM14Support",
+        "libLLVM14Vectorize",
+        "libLLVM14ProfileData",
+        "libLLVM14ProfileDataCoverage",
+        "libLLVM14LibDriver",
+        "libLLVM14ExecutionEngine",
+        "libLLVM14RuntimeDyld",
+        "libLLVM14MCJIT",
+        "libLLVM14OrcJIT",
+        "libLLVM14BinaryFormat",
+        "libLLVM14MIRParser",
+        "libLLVM14Remarks",
+        "libLLVM14JITLink",
+        "libLLVM14Coroutines",
+        "libLLVM14TextAPI",
+        "libLLVM14CFGuard",
+        "libLLVM14FrontendOpenMP",
+        "libLLVM14HelloNew",
+        "libLLVM14OrcShared",
+        "libLLVM14OrcTargetProcess",
+        "libLLVM14InterfaceStub",
+        "libLLVM14Debuginfod",
     ],
 
     export_include_dirs: ["include"],

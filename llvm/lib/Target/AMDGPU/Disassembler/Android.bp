@@ -1,8 +1,8 @@
 cc_library_static {
-    name: "libLLVMAMDGPUDisassembler",
+    name: "libLLVM14AMDGPUDisassembler",
     defaults: [
-        "llvm-lib-defaults",
-        "llvm-amdgpu-defaults",
+        "llvm14-lib-defaults",
+        "llvm14-amdgpu-defaults",
     ],
     srcs: ["*.cpp"],
 }

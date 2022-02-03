@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package llvm
+package llvm14
 
 import (
 	"path/filepath"
@@ -25,20 +25,20 @@ import (
 )
 
 func init() {
-	android.RegisterModuleType("llvm_tblgen", llvmTblgenFactory)
+	android.RegisterModuleType("llvm14_tblgen", llvm14TblgenFactory)
 }
 
 var (
-	pctx = android.NewPackageContext("android/soong/llvm")
+	pctx = android.NewPackageContext("android/soong/llvm14")
 
-	llvmTblgen = pctx.HostBinToolVariable("llvmTblgen", "llvm-tblgen")
+	llvm14Tblgen = pctx.HostBinToolVariable("llvm14Tblgen", "llvm14-tblgen")
 
-	tblgenRule = pctx.StaticRule("tblgenRule", blueprint.RuleParams{
+	tblgenRule14 = pctx.StaticRule("tblgenRule14", blueprint.RuleParams{
 		Depfile:     "${out}.d",
 		Deps:        blueprint.DepsGCC,
-		Command:     "${llvmTblgen} ${includes} ${generator} -d ${depfile} -o ${out} ${in}",
-		CommandDeps: []string{"${llvmTblgen}"},
-		Description: "LLVM TableGen $in => $out",
+		Command:     "${llvm14Tblgen} ${includes} ${generator} -d ${depfile} -o ${out} ${in}",
+		CommandDeps: []string{"${llvm14Tblgen}"},
+		Description: "LLVM14 TableGen $in => $out",
 		Restat:      true,
 	}, "includes", "depfile", "generator")
 )
@@ -74,7 +74,7 @@ func (t *tblgen) GenerateAndroidBuildActions(ctx android.ModuleContext) {
 		generator := outToGenerator(ctx, o)
 
 		ctx.ModuleBuild(pctx, android.ModuleBuildParams{
-			Rule:   tblgenRule,
+			Rule:   tblgenRule14,
 			Input:  in,
 			Output: out,
 			Args: map[string]string{
@@ -222,7 +222,7 @@ func (t *tblgen) GeneratedDeps() android.Paths {
 	return t.generatedHeaders
 }
 
-func llvmTblgenFactory() android.Module {
+func llvm14TblgenFactory() android.Module {
 	t := &tblgen{}
 	t.AddProperties(&t.properties)
 	android.InitAndroidModule(t)

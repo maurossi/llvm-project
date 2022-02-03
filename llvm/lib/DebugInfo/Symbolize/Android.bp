@@ -1,7 +1,7 @@
 cc_library_static {
-    name: "libLLVMSymbolize",
+    name: "libLLVM14Symbolize",
     defaults: [
-        "llvm-lib-defaults",
+        "llvm14-lib-defaults",
     ],
     srcs: ["*.cpp"],
 }

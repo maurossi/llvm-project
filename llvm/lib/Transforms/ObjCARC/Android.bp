@@ -1,7 +1,7 @@
 cc_library_static {
-    name: "libLLVMTransformObjCARC",
+    name: "libLLVM14TransformObjCARC",
     defaults: [
-        "llvm-lib-defaults",
+        "llvm14-lib-defaults",
     ],
     srcs: ["*.cpp"],
 }
