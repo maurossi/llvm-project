@@ -28,6 +28,7 @@ llvm_defaults {
         "-Wwrite-strings",
         "-Werror",
         "-Dsprintf=sprintf",
+        "-DLLVM_WINDOWS_PREFER_FORWARD_SLASH=0",
     ],
 
     cppflags: [
