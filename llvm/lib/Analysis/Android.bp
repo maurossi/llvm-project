@@ -29,6 +29,7 @@ cc_library_static {
         "CodeMetrics.cpp",
         "ConstantFolding.cpp",
         "ConstraintSystem.cpp",
+        "CycleAnalysis.cpp",
         "DDG.cpp",
         "DDGPrinter.cpp",
         "Delinearization.cpp",
