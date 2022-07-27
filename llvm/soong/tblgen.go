@@ -171,6 +171,8 @@ func outToGenerator(ctx android.ModuleContext, out string) string {
 		return "-gen-intrinsic-enums -intrinsic-prefix=arm"
 	case out == "IntrinsicsBPF.h":
 		return "-gen-intrinsic-enums -intrinsic-prefix=bpf"
+	case out == "IntrinsicsDirectX.h":
+		return "-gen-intrinsic-enums -intrinsic-prefix=dx"
 	case out == "IntrinsicsHexagon.h":
 		return "-gen-intrinsic-enums -intrinsic-prefix=hexagon"
 	case out == "IntrinsicsMips.h":
