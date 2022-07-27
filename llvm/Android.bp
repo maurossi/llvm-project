@@ -164,6 +164,7 @@ llvm_tblgen {
         "llvm/IR/IntrinsicsAMDGPU.h",
         "llvm/IR/IntrinsicsARM.h",
         "llvm/IR/IntrinsicsBPF.h",
+        "llvm/IR/IntrinsicsDirectX.h",
         "llvm/IR/IntrinsicsHexagon.h",
         "llvm/IR/IntrinsicsMips.h",
         "llvm/IR/IntrinsicsNVPTX.h",
