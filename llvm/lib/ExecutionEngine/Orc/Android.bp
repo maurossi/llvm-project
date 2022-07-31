@@ -1,7 +1,7 @@
 cc_library_static {
-    name: "libLLVMOrcJIT",
+    name: "libLLVM15OrcJIT",
     defaults: [
-        "llvm-lib-defaults",
+        "llvm15-lib-defaults",
     ],
     srcs: ["*.cpp"],
 }

@@ -10,7 +10,7 @@
 //
 //===----------------------------------------------------------------------===//
 
-package llvm
+package llvm15
 
 /*
 #include "llvm/Config/llvm-config.h"

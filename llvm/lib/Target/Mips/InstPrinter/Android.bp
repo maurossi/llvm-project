@@ -1,8 +1,8 @@
 cc_library_static {
-    name: "libLLVMMipsAsmPrinter",
+    name: "libLLVM15MipsAsmPrinter",
     defaults: [
-        "llvm-lib-defaults",
-        "llvm-mips-defaults",
+        "llvm15-lib-defaults",
+        "llvm15-mips-defaults",
     ],
     srcs: ["*.cpp"],
 }

@@ -1,8 +1,8 @@
 cc_library_static {
-    name: "libLLVMAArch64AsmParser",
+    name: "libLLVM15AArch64AsmParser",
     defaults: [
-        "llvm-lib-defaults",
-        "llvm-aarch64-defaults",
+        "llvm15-lib-defaults",
+        "llvm15-aarch64-defaults",
     ],
     srcs: ["*.cpp"],
 }
