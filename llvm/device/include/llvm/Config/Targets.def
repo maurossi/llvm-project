@@ -30,10 +30,6 @@
 #elif defined(__i386__) || defined(__x86_64__)
   LLVM_TARGET(X86)
 
-#if defined(FORCE_BUILD_AMDGPU)
-  LLVM_TARGET(AMDGPU)
-#endif
-
 #if defined(FORCE_BUILD_ARM)
   LLVM_TARGET(ARM)
   LLVM_TARGET(AArch64)
@@ -44,6 +40,10 @@
   LLVM_TARGET(AArch64)
 #else
 #  error Unsupported TARGET_ARCH for LLVM_TARGET
+#endif
+
+#if defined(FORCE_BUILD_AMDGPU)
+  LLVM_TARGET(AMDGPU)
 #endif
 
 #undef LLVM_TARGET
