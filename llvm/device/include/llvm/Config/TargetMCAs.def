@@ -31,10 +31,6 @@
 #elif defined(__i386__) || defined(__x86_64__)
   LLVM_TARGETMCA(X86)
 
-#if defined(FORCE_BUILD_AMDGPU)
-  LLVM_TARGETMCA(AMDGPU)
-#endif
-
 #if defined(FORCE_BUILD_ARM)
   LLVM_TARGETMCA(ARM)
   LLVM_TARGETMCA(AArch64)
@@ -45,6 +41,10 @@
   LLVM_TARGETMCA(AArch64)
 #else
 #  error Unsupported TARGET_ARCH for LLVM_TARGETMCA
+#endif
+
+#if defined(FORCE_BUILD_AMDGPU)
+  LLVM_TARGETMCA(AMDGPU)
 #endif
 
 #undef LLVM_TARGETMCA
