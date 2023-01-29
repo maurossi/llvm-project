@@ -197,6 +197,12 @@ llvm_tblgen {
     ],
 }
 
+llvm_tblgen {
+    name: "llvm-gen-riscv-target-def",
+    in: "lib/Target/RISCV/RISCV.td",
+    outs: ["llvm/TargetParser/RISCVTargetParserDef.inc"],
+}
+
 genrule {
     name: "llvm-gen-revision",
     out: ["llvm/Support/VCSRevision.h"],
@@ -310,6 +316,7 @@ cc_library_shared {
         "libLLVMTransformUtils",
         "libLLVMAnalysis",
         "libLLVMTarget",
+        "libLLVMTargetParser",
         "libLLVMGlobalISel",
         "libLLVMMCDisassembler",
         "libLLVMMC",
