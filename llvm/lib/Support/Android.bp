@@ -15,5 +15,132 @@ cc_library_static {
     srcs: [
         "*.c",
         "*.cpp",
+        "BLAKE3/blake3.c",
+        "BLAKE3/blake3_dispatch.c",
+        "BLAKE3/blake3_neon.c",
+        "BLAKE3/blake3_portable.c",
     ],
+    arch: {
+        x86: {
+            whole_static_libs: [
+                "blake3_avx2",
+                "blake3_avx512",
+                "blake3_sse2",
+                "blake3_sse41",
+            ],
+        },
+        x86_64: {
+            srcs: [
+                "BLAKE3/blake3_avx2_x86-64_unix.S",
+                "BLAKE3/blake3_avx512_x86-64_unix.S",
+                "BLAKE3/blake3_sse2_x86-64_unix.S",
+                "BLAKE3/blake3_sse41_x86-64_unix.S",
+            ],
+        },
+    },
+}
+
+cc_library_static {
+    name: "blake3_avx2",
+    vendor_available: true,
+    defaults: ["llvm-defaults-no-generated-headers"],
+    target: {
+        // llvm-defaults turns off host builds by default, turn it back on for
+        // modules that are used to build llvm-tblgen
+        host: {
+            enabled: true,
+        },
+        windows: {
+            enabled: true,
+        },
+    },
+    arch: {
+        x86: {
+            cflags: [
+                "-mavx2",
+            ],
+            srcs: [
+                "BLAKE3/blake3_avx2.c",
+            ],
+        },
+    },
+}
+
+cc_library_static {
+    name: "blake3_avx512",
+    vendor_available: true,
+    defaults: ["llvm-defaults-no-generated-headers"],
+    target: {
+        // llvm-defaults turns off host builds by default, turn it back on for
+        // modules that are used to build llvm-tblgen
+        host: {
+            enabled: true,
+        },
+        windows: {
+            enabled: true,
+        },
+    },
+    arch: {
+        x86: {
+            cflags: [
+                "-mavx512f",
+                "-mavx512vl",
+            ],
+            srcs: [
+                "BLAKE3/blake3_avx512.c",
+            ],
+        },
+    },
+}
+
+cc_library_static {
+    name: "blake3_sse2",
+    vendor_available: true,
+    defaults: ["llvm-defaults-no-generated-headers"],
+    target: {
+        // llvm-defaults turns off host builds by default, turn it back on for
+        // modules that are used to build llvm-tblgen
+        host: {
+            enabled: true,
+        },
+        windows: {
+            enabled: true,
+        },
+    },
+    arch: {
+        x86: {
+            cflags: [
+                "-msse2",
+            ],
+            srcs: [
+                "BLAKE3/blake3_sse2.c",
+            ],
+        },
+    },
+}
+
+cc_library_static {
+    name: "blake3_sse41",
+    vendor_available: true,
+    defaults: ["llvm-defaults-no-generated-headers"],
+    target: {
+        // llvm-defaults turns off host builds by default, turn it back on for
+        // modules that are used to build llvm-tblgen
+        host: {
+            enabled: true,
+        },
+        windows: {
+            enabled: true,
+        },
+    },
+    arch: {
+        x86: {
+            cflags: [
+                "-msse4.1",
+            ],
+            srcs: [
+                "BLAKE3/blake3_sse41.c",
+            ],
+        },
+    },
 }
