@@ -33,7 +33,7 @@ llvm_defaults {
 
     cppflags: [
         "-Wno-sign-promo",
-        "-std=c++14",
+        "-std=c++17",
     ],
 
     clang_cflags: [
