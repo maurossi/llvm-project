@@ -3,5 +3,14 @@ cc_library_static {
     defaults: [
         "llvm-lib-defaults",
     ],
+    generated_headers: ["llvm-gen-jitlink"],
     srcs: ["*.cpp"],
+}
+
+llvm_tblgen {
+    name: "llvm-gen-jitlink",
+    in: "COFFOptions.td",
+    outs: [
+        "COFFOptions.inc",
+    ],
 }
