@@ -1,7 +1,7 @@
 cc_library_static {
-    name: "libLLVMOrcShared",
+    name: "libLLVM16OrcShared",
     defaults: [
-        "llvm-lib-defaults",
+        "llvm16-lib-defaults",
     ],
     srcs: ["*.cpp"],
 }

@@ -1,14 +1,14 @@
 cc_defaults {
-    name: "llvm-defaults",
-    defaults: ["llvm-defaults-no-generated-headers"],
-    header_libs: ["llvm-headers"],
+    name: "llvm16-defaults",
+    defaults: ["llvm16-defaults-no-generated-headers"],
+    header_libs: ["llvm16-headers"],
 }
 
 // This module defines all of the defaults used to compiled llvm, except for
 // the generated headers.  It is necessary to avoid a circular dependency
 // from the tblgen tool used to generate the headers to the generated headers.
 llvm_defaults {
-    name: "llvm-defaults-no-generated-headers",
+    name: "llvm16-defaults-no-generated-headers",
 
     host_supported: true,
     clang: true,
@@ -44,7 +44,7 @@ llvm_defaults {
         "-Wno-error=unreachable-code-loop-increment",
     ],
 
-    header_libs: ["llvm-headers-no-generated-headers"],
+    header_libs: ["llvm16-headers-no-generated-headers"],
 
     target: {
         android: {
@@ -99,7 +99,7 @@ llvm_defaults {
 }
 
 cc_library_headers {
-    name: "llvm-headers-no-generated-headers",
+    name: "llvm16-headers-no-generated-headers",
     vendor_available: true,
     host_supported: true,
     export_include_dirs: ["include"],
@@ -120,26 +120,26 @@ cc_library_headers {
 }
 
 cc_library_headers {
-    name: "llvm-headers",
+    name: "llvm16-headers",
     vendor_available: true,
     host_supported: true,
-    header_libs: ["llvm-headers-no-generated-headers"],
-    export_header_lib_headers: ["llvm-headers-no-generated-headers"],
+    header_libs: ["llvm16-headers-no-generated-headers"],
+    export_header_lib_headers: ["llvm16-headers-no-generated-headers"],
     generated_headers: [
-        "llvm-gen-attributes",
-        "llvm-gen-intrinsics",
-        "llvm-gen-revision",
-        "llvm-gen-extension",
-        "llvm-gen-omp_gen",
-        "llvm-gen-acc_gen",
+        "llvm16-gen-attributes",
+        "llvm16-gen-intrinsics",
+        "llvm16-gen-revision",
+        "llvm16-gen-extension",
+        "llvm16-gen-omp_gen",
+        "llvm16-gen-acc_gen",
     ],
     export_generated_headers: [
-        "llvm-gen-attributes",
-        "llvm-gen-intrinsics",
-        "llvm-gen-revision",
-        "llvm-gen-extension",
-        "llvm-gen-omp_gen",
-        "llvm-gen-acc_gen",
+        "llvm16-gen-attributes",
+        "llvm16-gen-intrinsics",
+        "llvm16-gen-revision",
+        "llvm16-gen-extension",
+        "llvm16-gen-omp_gen",
+        "llvm16-gen-acc_gen",
     ],
     target: {
         windows: {
@@ -148,14 +148,14 @@ cc_library_headers {
     },
 }
 
-llvm_tblgen {
-    name: "llvm-gen-attributes",
+llvm16_tblgen {
+    name: "llvm16-gen-attributes",
     in: "include/llvm/IR/Attributes.td",
     outs: ["llvm/IR/Attributes.inc"],
 }
 
-llvm_tblgen {
-    name: "llvm-gen-intrinsics",
+llvm16_tblgen {
+    name: "llvm16-gen-intrinsics",
     in: "include/llvm/IR/Intrinsics.td",
     outs: [
         "llvm/IR/IntrinsicEnums.inc",
@@ -179,8 +179,8 @@ llvm_tblgen {
     ],
 }
 
-llvm_tblgen {
-    name: "llvm-gen-omp_gen",
+llvm16_tblgen {
+    name: "llvm16-gen-omp_gen",
     in: "include/llvm/Frontend/OpenMP/OMP.td",
     outs: [
         "llvm/Frontend/OpenMP/OMP.h.inc",
@@ -188,8 +188,8 @@ llvm_tblgen {
     ],
 }
 
-llvm_tblgen {
-    name: "llvm-gen-acc_gen",
+llvm16_tblgen {
+    name: "llvm16-gen-acc_gen",
     in: "include/llvm/Frontend/OpenACC/ACC.td",
     outs: [
         "llvm/Frontend/OpenMP/ACC.h.inc",
@@ -197,14 +197,14 @@ llvm_tblgen {
     ],
 }
 
-llvm_tblgen {
-    name: "llvm-gen-riscv-target-def",
+llvm16_tblgen {
+    name: "llvm16-gen-riscv-target-def",
     in: "lib/Target/RISCV/RISCV.td",
     outs: ["llvm/TargetParser/RISCVTargetParserDef.inc"],
 }
 
 genrule {
-    name: "llvm-gen-revision",
+    name: "llvm16-gen-revision",
     out: ["llvm/Support/VCSRevision.h"],
     srcs: [".git/logs/HEAD*"],
     tool_files: ["git_sha1_gen.py"],
@@ -212,15 +212,15 @@ genrule {
 }
 
 genrule {
-    name: "llvm-gen-extension",
+    name: "llvm16-gen-extension",
     out: ["llvm/Support/Extension.def"],
     srcs: [".git/logs/HEAD*"],
     tool_files: ["utils/gn/secondary/llvm/include/llvm/Support/write_extension_def.py"],
     cmd: "python $(location utils/gn/secondary/llvm/include/llvm/Support/write_extension_def.py) --output $(out)",
 }
 
-force_build_llvm_components_defaults {
-    name: "force_build_llvm_components",
+force_build_llvm16_components_defaults {
+    name: "force_build_llvm16_components",
     // Host build disabled by soong/llvm.go unless FORCE_BUILD_LLVM_COMPONENTS
     // environment variable is set
 }
@@ -228,126 +228,126 @@ force_build_llvm_components_defaults {
 // LLVM shared library build
 
 llvm_arm_static_libraries = [
-    "libLLVMARMCodeGen",
-    "libLLVMARMAsmParser",
-    "libLLVMARMAsmPrinter",
-    "libLLVMARMInfo",
-    "libLLVMARMDesc",
-    "libLLVMARMDisassembler",
-    "libLLVMARMUtils",
+    "libLLVM16ARMCodeGen",
+    "libLLVM16ARMAsmParser",
+    "libLLVM16ARMAsmPrinter",
+    "libLLVM16ARMInfo",
+    "libLLVM16ARMDesc",
+    "libLLVM16ARMDisassembler",
+    "libLLVM16ARMUtils",
 ]
 
 llvm_x86_static_libraries = [
-    "libLLVMX86CodeGen",
-    "libLLVMX86Info",
-    "libLLVMX86Desc",
-    "libLLVMX86AsmParser",
-    "libLLVMX86AsmPrinter",
-    "libLLVMX86Utils",
-    "libLLVMX86Disassembler",
+    "libLLVM16X86CodeGen",
+    "libLLVM16X86Info",
+    "libLLVM16X86Desc",
+    "libLLVM16X86AsmParser",
+    "libLLVM16X86AsmPrinter",
+    "libLLVM16X86Utils",
+    "libLLVM16X86Disassembler",
 ]
 
 llvm_mips_static_libraries = [
-    "libLLVMMipsCodeGen",
-    "libLLVMMipsInfo",
-    "libLLVMMipsDesc",
-    "libLLVMMipsAsmParser",
-    "libLLVMMipsAsmPrinter",
-    "libLLVMMipsDisassembler",
+    "libLLVM16MipsCodeGen",
+    "libLLVM16MipsInfo",
+    "libLLVM16MipsDesc",
+    "libLLVM16MipsAsmParser",
+    "libLLVM16MipsAsmPrinter",
+    "libLLVM16MipsDisassembler",
 ]
 
 llvm_aarch64_static_libraries = [
-    "libLLVMAArch64CodeGen",
-    "libLLVMAArch64Info",
-    "libLLVMAArch64Desc",
-    "libLLVMAArch64AsmParser",
-    "libLLVMAArch64AsmPrinter",
-    "libLLVMAArch64Utils",
-    "libLLVMAArch64Disassembler",
+    "libLLVM16AArch64CodeGen",
+    "libLLVM16AArch64Info",
+    "libLLVM16AArch64Desc",
+    "libLLVM16AArch64AsmParser",
+    "libLLVM16AArch64AsmPrinter",
+    "libLLVM16AArch64Utils",
+    "libLLVM16AArch64Disassembler",
 ]
 
 llvm_amdgpu_static_libraries = [
-    "libLLVMAMDGPUCodeGen",
-    "libLLVMAMDGPUInfo",
-    "libLLVMAMDGPUDesc",
-    "libLLVMAMDGPUAsmParser",
-    "libLLVMAMDGPUAsmPrinter",
-    "libLLVMAMDGPUUtils",
-    "libLLVMAMDGPUDisassembler",
+    "libLLVM16AMDGPUCodeGen",
+    "libLLVM16AMDGPUInfo",
+    "libLLVM16AMDGPUDesc",
+    "libLLVM16AMDGPUAsmParser",
+    "libLLVM16AMDGPUAsmPrinter",
+    "libLLVM16AMDGPUUtils",
+    "libLLVM16AMDGPUDisassembler",
 ]
 
 
 cc_library_shared {
     host_supported: true,
     vendor_available: true,
-    name: "libLLVM",
+    name: "libLLVM16",
     defaults: [
-        "llvm-defaults",
-        "force_build_llvm_components",
+        "llvm16-defaults",
+        "force_build_llvm16_components",
     ],
 
     whole_static_libs: [
         // pre static libraries
-        "libLLVMLinker",
-        "libLLVMipo",
-        "libLLVMDebugInfoDWARF",
-        "libLLVMDebugInfoMSF",
-        "libLLVMDebugInfoPDB",
-        "libLLVMSymbolize",
-        "libLLVMIRPrinter",
-        "libLLVMIRReader",
-        "libLLVMBitWriter",
-        "libLLVMBitReader",
-        "libLLVMPasses",
-        "libLLVMDemangle",
-        "libLLVMBitstreamReader",
+        "libLLVM16Linker",
+        "libLLVM16ipo",
+        "libLLVM16DebugInfoDWARF",
+        "libLLVM16DebugInfoMSF",
+        "libLLVM16DebugInfoPDB",
+        "libLLVM16Symbolize",
+        "libLLVM16IRPrinter",
+        "libLLVM16IRReader",
+        "libLLVM16BitWriter",
+        "libLLVM16BitReader",
+        "libLLVM16Passes",
+        "libLLVM16Demangle",
+        "libLLVM16BitstreamReader",
 
         // post static libraries
-        "libLLVMLTO",
-        "libLLVMAsmPrinter",
-        "libLLVMSelectionDAG",
-        "libLLVMCodeGen",
-        "libLLVMDebugInfoCodeView",
-        "libLLVMObject",
-        "libLLVMScalarOpts",
-        "libLLVMAggressiveInstCombine",
-        "libLLVMInstCombine",
-        "libLLVMInstrumentation",
-        "libLLVMTransformObjCARC",
-        "libLLVMTransformUtils",
-        "libLLVMAnalysis",
-        "libLLVMTarget",
-        "libLLVMTargetParser",
-        "libLLVMGlobalISel",
-        "libLLVMMCDisassembler",
-        "libLLVMMC",
-        "libLLVMMCParser",
-        "libLLVMCore",
-        "libLLVMAsmParser",
-        "libLLVMOption",
-        "libLLVMSupport",
-        "libLLVMVectorize",
-        "libLLVMProfileData",
-        "libLLVMProfileDataCoverage",
-        "libLLVMLibDriver",
-        "libLLVMExecutionEngine",
-        "libLLVMRuntimeDyld",
-        "libLLVMMCJIT",
-        "libLLVMOrcJIT",
-        "libLLVMBinaryFormat",
-        "libLLVMMIRParser",
-        "libLLVMRemarks",
-        "libLLVMJITLink",
-        "libLLVMCoroutines",
-        "libLLVMTextAPI",
-        "libLLVMCFGuard",
-        "libLLVMFrontendOpenMP",
-        "libLLVMHelloNew",
-        "libLLVMOrcShared",
-        "libLLVMOrcTargetProcess",
-        "libLLVMInterfaceStub",
-        "libLLVMDebuginfod",
-        "libLLVMWindowsDriver",
+        "libLLVM16LTO",
+        "libLLVM16AsmPrinter",
+        "libLLVM16SelectionDAG",
+        "libLLVM16CodeGen",
+        "libLLVM16DebugInfoCodeView",
+        "libLLVM16Object",
+        "libLLVM16ScalarOpts",
+        "libLLVM16AggressiveInstCombine",
+        "libLLVM16InstCombine",
+        "libLLVM16Instrumentation",
+        "libLLVM16TransformObjCARC",
+        "libLLVM16TransformUtils",
+        "libLLVM16Analysis",
+        "libLLVM16Target",
+        "libLLVM16TargetParser",
+        "libLLVM16GlobalISel",
+        "libLLVM16MCDisassembler",
+        "libLLVM16MC",
+        "libLLVM16MCParser",
+        "libLLVM16Core",
+        "libLLVM16AsmParser",
+        "libLLVM16Option",
+        "libLLVM16Support",
+        "libLLVM16Vectorize",
+        "libLLVM16ProfileData",
+        "libLLVM16ProfileDataCoverage",
+        "libLLVM16LibDriver",
+        "libLLVM16ExecutionEngine",
+        "libLLVM16RuntimeDyld",
+        "libLLVM16MCJIT",
+        "libLLVM16OrcJIT",
+        "libLLVM16BinaryFormat",
+        "libLLVM16MIRParser",
+        "libLLVM16Remarks",
+        "libLLVM16JITLink",
+        "libLLVM16Coroutines",
+        "libLLVM16TextAPI",
+        "libLLVM16CFGuard",
+        "libLLVM16FrontendOpenMP",
+        "libLLVM16HelloNew",
+        "libLLVM16OrcShared",
+        "libLLVM16OrcTargetProcess",
+        "libLLVM16InterfaceStub",
+        "libLLVM16Debuginfod",
+        "libLLVM16WindowsDriver",
     ],
 
     export_include_dirs: ["include"],

@@ -1,7 +1,7 @@
 cc_library_static {
-    name: "libLLVMDebugInfoCodeView",
+    name: "libLLVM16DebugInfoCodeView",
     defaults: [
-        "llvm-lib-defaults",
+        "llvm16-lib-defaults",
     ],
     srcs: ["*.cpp"],
 }

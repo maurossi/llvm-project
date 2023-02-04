@@ -1,7 +1,7 @@
 cc_library_static {
-    name: "libLLVMAnalysis",
+    name: "libLLVM16Analysis",
     defaults: [
-        "llvm-lib-defaults",
+        "llvm16-lib-defaults",
     ],
     srcs: [
         "AliasAnalysis.cpp",

@@ -1,14 +1,14 @@
 cc_library_static {
-    name: "libLLVMLibDriver",
+    name: "libLLVM16LibDriver",
     defaults: [
-        "llvm-lib-defaults",
+        "llvm16-lib-defaults",
     ],
-    generated_headers: ["llvm-gen-libdriver"],
+    generated_headers: ["llvm16-gen-libdriver"],
     srcs: ["*.cpp"],
 }
 
-llvm_tblgen {
-    name: "llvm-gen-libdriver",
+llvm16_tblgen {
+    name: "llvm16-gen-libdriver",
     in: "Options.td",
     outs: ["Options.inc"],
 }

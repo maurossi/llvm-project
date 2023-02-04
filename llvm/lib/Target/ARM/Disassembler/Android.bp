@@ -1,8 +1,8 @@
 cc_library_static {
-    name: "libLLVMARMDisassembler",
+    name: "libLLVM16ARMDisassembler",
     defaults: [
-        "llvm-lib-defaults",
-        "llvm-arm-defaults",
+        "llvm16-lib-defaults",
+        "llvm16-arm-defaults",
     ],
     srcs: ["*.cpp"],
 }

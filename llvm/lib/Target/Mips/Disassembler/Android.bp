@@ -1,8 +1,8 @@
 cc_library_static {
-    name: "libLLVMMipsDisassembler",
+    name: "libLLVM16MipsDisassembler",
     defaults: [
-        "llvm-lib-defaults",
-        "llvm-mips-defaults",
+        "llvm16-lib-defaults",
+        "llvm16-mips-defaults",
     ],
     srcs: ["*.cpp"],
 }

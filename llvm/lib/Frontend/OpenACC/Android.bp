@@ -1,12 +1,12 @@
 cc_library_static {
-    name: "libLLVMFrontendOpenACC",
+    name: "libLLVM16FrontendOpenACC",
     defaults: [
-        "llvm-lib-defaults",
+        "llvm16-lib-defaults",
     ],
     srcs: ["*.cpp"],
 }
 
 cc_defaults {
     name: "llvm-acc-defaults",
-    generated_headers: ["llvm-gen-acc_gen"],
+    generated_headers: ["llvm16-gen-acc_gen"],
 }

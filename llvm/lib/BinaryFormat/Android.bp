@@ -1,7 +1,7 @@
 cc_library_static {
-    name: "libLLVMBinaryFormat",
+    name: "libLLVM16BinaryFormat",
     defaults: [
-        "llvm-lib-defaults",
+        "llvm16-lib-defaults",
     ],
     srcs: ["*.cpp"],
 }
