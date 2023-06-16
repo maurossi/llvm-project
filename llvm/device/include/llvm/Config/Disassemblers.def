@@ -43,6 +43,8 @@
 #elif defined(__aarch64__)
   LLVM_DISASSEMBLER(ARM)
   LLVM_DISASSEMBLER(AArch64)
+#elif defined(__riscv)
+  LLVM_DISASSEMBLER(RISCV)
 #else
 #  error Unsupported TARGET_ARCH for LLVM_DISASSEMBLER
 #endif

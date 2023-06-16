@@ -43,6 +43,8 @@
 #elif defined(__aarch64__)
   LLVM_TARGETMCA(ARM)
   LLVM_TARGETMCA(AArch64)
+#elif defined(__riscv)
+  LLVM_TARGETMCA(RISCV)
 #else
 #  error Unsupported TARGET_ARCH for LLVM_TARGETMCA
 #endif

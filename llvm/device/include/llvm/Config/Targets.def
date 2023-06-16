@@ -42,6 +42,8 @@
 #elif defined(__aarch64__)
   LLVM_TARGET(ARM)
   LLVM_TARGET(AArch64)
+#elif defined(__riscv)
+  LLVM_TARGET(RISCV)
 #else
 #  error Unsupported TARGET_ARCH for LLVM_TARGET
 #endif

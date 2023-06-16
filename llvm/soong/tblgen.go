@@ -159,6 +159,8 @@ func outToGenerator(ctx android.ModuleContext, out string) string {
 		return "-gen-x86-EVEX2VEX-tables"
 	case strings.HasSuffix(out, "X86GenMnemonicTables.inc"):
 		return "-gen-x86-mnemonic-tables -asmwriternum=1"
+	case strings.HasSuffix(out, "CompressInstEmitter.inc"):
+		return "-gen-compress-inst-emitter"
 	case out == "Attributes.inc", out == "AttributesCompatFunc.inc":
 		return "-gen-attrs"
 	case out == "IntrinsicEnums.inc":

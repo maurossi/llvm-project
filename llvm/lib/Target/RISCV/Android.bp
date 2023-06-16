@@ -1,0 +1,48 @@
+cc_library_static {
+    name: "libLLVM15RISCVCodeGen",
+    defaults: [
+        "llvm15-lib-defaults",
+        "llvm15-riscv-defaults",
+    ],
+    srcs: ["*.cpp"],
+}
+
+cc_defaults {
+    name: "llvm15-riscv-defaults",
+    generated_headers: ["llvm15-gen-riscv"],
+    static_libs: ["llvm15-riscv-headers"],
+}
+
+cc_library_static {
+    name: "llvm15-riscv-headers",
+    vendor_available: true,
+    host_supported: true,
+    target: {
+        windows: {
+            enabled: true,
+        },
+    },
+    export_include_dirs: ["."],
+}
+
+llvm15_tblgen {
+    name: "llvm15-gen-riscv",
+    in: "RISCV.td",
+    outs: [
+        "RISCVGenAsmMatcher.inc",
+        "RISCVGenAsmWriter.inc",
+        "RISCVGenCompressInstEmitter.inc",
+        "RISCVGenDAGISel.inc",
+        "RISCVGenDisassemblerTables.inc",
+        "RISCVGenGlobalISel.inc",
+        "RISCVGenInstrInfo.inc",
+        "RISCVGenMCCodeEmitter.inc",
+        "RISCVGenMCPseudoLowering.inc",
+        "RISCVGenRegisterBank.inc",
+        "RISCVGenRegisterInfo.inc",
+        "RISCVGenSearchableTables.inc",
+        "RISCVGenSubtargetInfo.inc",
+    ],
+}
+
+subdirs = ["*"]

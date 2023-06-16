@@ -1,0 +1,8 @@
+cc_library_static {
+    name: "libLLVM15RISCVInfo",
+    defaults: [
+        "llvm15-lib-defaults",
+        "llvm15-riscv-defaults",
+    ],
+    srcs: ["*.cpp"],
+}
