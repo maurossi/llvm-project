@@ -260,6 +260,14 @@ llvm_aarch64_static_libraries = [
     "libLLVM15AArch64Disassembler",
 ]
 
+llvm_riscv_static_libraries = [
+    "libLLVM15RISCVCodeGen",
+    "libLLVM15RISCVInfo",
+    "libLLVM15RISCVDesc",
+    "libLLVM15RISCVAsmParser",
+    "libLLVM15RISCVDisassembler",
+]
+
 llvm_amdgpu_static_libraries = [
     "libLLVM15AMDGPUCodeGen",
     "libLLVM15AMDGPUInfo",
@@ -393,6 +401,9 @@ cc_library_shared {
         android_arm64: {
             whole_static_libs: llvm_aarch64_static_libraries +
                 llvm_arm_static_libraries,
+        },
+        android_riscv64: {
+            whole_static_libs: llvm_riscv_static_libraries,
         },
     },
 }

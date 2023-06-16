@@ -31,10 +31,6 @@
 #elif defined(__i386__) || defined(__x86_64__)
   LLVM_ASM_PRINTER(X86)
 
-#if defined(FORCE_BUILD_AMDGPU)
-  LLVM_ASM_PRINTER(AMDGPU)
-#endif
-
 #if defined(FORCE_BUILD_ARM)
   LLVM_ASM_PRINTER(ARM)
   LLVM_ASM_PRINTER(AArch64)
@@ -43,8 +39,14 @@
 #elif defined(__aarch64__)
   LLVM_ASM_PRINTER(ARM)
   LLVM_ASM_PRINTER(AArch64)
+#elif defined(__riscv)
+  LLVM_ASM_PRINTER(RISCV)
 #else
 #  error Unsupported TARGET_ARCH for LLVM_ASM_PRINTER
+#endif
+
+#if defined(FORCE_BUILD_AMDGPU)
+  LLVM_ASM_PRINTER(AMDGPU)
 #endif
 
 #undef LLVM_ASM_PRINTER
