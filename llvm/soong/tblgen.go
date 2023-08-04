@@ -148,11 +148,11 @@ func outToGenerator(ctx android.ModuleContext, out string) string {
 	case strings.HasSuffix(out, "AArch64GenPostLegalizeGILowering.inc"):
 		return "-gen-global-isel-combiner-matchtable -combiners=\"AArch64PostLegalizerLowering\""
 	case strings.HasSuffix(out, "AMDGPUGenPreLegalizeGICombiner.inc"):
-		return "-gen-global-isel-combiner -combiners=\"AMDGPUPreLegalizerCombinerHelper\""
+		return "-gen-global-isel-combiner-matchtable -combiners=\"AMDGPUPreLegalizerCombiner\""
 	case strings.HasSuffix(out, "AMDGPUGenPostLegalizeGICombiner.inc"):
-		return "-gen-global-isel-combiner -combiners=\"AMDGPUPostLegalizerCombinerHelper\""
+		return "-gen-global-isel-combiner-matchtable -combiners=\"AMDGPUPostLegalizerCombiner\""
 	case strings.HasSuffix(out, "AMDGPUGenRegBankGICombiner.inc"):
-		return "-gen-global-isel-combiner -combiners=\"AMDGPURegBankCombinerHelper\""
+		return "-gen-global-isel-combiner-matchtable -combiners=\"AMDGPURegBankCombiner\""
 	case strings.HasSuffix(out, "GenGlobalISel.inc"):
 		return "-gen-global-isel"
 	case strings.HasSuffix(out, "RISCVTargetParserDef.inc"):
