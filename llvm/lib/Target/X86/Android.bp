@@ -50,6 +50,7 @@ llvm_tblgen {
         "X86GenEVEX2VEXTables.inc",
         "X86GenGlobalISel.inc",
         "X86GenMnemonicTables.inc",
+        "X86GenFoldTables.inc",
     ],
 }
 
