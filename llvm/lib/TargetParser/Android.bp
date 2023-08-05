@@ -1,10 +1,10 @@
 cc_library_static {
-    name: "libLLVMTargetParser",
+    name: "libLLVM17TargetParser",
     vendor_available: true,
-    defaults: ["llvm-defaults-no-generated-headers"],
+    defaults: ["llvm17-defaults-no-generated-headers"],
     target: {
-        // llvm-defaults turns off host builds by default, turn it back on for
-        // modules that are used to build llvm-tblgen
+        // llvm17-defaults turns off host builds by default, turn it back on for
+        // modules that are used to build llvm17-tblgen
         host: {
             enabled: true,
         },
@@ -12,7 +12,7 @@ cc_library_static {
             enabled: true,
         },
     },
-    generated_headers: ["llvm-gen-riscv-target-def"],
+    generated_headers: ["llvm17-gen-riscv-target-def"],
     srcs: [
         "*.cpp",
     ],

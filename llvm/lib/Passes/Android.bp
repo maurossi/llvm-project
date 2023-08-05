@@ -1,7 +1,7 @@
 cc_library_static {
-    name: "libLLVMPasses",
+    name: "libLLVM17Passes",
     defaults: [
-        "llvm-lib-defaults",
+        "llvm17-lib-defaults",
     ],
     srcs: ["*.cpp"],
 }

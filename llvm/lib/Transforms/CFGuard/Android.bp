@@ -1,7 +1,7 @@
 cc_library_static {
-    name: "libLLVMCFGuard",
+    name: "libLLVM17CFGuard",
     defaults: [
-        "llvm-lib-defaults",
+        "llvm17-lib-defaults",
     ],
     srcs: ["*.cpp"],
 }

@@ -1,8 +1,8 @@
 cc_library_static {
-    name: "libLLVMX86AsmPrinter",
+    name: "libLLVM17X86AsmPrinter",
     defaults: [
-        "llvm-lib-defaults",
-        "llvm-x86-defaults",
+        "llvm17-lib-defaults",
+        "llvm17-x86-defaults",
     ],
     srcs: ["*.cpp"],
 }

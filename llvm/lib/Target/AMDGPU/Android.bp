@@ -1,25 +1,25 @@
 cc_library_static {
-    name: "libLLVMAMDGPUCodeGen",
+    name: "libLLVM17AMDGPUCodeGen",
     defaults: [
-        "llvm-lib-defaults",
-        "llvm-amdgpu-defaults",
+        "llvm17-lib-defaults",
+        "llvm17-amdgpu-defaults",
     ],
     srcs: ["*.cpp"],
 }
 
 cc_defaults {
-    name: "llvm-amdgpu-defaults",
+    name: "llvm17-amdgpu-defaults",
     generated_headers: [
-        "llvm-gen-amdgpu",
-        "llvm-gen-amdgpuisel",
-        "llvm-gen-instcombine",
-        "llvm-gen-r600",
+        "llvm17-gen-amdgpu",
+        "llvm17-gen-amdgpuisel",
+        "llvm17-gen-instcombine",
+        "llvm17-gen-r600",
     ],
-    static_libs: ["llvm-amdgpu-headers"],
+    static_libs: ["llvm17-amdgpu-headers"],
 }
 
 cc_library_static {
-    name: "llvm-amdgpu-headers",
+    name: "llvm17-amdgpu-headers",
     host_supported: true,
     vendor_available: true,
     target: {
@@ -30,8 +30,8 @@ cc_library_static {
     export_include_dirs: ["."],
 }
 
-llvm_tblgen {
-    name: "llvm-gen-amdgpu",
+llvm17_tblgen {
+    name: "llvm17-gen-amdgpu",
     in: "AMDGPU.td",
     outs: [
         "AMDGPUGenRegisterInfo.inc",
@@ -51,8 +51,8 @@ llvm_tblgen {
     ],
 }
 
-llvm_tblgen {
-    name: "llvm-gen-amdgpuisel",
+llvm17_tblgen {
+    name: "llvm17-gen-amdgpuisel",
     in: "AMDGPUGISel.td",
     outs: [
         "AMDGPUGenGlobalISel.inc",
@@ -62,14 +62,14 @@ llvm_tblgen {
     ],
 }
 
-llvm_tblgen {
-    name: "llvm-gen-instcombine",
+llvm17_tblgen {
+    name: "llvm17-gen-instcombine",
     in: "InstCombineTables.td",
     outs: ["InstCombineTables.inc"],
 }
 
-llvm_tblgen {
-    name: "llvm-gen-r600",
+llvm17_tblgen {
+    name: "llvm17-gen-r600",
     in: "R600.td",
     outs: [
         "R600GenAsmWriter.inc",

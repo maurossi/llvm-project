@@ -1,7 +1,7 @@
 cc_library_static {
-    name: "libLLVMOrcTargetProcess",
+    name: "libLLVM17OrcTargetProcess",
     defaults: [
-        "llvm-lib-defaults",
+        "llvm17-lib-defaults",
     ],
     srcs: ["*.cpp"],
 }

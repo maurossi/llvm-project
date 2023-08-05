@@ -1,10 +1,10 @@
 cc_library_static {
-    name: "libLLVMSupport",
+    name: "libLLVM17Support",
     vendor_available: true,
-    defaults: ["llvm-defaults-no-generated-headers"],
+    defaults: ["llvm17-defaults-no-generated-headers"],
     target: {
-        // llvm-defaults turns off host builds by default, turn it back on for
-        // modules that are used to build llvm-tblgen
+        // llvm17-defaults turns off host builds by default, turn it back on for
+        // modules that are used to build llvm17-tblgen
         host: {
             enabled: true,
         },
@@ -43,10 +43,10 @@ cc_library_static {
 cc_library_static {
     name: "blake3_avx2",
     vendor_available: true,
-    defaults: ["llvm-defaults-no-generated-headers"],
+    defaults: ["llvm17-defaults-no-generated-headers"],
     target: {
-        // llvm-defaults turns off host builds by default, turn it back on for
-        // modules that are used to build llvm-tblgen
+        // llvm17-defaults turns off host builds by default, turn it back on for
+        // modules that are used to build llvm17-tblgen
         host: {
             enabled: true,
         },
@@ -69,10 +69,10 @@ cc_library_static {
 cc_library_static {
     name: "blake3_avx512",
     vendor_available: true,
-    defaults: ["llvm-defaults-no-generated-headers"],
+    defaults: ["llvm17-defaults-no-generated-headers"],
     target: {
-        // llvm-defaults turns off host builds by default, turn it back on for
-        // modules that are used to build llvm-tblgen
+        // llvm17-defaults turns off host builds by default, turn it back on for
+        // modules that are used to build llvm17-tblgen
         host: {
             enabled: true,
         },
@@ -96,10 +96,10 @@ cc_library_static {
 cc_library_static {
     name: "blake3_sse2",
     vendor_available: true,
-    defaults: ["llvm-defaults-no-generated-headers"],
+    defaults: ["llvm17-defaults-no-generated-headers"],
     target: {
-        // llvm-defaults turns off host builds by default, turn it back on for
-        // modules that are used to build llvm-tblgen
+        // llvm17-defaults turns off host builds by default, turn it back on for
+        // modules that are used to build llvm17-tblgen
         host: {
             enabled: true,
         },
@@ -122,10 +122,10 @@ cc_library_static {
 cc_library_static {
     name: "blake3_sse41",
     vendor_available: true,
-    defaults: ["llvm-defaults-no-generated-headers"],
+    defaults: ["llvm17-defaults-no-generated-headers"],
     target: {
-        // llvm-defaults turns off host builds by default, turn it back on for
-        // modules that are used to build llvm-tblgen
+        // llvm17-defaults turns off host builds by default, turn it back on for
+        // modules that are used to build llvm17-tblgen
         host: {
             enabled: true,
         },

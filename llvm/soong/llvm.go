@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package llvm
+package llvm17
 
 import (
 	"android/soong/android"
@@ -97,8 +97,8 @@ func forceBuildLlvmComponents(ctx android.LoadHookContext) {
 }
 
 func init() {
-	android.RegisterModuleType("llvm_defaults", llvmDefaultsFactory)
-	android.RegisterModuleType("force_build_llvm_components_defaults", forceBuildLlvmComponentsDefaultsFactory)
+	android.RegisterModuleType("llvm17_defaults", llvmDefaultsFactory)
+	android.RegisterModuleType("force_build_llvm17_components_defaults", forceBuildLlvmComponentsDefaultsFactory)
 }
 
 func llvmDefaultsFactory() android.Module {

@@ -1,12 +1,12 @@
 cc_library_static {
-    name: "libLLVMFrontendOpenMP",
+    name: "libLLVM17FrontendOpenMP",
     defaults: [
-        "llvm-lib-defaults",
+        "llvm17-lib-defaults",
     ],
     srcs: ["*.cpp"],
 }
 
 cc_defaults {
     name: "llvm-omp-defaults",
-    generated_headers: ["llvm-gen-omp_gen"],
+    generated_headers: ["llvm17-gen-omp_gen"],
 }
