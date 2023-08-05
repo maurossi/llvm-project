@@ -290,6 +290,7 @@ cc_library_shared {
         // pre static libraries
         "libLLVMLinker",
         "libLLVMipo",
+        "libLLVMDebugInfoBTF",
         "libLLVMDebugInfoDWARF",
         "libLLVMDebugInfoMSF",
         "libLLVMDebugInfoPDB",
