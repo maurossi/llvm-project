@@ -140,19 +140,19 @@ func outToGenerator(ctx android.ModuleContext, out string) string {
 	case strings.HasSuffix(out, "GenRegisterBank.inc"):
 		return "-gen-register-bank"
 	case strings.HasSuffix(out, "AArch64GenO0PreLegalizeGICombiner.inc"):
-		return "-gen-global-isel-combiner-matchtable -combiners=\"AArch64O0PreLegalizerCombiner\""
+		return "-gen-global-isel-combiner -combiners=\"AArch64O0PreLegalizerCombiner\""
 	case strings.HasSuffix(out, "AArch64GenPreLegalizeGICombiner.inc"):
-		return "--gen-global-isel-combiner-matchtable -combiners=\"AArch64PreLegalizerCombiner\""
+		return "--gen-global-isel-combiner -combiners=\"AArch64PreLegalizerCombiner\""
 	case strings.HasSuffix(out, "AArch64GenPostLegalizeGICombiner.inc"):
-		return "--gen-global-isel-combiner-matchtable -combiners=\"AArch64PostLegalizerCombiner\""
+		return "--gen-global-isel-combiner -combiners=\"AArch64PostLegalizerCombiner\""
 	case strings.HasSuffix(out, "AArch64GenPostLegalizeGILowering.inc"):
-		return "-gen-global-isel-combiner-matchtable -combiners=\"AArch64PostLegalizerLowering\""
+		return "-gen-global-isel-combiner -combiners=\"AArch64PostLegalizerLowering\""
 	case strings.HasSuffix(out, "AMDGPUGenPreLegalizeGICombiner.inc"):
-		return "-gen-global-isel-combiner-matchtable -combiners=\"AMDGPUPreLegalizerCombiner\""
+		return "-gen-global-isel-combiner -combiners=\"AMDGPUPreLegalizerCombiner\""
 	case strings.HasSuffix(out, "AMDGPUGenPostLegalizeGICombiner.inc"):
-		return "-gen-global-isel-combiner-matchtable -combiners=\"AMDGPUPostLegalizerCombiner\""
+		return "-gen-global-isel-combiner -combiners=\"AMDGPUPostLegalizerCombiner\""
 	case strings.HasSuffix(out, "AMDGPUGenRegBankGICombiner.inc"):
-		return "-gen-global-isel-combiner-matchtable -combiners=\"AMDGPURegBankCombiner\""
+		return "-gen-global-isel-combiner -combiners=\"AMDGPURegBankCombiner\""
 	case strings.HasSuffix(out, "GenGlobalISel.inc"):
 		return "-gen-global-isel"
 	case strings.HasSuffix(out, "RISCVTargetParserDef.inc"):
