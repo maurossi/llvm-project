@@ -350,6 +350,7 @@ cc_library_shared {
         "libLLVMInterfaceStub",
         "libLLVMDebuginfod",
         "libLLVMWindowsDriver",
+        "libLLVMHipStdPar",
     ],
 
     export_include_dirs: ["include"],
