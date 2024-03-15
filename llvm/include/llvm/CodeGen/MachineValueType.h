@@ -962,32 +962,32 @@ namespace llvm {
       case Metadata:
         llvm_unreachable("Value type is metadata.");
       case i1:
-      case v1i1: return TypeSize::Fixed(1);
-      case nxv1i1: return TypeSize::Scalable(1);
+      case v1i1: return TypeSize::getFixed(1);
+      case nxv1i1: return TypeSize::getScalable(1);
       case i2:
-      case v2i1: return TypeSize::Fixed(2);
-      case nxv2i1: return TypeSize::Scalable(2);
+      case v2i1: return TypeSize::getFixed(2);
+      case nxv2i1: return TypeSize::getScalable(2);
       case i4:
-      case v4i1: return TypeSize::Fixed(4);
-      case nxv4i1: return TypeSize::Scalable(4);
+      case v4i1: return TypeSize::getFixed(4);
+      case nxv4i1: return TypeSize::getScalable(4);
       case i8  :
       case v1i8:
-      case v8i1: return TypeSize::Fixed(8);
+      case v8i1: return TypeSize::getFixed(8);
       case nxv1i8:
-      case nxv8i1: return TypeSize::Scalable(8);
+      case nxv8i1: return TypeSize::getScalable(8);
       case i16 :
       case f16:
       case bf16:
       case v16i1:
       case v2i8:
       case v1i16:
-      case v1f16: return TypeSize::Fixed(16);
+      case v1f16: return TypeSize::getFixed(16);
       case aarch64svcount:
       case nxv16i1:
       case nxv2i8:
       case nxv1i16:
       case nxv1bf16:
-      case nxv1f16: return TypeSize::Scalable(16);
+      case nxv1f16: return TypeSize::getScalable(16);
       case f32 :
       case i32 :
       case v32i1:
@@ -996,17 +996,17 @@ namespace llvm {
       case v2f16:
       case v2bf16:
       case v1f32:
-      case v1i32: return TypeSize::Fixed(32);
+      case v1i32: return TypeSize::getFixed(32);
       case nxv32i1:
       case nxv4i8:
       case nxv2i16:
       case nxv1i32:
       case nxv2f16:
       case nxv2bf16:
-      case nxv1f32: return TypeSize::Scalable(32);
+      case nxv1f32: return TypeSize::getScalable(32);
       case v3i16:
       case v3f16:
-      case v3bf16: return TypeSize::Fixed(48);
+      case v3bf16: return TypeSize::getFixed(48);
       case x86mmx:
       case f64 :
       case i64 :
@@ -1018,7 +1018,7 @@ namespace llvm {
       case v4f16:
       case v4bf16:
       case v2f32:
-      case v1f64: return TypeSize::Fixed(64);
+      case v1f64: return TypeSize::getFixed(64);
       case nxv64i1:
       case nxv8i8:
       case nxv4i16:
@@ -1027,10 +1027,10 @@ namespace llvm {
       case nxv4f16:
       case nxv4bf16:
       case nxv2f32:
-      case nxv1f64: return TypeSize::Scalable(64);
-      case f80 :  return TypeSize::Fixed(80);
+      case nxv1f64: return TypeSize::getScalable(64);
+      case f80 :  return TypeSize::getFixed(80);
       case v3i32:
-      case v3f32: return TypeSize::Fixed(96);
+      case v3f32: return TypeSize::getFixed(96);
       case f128:
       case ppcf128:
       case i128:
@@ -1043,7 +1043,7 @@ namespace llvm {
       case v8f16:
       case v8bf16:
       case v4f32:
-      case v2f64: return TypeSize::Fixed(128);
+      case v2f64: return TypeSize::getFixed(128);
       case nxv16i8:
       case nxv8i16:
       case nxv4i32:
@@ -1051,15 +1051,15 @@ namespace llvm {
       case nxv8f16:
       case nxv8bf16:
       case nxv4f32:
-      case nxv2f64: return TypeSize::Scalable(128);
+      case nxv2f64: return TypeSize::getScalable(128);
       case v5i32:
-      case v5f32: return TypeSize::Fixed(160);
+      case v5f32: return TypeSize::getFixed(160);
       case v6i32:
       case v3i64:
       case v6f32:
-      case v3f64: return TypeSize::Fixed(192);
+      case v3f64: return TypeSize::getFixed(192);
       case v7i32:
-      case v7f32: return TypeSize::Fixed(224);
+      case v7f32: return TypeSize::getFixed(224);
       case v256i1:
       case v128i2:
       case v64i4:
@@ -1070,7 +1070,7 @@ namespace llvm {
       case v16f16:
       case v16bf16:
       case v8f32:
-      case v4f64: return TypeSize::Fixed(256);
+      case v4f64: return TypeSize::getFixed(256);
       case nxv32i8:
       case nxv16i16:
       case nxv8i32:
@@ -1078,15 +1078,15 @@ namespace llvm {
       case nxv16f16:
       case nxv16bf16:
       case nxv8f32:
-      case nxv4f64: return TypeSize::Scalable(256);
+      case nxv4f64: return TypeSize::getScalable(256);
       case v9i32:
-      case v9f32: return TypeSize::Fixed(288);
+      case v9f32: return TypeSize::getFixed(288);
       case v10i32:
-      case v10f32: return TypeSize::Fixed(320);
+      case v10f32: return TypeSize::getFixed(320);
       case v11i32:
-      case v11f32: return TypeSize::Fixed(352);
+      case v11f32: return TypeSize::getFixed(352);
       case v12i32:
-      case v12f32: return TypeSize::Fixed(384);
+      case v12f32: return TypeSize::getFixed(384);
       case i64x8:
       case v512i1:
       case v256i2:
@@ -1098,7 +1098,7 @@ namespace llvm {
       case v32f16:
       case v32bf16:
       case v16f32:
-      case v8f64: return TypeSize::Fixed(512);
+      case v8f64: return TypeSize::getFixed(512);
       case nxv64i8:
       case nxv32i16:
       case nxv16i32:
@@ -1106,7 +1106,7 @@ namespace llvm {
       case nxv32f16:
       case nxv32bf16:
       case nxv16f32:
-      case nxv8f64: return TypeSize::Scalable(512);
+      case nxv8f64: return TypeSize::getScalable(512);
       case v1024i1:
       case v128i8:
       case v64i16:
@@ -1115,9 +1115,9 @@ namespace llvm {
       case v64f16:
       case v64bf16:
       case v32f32:
-      case v16f64: return TypeSize::Fixed(1024);
+      case v16f64: return TypeSize::getFixed(1024);
       case nxv32i32:
-      case nxv16i64: return TypeSize::Scalable(1024);
+      case nxv16i64: return TypeSize::getScalable(1024);
       case v2048i1:
       case v256i8:
       case v128i16:
@@ -1126,15 +1126,15 @@ namespace llvm {
       case v128f16:
       case v128bf16:
       case v64f32:
-      case v32f64: return TypeSize::Fixed(2048);
-      case nxv32i64: return TypeSize::Scalable(2048);
+      case v32f64: return TypeSize::getFixed(2048);
+      case nxv32i64: return TypeSize::getScalable(2048);
       case v512i8:
       case v256i16:
       case v128i32:
       case v64i64:
       case v256f16:
       case v128f32:
-      case v64f64:  return TypeSize::Fixed(4096);
+      case v64f64:  return TypeSize::getFixed(4096);
       case v1024i8:
       case v512i16:
       case v256i32:
@@ -1142,19 +1142,19 @@ namespace llvm {
       case v512f16:
       case v256f32:
       case x86amx:
-      case v128f64:  return TypeSize::Fixed(8192);
+      case v128f64:  return TypeSize::getFixed(8192);
       case v512i32:
       case v256i64:
       case v512f32:
-      case v256f64:  return TypeSize::Fixed(16384);
+      case v256f64:  return TypeSize::getFixed(16384);
       case v1024i32:
-      case v1024f32:  return TypeSize::Fixed(32768);
+      case v1024f32:  return TypeSize::getFixed(32768);
       case v2048i32:
-      case v2048f32:  return TypeSize::Fixed(65536);
+      case v2048f32:  return TypeSize::getFixed(65536);
       case funcref:
       case externref:
       case spirvbuiltin:
-        return TypeSize::Fixed(0); // opaque type
+        return TypeSize::getFixed(0); // opaque type
       }
     }
 
