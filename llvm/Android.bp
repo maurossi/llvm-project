@@ -351,6 +351,7 @@ cc_library_shared {
         "libLLVMDebuginfod",
         "libLLVMWindowsDriver",
         "libLLVMHipStdPar",
+        "libLLVMFrontendOffloading",
     ],
 
     export_include_dirs: ["include"],
