@@ -1,10 +1,10 @@
 cc_library_static {
-    name: "libLLVMTableGen",
-    defaults: ["llvm-defaults-no-generated-headers"],
+    name: "libLLVM18TableGen",
+    defaults: ["llvm18-defaults-no-generated-headers"],
     srcs: ["*.cpp"],
     target: {
-        // llvm-defaults turns off host builds by default, turn it back on for
-        // modules that are used to build llvm-tblgen
+        // llvm18-defaults turns off host builds by default, turn it back on for
+        // modules that are used to build llvm18-tblgen
         host: {
             enabled: true,
         },

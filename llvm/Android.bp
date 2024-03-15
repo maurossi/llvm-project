@@ -1,14 +1,14 @@
 cc_defaults {
-    name: "llvm-defaults",
-    defaults: ["llvm-defaults-no-generated-headers"],
-    header_libs: ["llvm-headers"],
+    name: "llvm18-defaults",
+    defaults: ["llvm18-defaults-no-generated-headers"],
+    header_libs: ["llvm18-headers"],
 }
 
 // This module defines all of the defaults used to compiled llvm, except for
 // the generated headers.  It is necessary to avoid a circular dependency
 // from the tblgen tool used to generate the headers to the generated headers.
 llvm_defaults {
-    name: "llvm-defaults-no-generated-headers",
+    name: "llvm18-defaults-no-generated-headers",
 
     host_supported: true,
     clang: true,
@@ -44,7 +44,7 @@ llvm_defaults {
         "-Wno-error=unreachable-code-loop-increment",
     ],
 
-    header_libs: ["llvm-headers-no-generated-headers"],
+    header_libs: ["llvm18-headers-no-generated-headers"],
 
     target: {
         android: {
@@ -99,7 +99,7 @@ llvm_defaults {
 }
 
 cc_library_headers {
-    name: "llvm-headers-no-generated-headers",
+    name: "llvm18-headers-no-generated-headers",
     vendor_available: true,
     host_supported: true,
     export_include_dirs: ["include"],
@@ -120,26 +120,26 @@ cc_library_headers {
 }
 
 cc_library_headers {
-    name: "llvm-headers",
+    name: "llvm18-headers",
     vendor_available: true,
     host_supported: true,
-    header_libs: ["llvm-headers-no-generated-headers"],
-    export_header_lib_headers: ["llvm-headers-no-generated-headers"],
+    header_libs: ["llvm18-headers-no-generated-headers"],
+    export_header_lib_headers: ["llvm18-headers-no-generated-headers"],
     generated_headers: [
-        "llvm-gen-attributes",
-        "llvm-gen-intrinsics",
-        "llvm-gen-revision",
-        "llvm-gen-extension",
-        "llvm-gen-omp_gen",
-        "llvm-gen-acc_gen",
+        "llvm18-gen-attributes",
+        "llvm18-gen-intrinsics",
+        "llvm18-gen-revision",
+        "llvm18-gen-extension",
+        "llvm18-gen-omp_gen",
+        "llvm18-gen-acc_gen",
     ],
     export_generated_headers: [
-        "llvm-gen-attributes",
-        "llvm-gen-intrinsics",
-        "llvm-gen-revision",
-        "llvm-gen-extension",
-        "llvm-gen-omp_gen",
-        "llvm-gen-acc_gen",
+        "llvm18-gen-attributes",
+        "llvm18-gen-intrinsics",
+        "llvm18-gen-revision",
+        "llvm18-gen-extension",
+        "llvm18-gen-omp_gen",
+        "llvm18-gen-acc_gen",
     ],
     target: {
         windows: {
@@ -148,14 +148,14 @@ cc_library_headers {
     },
 }
 
-llvm_tblgen {
-    name: "llvm-gen-attributes",
+llvm18_tblgen {
+    name: "llvm18-gen-attributes",
     in: "include/llvm/IR/Attributes.td",
     outs: ["llvm/IR/Attributes.inc"],
 }
 
-llvm_tblgen {
-    name: "llvm-gen-intrinsics",
+llvm18_tblgen {
+    name: "llvm18-gen-intrinsics",
     in: "include/llvm/IR/Intrinsics.td",
     outs: [
         "llvm/IR/IntrinsicEnums.inc",
@@ -180,8 +180,8 @@ llvm_tblgen {
     ],
 }
 
-llvm_tblgen {
-    name: "llvm-gen-omp_gen",
+llvm18_tblgen {
+    name: "llvm18-gen-omp_gen",
     in: "include/llvm/Frontend/OpenMP/OMP.td",
     outs: [
         "llvm/Frontend/OpenMP/OMP.h.inc",
@@ -189,8 +189,8 @@ llvm_tblgen {
     ],
 }
 
-llvm_tblgen {
-    name: "llvm-gen-acc_gen",
+llvm18_tblgen {
+    name: "llvm18-gen-acc_gen",
     in: "include/llvm/Frontend/OpenACC/ACC.td",
     outs: [
         "llvm/Frontend/OpenMP/ACC.h.inc",
@@ -198,14 +198,14 @@ llvm_tblgen {
     ],
 }
 
-llvm_tblgen {
-    name: "llvm-gen-riscv-target-def",
+llvm18_tblgen {
+    name: "llvm18-gen-riscv-target-def",
     in: "lib/Target/RISCV/RISCV.td",
     outs: ["llvm/TargetParser/RISCVTargetParserDef.inc"],
 }
 
 genrule {
-    name: "llvm-gen-revision",
+    name: "llvm18-gen-revision",
     out: ["llvm/Support/VCSRevision.h"],
     srcs: [".git/logs/HEAD*"],
     tool_files: ["git_sha1_gen.py"],
@@ -213,15 +213,15 @@ genrule {
 }
 
 genrule {
-    name: "llvm-gen-extension",
+    name: "llvm18-gen-extension",
     out: ["llvm/Support/Extension.def"],
     srcs: [".git/logs/HEAD*"],
     tool_files: ["utils/gn/secondary/llvm/include/llvm/Support/write_extension_def.py"],
     cmd: "python $(location utils/gn/secondary/llvm/include/llvm/Support/write_extension_def.py) --output $(out)",
 }
 
-force_build_llvm_components_defaults {
-    name: "force_build_llvm_components",
+force_build_llvm18_components_defaults {
+    name: "force_build_llvm18_components",
     // Host build disabled by soong/llvm.go unless FORCE_BUILD_LLVM_COMPONENTS
     // environment variable is set
 }
@@ -229,129 +229,129 @@ force_build_llvm_components_defaults {
 // LLVM shared library build
 
 llvm_arm_static_libraries = [
-    "libLLVMARMCodeGen",
-    "libLLVMARMAsmParser",
-    "libLLVMARMAsmPrinter",
-    "libLLVMARMInfo",
-    "libLLVMARMDesc",
-    "libLLVMARMDisassembler",
-    "libLLVMARMUtils",
+    "libLLVM18ARMCodeGen",
+    "libLLVM18ARMAsmParser",
+    "libLLVM18ARMAsmPrinter",
+    "libLLVM18ARMInfo",
+    "libLLVM18ARMDesc",
+    "libLLVM18ARMDisassembler",
+    "libLLVM18ARMUtils",
 ]
 
 llvm_x86_static_libraries = [
-    "libLLVMX86CodeGen",
-    "libLLVMX86Info",
-    "libLLVMX86Desc",
-    "libLLVMX86AsmParser",
-    "libLLVMX86AsmPrinter",
-    "libLLVMX86Utils",
-    "libLLVMX86Disassembler",
+    "libLLVM18X86CodeGen",
+    "libLLVM18X86Info",
+    "libLLVM18X86Desc",
+    "libLLVM18X86AsmParser",
+    "libLLVM18X86AsmPrinter",
+    "libLLVM18X86Utils",
+    "libLLVM18X86Disassembler",
 ]
 
 llvm_mips_static_libraries = [
-    "libLLVMMipsCodeGen",
-    "libLLVMMipsInfo",
-    "libLLVMMipsDesc",
-    "libLLVMMipsAsmParser",
-    "libLLVMMipsAsmPrinter",
-    "libLLVMMipsDisassembler",
+    "libLLVM18MipsCodeGen",
+    "libLLVM18MipsInfo",
+    "libLLVM18MipsDesc",
+    "libLLVM18MipsAsmParser",
+    "libLLVM18MipsAsmPrinter",
+    "libLLVM18MipsDisassembler",
 ]
 
 llvm_aarch64_static_libraries = [
-    "libLLVMAArch64CodeGen",
-    "libLLVMAArch64Info",
-    "libLLVMAArch64Desc",
-    "libLLVMAArch64AsmParser",
-    "libLLVMAArch64AsmPrinter",
-    "libLLVMAArch64Utils",
-    "libLLVMAArch64Disassembler",
+    "libLLVM18AArch64CodeGen",
+    "libLLVM18AArch64Info",
+    "libLLVM18AArch64Desc",
+    "libLLVM18AArch64AsmParser",
+    "libLLVM18AArch64AsmPrinter",
+    "libLLVM18AArch64Utils",
+    "libLLVM18AArch64Disassembler",
 ]
 
 llvm_amdgpu_static_libraries = [
-    "libLLVMAMDGPUCodeGen",
-    "libLLVMAMDGPUInfo",
-    "libLLVMAMDGPUDesc",
-    "libLLVMAMDGPUAsmParser",
-    "libLLVMAMDGPUAsmPrinter",
-    "libLLVMAMDGPUUtils",
-    "libLLVMAMDGPUDisassembler",
+    "libLLVM18AMDGPUCodeGen",
+    "libLLVM18AMDGPUInfo",
+    "libLLVM18AMDGPUDesc",
+    "libLLVM18AMDGPUAsmParser",
+    "libLLVM18AMDGPUAsmPrinter",
+    "libLLVM18AMDGPUUtils",
+    "libLLVM18AMDGPUDisassembler",
 ]
 
 
 cc_library_shared {
     host_supported: true,
     vendor_available: true,
-    name: "libLLVM",
+    name: "libLLVM18",
     defaults: [
-        "llvm-defaults",
-        "force_build_llvm_components",
+        "llvm18-defaults",
+        "force_build_llvm18_components",
     ],
 
     whole_static_libs: [
         // pre static libraries
-        "libLLVMLinker",
-        "libLLVMipo",
-        "libLLVMDebugInfoBTF",
-        "libLLVMDebugInfoDWARF",
-        "libLLVMDebugInfoMSF",
-        "libLLVMDebugInfoPDB",
-        "libLLVMSymbolize",
-        "libLLVMIRPrinter",
-        "libLLVMIRReader",
-        "libLLVMBitWriter",
-        "libLLVMBitReader",
-        "libLLVMPasses",
-        "libLLVMDemangle",
-        "libLLVMBitstreamReader",
+        "libLLVM18Linker",
+        "libLLVM18ipo",
+        "libLLVM18DebugInfoBTF",
+        "libLLVM18DebugInfoDWARF",
+        "libLLVM18DebugInfoMSF",
+        "libLLVM18DebugInfoPDB",
+        "libLLVM18Symbolize",
+        "libLLVM18IRPrinter",
+        "libLLVM18IRReader",
+        "libLLVM18BitWriter",
+        "libLLVM18BitReader",
+        "libLLVM18Passes",
+        "libLLVM18Demangle",
+        "libLLVM18BitstreamReader",
 
         // post static libraries
-        "libLLVMLTO",
-        "libLLVMAsmPrinter",
-        "libLLVMSelectionDAG",
-        "libLLVMCodeGen",
-        "libLLVMDebugInfoCodeView",
-        "libLLVMObject",
-        "libLLVMScalarOpts",
-        "libLLVMAggressiveInstCombine",
-        "libLLVMInstCombine",
-        "libLLVMInstrumentation",
-        "libLLVMTransformObjCARC",
-        "libLLVMTransformUtils",
-        "libLLVMAnalysis",
-        "libLLVMTarget",
-        "libLLVMTargetParser",
-        "libLLVMGlobalISel",
-        "libLLVMMCDisassembler",
-        "libLLVMMC",
-        "libLLVMMCParser",
-        "libLLVMCore",
-        "libLLVMAsmParser",
-        "libLLVMOption",
-        "libLLVMSupport",
-        "libLLVMVectorize",
-        "libLLVMProfileData",
-        "libLLVMProfileDataCoverage",
-        "libLLVMLibDriver",
-        "libLLVMExecutionEngine",
-        "libLLVMRuntimeDyld",
-        "libLLVMMCJIT",
-        "libLLVMOrcJIT",
-        "libLLVMBinaryFormat",
-        "libLLVMMIRParser",
-        "libLLVMRemarks",
-        "libLLVMJITLink",
-        "libLLVMCoroutines",
-        "libLLVMTextAPI",
-        "libLLVMCFGuard",
-        "libLLVMFrontendOpenMP",
-        "libLLVMHelloNew",
-        "libLLVMOrcShared",
-        "libLLVMOrcTargetProcess",
-        "libLLVMInterfaceStub",
-        "libLLVMDebuginfod",
-        "libLLVMWindowsDriver",
-        "libLLVMHipStdPar",
-        "libLLVMFrontendOffloading",
+        "libLLVM18LTO",
+        "libLLVM18AsmPrinter",
+        "libLLVM18SelectionDAG",
+        "libLLVM18CodeGen",
+        "libLLVM18DebugInfoCodeView",
+        "libLLVM18Object",
+        "libLLVM18ScalarOpts",
+        "libLLVM18AggressiveInstCombine",
+        "libLLVM18InstCombine",
+        "libLLVM18Instrumentation",
+        "libLLVM18TransformObjCARC",
+        "libLLVM18TransformUtils",
+        "libLLVM18Analysis",
+        "libLLVM18Target",
+        "libLLVM18TargetParser",
+        "libLLVM18GlobalISel",
+        "libLLVM18MCDisassembler",
+        "libLLVM18MC",
+        "libLLVM18MCParser",
+        "libLLVM18Core",
+        "libLLVM18AsmParser",
+        "libLLVM18Option",
+        "libLLVM18Support",
+        "libLLVM18Vectorize",
+        "libLLVM18ProfileData",
+        "libLLVM18ProfileDataCoverage",
+        "libLLVM18LibDriver",
+        "libLLVM18ExecutionEngine",
+        "libLLVM18RuntimeDyld",
+        "libLLVM18MCJIT",
+        "libLLVM18OrcJIT",
+        "libLLVM18BinaryFormat",
+        "libLLVM18MIRParser",
+        "libLLVM18Remarks",
+        "libLLVM18JITLink",
+        "libLLVM18Coroutines",
+        "libLLVM18TextAPI",
+        "libLLVM18CFGuard",
+        "libLLVM18FrontendOpenMP",
+        "libLLVM18HelloNew",
+        "libLLVM18OrcShared",
+        "libLLVM18OrcTargetProcess",
+        "libLLVM18InterfaceStub",
+        "libLLVM18Debuginfod",
+        "libLLVM18WindowsDriver",
+        "libLLVM18HipStdPar",
+        "libLLVM18FrontendOffloading",
     ],
 
     export_include_dirs: ["include"],

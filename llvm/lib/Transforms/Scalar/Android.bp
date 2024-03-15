@@ -1,7 +1,7 @@
 cc_library_static {
-    name: "libLLVMScalarOpts",
+    name: "libLLVM18ScalarOpts",
     defaults: [
-        "llvm-lib-defaults",
+        "llvm18-lib-defaults",
     ],
     srcs: ["*.cpp"],
 }
