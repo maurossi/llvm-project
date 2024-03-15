@@ -4,7 +4,10 @@ cc_library_static {
         "llvm-lib-defaults",
         "llvm-x86-defaults",
     ],
-    srcs: ["*.cpp"],
+    srcs: [
+        "*.cpp",
+        "GISel/*.cpp",
+    ],
 
     // b/llvm/31559947, b/llvm/31938382 clang-tidy segmentation fault.
     tidy_checks: [
