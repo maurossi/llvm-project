@@ -35,6 +35,7 @@ cc_library_static {
         "DependenceAnalysis.cpp",
         "DependenceGraphBuilder.cpp",
         "DevelopmentModeInlineAdvisor.cpp",
+        "DomConditionCache.cpp",
         "DomPrinter.cpp",
         "DomTreeUpdater.cpp",
         "DominanceFrontier.cpp",
@@ -104,6 +105,7 @@ cc_library_static {
         "ScalarEvolutionNormalization.cpp",
         "StackLifetime.cpp",
         "StackSafetyAnalysis.cpp",
+        "StructuralHash.cpp",
         "SyntheticCountsUtils.cpp",
         "TFLiteUtils.cpp",
         "TargetLibraryInfo.cpp",
@@ -119,6 +121,5 @@ cc_library_static {
         "ValueLatticeUtils.cpp",
         "ValueTracking.cpp",
         "VectorUtils.cpp",
-        "VFABIDemangling.cpp",
     ],
 }
