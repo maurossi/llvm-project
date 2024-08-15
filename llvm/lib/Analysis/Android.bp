@@ -56,8 +56,6 @@ cc_library_static {
         "InstructionPrecedenceTracking.cpp",
         "InstructionSimplify.cpp",
         "InteractiveModelRunner.cpp",
-        "Interval.cpp",
-        "IntervalPartition.cpp",
         "LazyBranchProbabilityInfo.cpp",
         "LazyBlockFrequencyInfo.cpp",
         "LazyCallGraph.cpp",
