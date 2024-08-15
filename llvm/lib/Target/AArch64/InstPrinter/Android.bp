@@ -1,8 +1,8 @@
 cc_library_static {
-    name: "libLLVMAArch64AsmPrinter",
+    name: "libLLVM17AArch64AsmPrinter",
     defaults: [
-        "llvm-lib-defaults",
-        "llvm-aarch64-defaults",
+        "llvm17-lib-defaults",
+        "llvm17-aarch64-defaults",
     ],
     srcs: ["*.cpp"],
 }

@@ -1,7 +1,7 @@
 cc_library_static {
-    name: "libLLVMDebugInfoMSF",
+    name: "libLLVM17DebugInfoMSF",
     defaults: [
-        "llvm-lib-defaults",
+        "llvm17-lib-defaults",
     ],
     srcs: ["*.cpp"],
 }
