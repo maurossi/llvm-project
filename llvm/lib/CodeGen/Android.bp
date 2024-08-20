@@ -1,15 +1,4 @@
 cc_library_static {
-    name: "libLLVMCodeGenTypes",
-    defaults: [
-        "llvm-lib-defaults",
-    ],
-    srcs: [
-        "LowLevelType.cpp",
-        // partial list of sources is intentional
-    ],
-}
-
-cc_library_static {
     name: "libLLVMCodeGen",
     defaults: [
         "llvm-lib-defaults",
