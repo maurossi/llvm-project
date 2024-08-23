@@ -195,6 +195,8 @@ func outToGenerator(ctx android.ModuleContext, out string) string {
 		return "-gen-intrinsic-enums -intrinsic-prefix=riscv"
 	case out == "IntrinsicsS390.h":
 		return "-gen-intrinsic-enums -intrinsic-prefix=s390"
+	case out == "IntrinsicsSPIRV.h":
+		return "-gen-intrinsic-enums -intrinsic-prefix=spv"
 	case out == "IntrinsicsWebAssembly.h":
 		return "-gen-intrinsic-enums -intrinsic-prefix=wasm"
 	case out == "IntrinsicsX86.h":
