@@ -42,8 +42,6 @@ llvm_tblgen {
         "AMDGPUGenDAGISel.inc",
         "AMDGPUGenCallingConv.inc",
         "AMDGPUGenSubtargetInfo.inc",
-        "AMDGPUGenIntrinsicEnums.inc",
-        "AMDGPUGenIntrinsicImpl.inc",
         "AMDGPUGenRegisterBank.inc",
         "AMDGPUGenMCPseudoLowering.inc",
         "AMDGPUGenSearchableTables.inc",
