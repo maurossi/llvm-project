@@ -1,46 +1,4 @@
 cc_binary_host {
-    // llvm-min-tablegen only contains a subset of backends necessary to
-    // build llvm/include. It must not depend on TableGen, as
-    // TableGen depends on this already to generate things such as
-    // ValueType definitions.
-    name: "llvm-min-tblgen",
-    defaults: ["llvm-defaults-no-generated-headers"],
-    srcs: [
-        "TableGen.cpp",
-        // partial list of sources is intentional
-    ],
-
-    static_libs: [
-        "libLLVMCodeGenTypes",
-        "libLLVMSupport",
-    ],
-
-    host_ldlibs: ["-lm"],
-    target: {
-        windows: {
-            enabled: false,
-        },
-        // llvm-defaults turns off host builds by default, turn it back on for
-        // modules that are used to build llvm-tblgen
-        host: {
-            enabled: true,
-        },
-        darwin: {
-            host_ldlibs: [
-                "-lpthread",
-                "-ldl",
-            ],
-        },
-        linux: {
-            host_ldlibs: [
-                "-lpthread",
-                "-ldl",
-            ],
-        },
-    },
-}
-
-cc_binary_host {
     name: "llvm-tblgen",
     defaults: ["llvm-defaults-no-generated-headers"],
     header_libs: ["llvm-headers"],
