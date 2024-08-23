@@ -1,7 +1,7 @@
 cc_library_static {
-    name: "libLLVMDebugInfoBTF",
+    name: "libLLVM17DebugInfoBTF",
     defaults: [
-        "llvm-lib-defaults",
+        "llvm17-lib-defaults",
     ],
     srcs: ["*.cpp"],
 }

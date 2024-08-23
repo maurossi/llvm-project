@@ -351,7 +351,7 @@ LC_ALL=C
 export LC_ALL
 
 # Globals.
-TBLGEN=llvm-tblgen
+TBLGEN=llvm17-tblgen
 LLVM_SRC_ROOT=
 
 # Command options.

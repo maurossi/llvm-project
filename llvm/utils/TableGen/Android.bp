@@ -1,6 +1,6 @@
 cc_library_static {
-    name: "libLLVMTableGenCommon",
-    defaults: ["llvm-defaults-no-generated-headers"],
+    name: "libLLVM17TableGenCommon",
+    defaults: ["llvm17-defaults-no-generated-headers"],
     srcs: [
         "Attributes.cpp",
         "CodeGenIntrinsics.cpp",
@@ -13,8 +13,8 @@ cc_library_static {
     ],
 
     static_libs: [
-        "libLLVMSupport",
-        "libLLVMTableGen",
+        "libLLVM17Support",
+        "libLLVM17TableGen",
     ],
 
     host_ldlibs: ["-lm"],
@@ -22,8 +22,8 @@ cc_library_static {
         windows: {
             enabled: false,
         },
-        // llvm-defaults turns off host builds by default, turn it back on for
-        // modules that are used to build llvm-tblgen
+        // llvm17-defaults turns off host builds by default, turn it back on for
+        // modules that are used to build llvm17-tblgen
         host: {
             enabled: true,
         },
@@ -43,9 +43,9 @@ cc_library_static {
 }
 
 cc_binary_host {
-    name: "llvm-tblgen",
-    defaults: ["llvm-defaults-no-generated-headers"],
-    header_libs: ["llvm-headers"],
+    name: "llvm17-tblgen",
+    defaults: ["llvm17-defaults-no-generated-headers"],
+    header_libs: ["llvm17-headers"],
     srcs: [
         "AsmMatcherEmitter.cpp",
         "AsmWriterEmitter.cpp",
@@ -105,10 +105,10 @@ cc_binary_host {
     ],
 
     static_libs: [
-        "libLLVMTableGenGlobalISel",
-        "libLLVMTableGenCommon",
-        "libLLVMTableGen",
-        "libLLVMSupport",
+        "libLLVM17TableGenGlobalISel",
+        "libLLVM17TableGenCommon",
+        "libLLVM17TableGen",
+        "libLLVM17Support",
     ],
 
     host_ldlibs: ["-lm"],
@@ -116,8 +116,8 @@ cc_binary_host {
         windows: {
             enabled: false,
         },
-        // llvm-defaults turns off host builds by default, turn it back on for
-        // modules that are used to build llvm-tblgen
+        // llvm17-defaults turns off host builds by default, turn it back on for
+        // modules that are used to build llvm17-tblgen
         host: {
             enabled: true,
         },

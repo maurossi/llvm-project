@@ -1,7 +1,7 @@
 cc_library_static {
-    name: "libLLVMTransformUtils",
+    name: "libLLVM17TransformUtils",
     defaults: [
-        "llvm-lib-defaults",
+        "llvm17-lib-defaults",
     ],
     srcs: ["*.cpp"],
 }
