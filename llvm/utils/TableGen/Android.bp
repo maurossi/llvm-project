@@ -1,10 +1,154 @@
+cc_library_static {
+    name: "libLLVMTableGenCommon",
+    defaults: ["llvm-defaults-no-generated-headers"],
+    srcs: [
+        "Attributes.cpp",
+        "CodeGenIntrinsics.cpp",
+        "DirectiveEmitter.cpp",
+        "IntrinsicEmitter.cpp",
+        "RISCVTargetDefEmitter.cpp",
+        "SDNodeProperties.cpp",
+        "VTEmitter.cpp",
+        // partial list of sources is intentional
+    ],
+
+    static_libs: [
+        "libLLVMSupport",
+        "libLLVMTableGen",
+    ],
+
+    host_ldlibs: ["-lm"],
+    target: {
+        windows: {
+            enabled: false,
+        },
+        // llvm-defaults turns off host builds by default, turn it back on for
+        // modules that are used to build llvm-tblgen
+        host: {
+            enabled: true,
+        },
+        darwin: {
+            host_ldlibs: [
+                "-lpthread",
+                "-ldl",
+            ],
+        },
+        linux: {
+            host_ldlibs: [
+                "-lpthread",
+                "-ldl",
+            ],
+        },
+    },
+}
+
+cc_binary_host {
+    // llvm-min-tablegen only contains a subset of backends necessary to
+    // build llvm/include. It must not depend on TableGen, as
+    // TableGen depends on this already to generate things such as
+    // ValueType definitions.
+    name: "llvm-min-tblgen",
+    defaults: ["llvm-defaults-no-generated-headers"],
+    srcs: [
+        "TableGen.cpp",
+        // partial list of sources is intentional
+    ],
+
+    static_libs: [
+        "libLLVMCodeGenTypes",
+        "libLLVMSupport",
+    ],
+
+    host_ldlibs: ["-lm"],
+    target: {
+        windows: {
+            enabled: false,
+        },
+        // llvm-defaults turns off host builds by default, turn it back on for
+        // modules that are used to build llvm-tblgen
+        host: {
+            enabled: true,
+        },
+        darwin: {
+            host_ldlibs: [
+                "-lpthread",
+                "-ldl",
+            ],
+        },
+        linux: {
+            host_ldlibs: [
+                "-lpthread",
+                "-ldl",
+            ],
+        },
+    },
+}
+
 cc_binary_host {
     name: "llvm-tblgen",
     defaults: ["llvm-defaults-no-generated-headers"],
-    srcs: ["*.cpp"],
+    header_libs: ["llvm-headers"],
+    srcs: [
+        "AsmMatcherEmitter.cpp",
+        "AsmWriterEmitter.cpp",
+        "AsmWriterInst.cpp",
+        "CTagsEmitter.cpp",
+        "CallingConvEmitter.cpp",
+        "CodeEmitterGen.cpp",
+        "CodeGenDAGPatterns.cpp",
+        "CodeGenHwModes.cpp",
+        "CodeGenInstAlias.cpp",
+        "CodeGenInstruction.cpp",
+        "CodeGenMapTable.cpp",
+        "CodeGenRegisters.cpp",
+        "CodeGenSchedule.cpp",
+        "CodeGenTarget.cpp",
+        "DAGISelEmitter.cpp",
+        "DAGISelMatcherEmitter.cpp",
+        "DAGISelMatcherGen.cpp",
+        "DAGISelMatcherOpt.cpp",
+        "DAGISelMatcher.cpp",
+        "DecoderEmitter.cpp",
+        "DFAEmitter.cpp",
+        "DFAPacketizerEmitter.cpp",
+        "DisassemblerEmitter.cpp",
+        "DXILEmitter.cpp",
+        "ExegesisEmitter.cpp",
+        "FastISelEmitter.cpp",
+        "GlobalISelCombinerEmitter.cpp",
+        "GlobalISelEmitter.cpp",
+        "GlobalISelMatchTable.cpp",
+        "GlobalISelMatchTableExecutorEmitter.cpp",
+        "InfoByHwMode.cpp",
+        "InstrInfoEmitter.cpp",
+        "InstrDocsEmitter.cpp",
+        "OptEmitter.cpp",
+        "OptParserEmitter.cpp",
+        "OptRSTEmitter.cpp",
+        "PredicateExpander.cpp",
+        "PseudoLoweringEmitter.cpp",
+        "CompressInstEmitter.cpp",
+        "MacroFusionPredicatorEmitter.cpp",
+        "RegisterBankEmitter.cpp",
+        "RegisterInfoEmitter.cpp",
+        "SearchableTableEmitter.cpp",
+        "SubtargetEmitter.cpp",
+        "SubtargetFeatureInfo.cpp",
+        "TableGen.cpp",
+        "Types.cpp",
+        "VarLenCodeEmitterGen.cpp",
+        "X86DisassemblerTables.cpp",
+        "X86CompressEVEXTablesEmitter.cpp",
+        "X86FoldTablesEmitter.cpp",
+        "X86MnemonicTables.cpp",
+        "X86ModRMFilters.cpp",
+        "X86RecognizableInstr.cpp",
+        "WebAssemblyDisassemblerEmitter.cpp",
+    ],
 
     static_libs: [
         "libLLVMTableGenGlobalISel",
+        "libLLVMTableGenCommon",
         "libLLVMTableGen",
         "libLLVMSupport",
     ],
