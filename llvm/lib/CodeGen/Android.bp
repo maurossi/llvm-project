@@ -1,7 +1,7 @@
 cc_library_static {
-    name: "libLLVMCodeGenTypes",
+    name: "libLLVM18CodeGenTypes",
     defaults: [
-        "llvm-lib-defaults",
+        "llvm18-lib-defaults",
     ],
     srcs: [
         "LowLevelType.cpp",
@@ -10,9 +10,9 @@ cc_library_static {
 }
 
 cc_library_static {
-    name: "libLLVMCodeGen",
+    name: "libLLVM18CodeGen",
     defaults: [
-        "llvm-lib-defaults",
+        "llvm18-lib-defaults",
     ],
     srcs: [
         "AggressiveAntiDepBreaker.cpp",
