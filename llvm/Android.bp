@@ -306,6 +306,7 @@ cc_library_shared {
         "libLLVMAsmPrinter",
         "libLLVMSelectionDAG",
         "libLLVMCodeGen",
+        "libLLVMCodeGenTypes",
         "libLLVMDebugInfoCodeView",
         "libLLVMObject",
         "libLLVMScalarOpts",
