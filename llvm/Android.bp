@@ -129,6 +129,7 @@ cc_library_headers {
         "llvm-gen-extension",
         "llvm-gen-omp_gen",
         "llvm-gen-acc_gen",
+        "llvm-gen-vt_gen",
     ],
     export_generated_headers: [
         "llvm-gen-attributes",
@@ -137,6 +138,7 @@ cc_library_headers {
         "llvm-gen-extension",
         "llvm-gen-omp_gen",
         "llvm-gen-acc_gen",
+        "llvm-gen-vt_gen",
     ],
     target: {
         windows: {
@@ -145,13 +147,13 @@ cc_library_headers {
     },
 }
 
-llvm_tblgen {
+llvm_min_tblgen {
     name: "llvm-gen-attributes",
     in: "include/llvm/IR/Attributes.td",
     outs: ["llvm/IR/Attributes.inc"],
 }
 
-llvm_tblgen {
+llvm_min_tblgen {
     name: "llvm-gen-intrinsics",
     in: "include/llvm/IR/Intrinsics.td",
     outs: [
@@ -177,7 +179,7 @@ llvm_tblgen {
     ],
 }
 
-llvm_tblgen {
+llvm_min_tblgen {
     name: "llvm-gen-omp_gen",
     in: "include/llvm/Frontend/OpenMP/OMP.td",
     outs: [
@@ -186,7 +188,7 @@ llvm_tblgen {
     ],
 }
 
-llvm_tblgen {
+llvm_min_tblgen {
     name: "llvm-gen-acc_gen",
     in: "include/llvm/Frontend/OpenACC/ACC.td",
     outs: [
@@ -195,10 +197,16 @@ llvm_tblgen {
     ],
 }
 
-llvm_tblgen {
+llvm_min_tblgen {
     name: "llvm-gen-riscv-target-def",
     in: "lib/Target/RISCV/RISCV.td",
     outs: ["llvm/TargetParser/RISCVTargetParserDef.inc"],
+}
+
+llvm_min_tblgen {
+    name: "llvm-gen-vt_gen",
+    in: "include/llvm/CodeGen/ValueTypes.td",
+    outs: ["llvm/CodeGen/GenVT.inc"],
 }
 
 genrule {

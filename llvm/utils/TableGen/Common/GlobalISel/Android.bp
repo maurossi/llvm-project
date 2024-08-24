@@ -1,6 +1,7 @@
 cc_library_static {
     name: "libLLVMTableGenGlobalISel",
     defaults: ["llvm-defaults-no-generated-headers"],
+    header_libs: ["llvm-headers"],
     srcs: ["*.cpp"],
 
     static_libs: [
