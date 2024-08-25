@@ -203,6 +203,18 @@ llvm_min_tblgen {
     outs: ["llvm/TargetParser/RISCVTargetParserDef.inc"],
 }
 
+llvm_tblgen {
+    name: "llvm-gen-arm-target-def",
+    in: "lib/Target/ARM/ARM.td",
+    outs: ["llvm/TargetParser/ARMTargetParserDef.inc"],
+}
+
+llvm_tblgen {
+    name: "llvm-gen-aarch64-target-def",
+    in: "lib/Target/AArch64/AArch64.td",
+    outs: ["llvm/TargetParser/AArch64TargetParserDef.inc"],
+}
+
 llvm_min_tblgen {
     name: "llvm-gen-vt_gen",
     in: "include/llvm/CodeGen/ValueTypes.td",

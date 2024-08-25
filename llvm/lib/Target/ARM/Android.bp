@@ -15,7 +15,10 @@ cc_library_static {
 
 cc_defaults {
     name: "llvm-arm-defaults",
-    generated_headers: ["llvm-gen-arm"],
+    generated_headers: [
+        "llvm-gen-arm",
+        "llvm-gen-arm-target-def",
+    ],
     static_libs: ["llvm-arm-headers"],
 }
 
