@@ -50,7 +50,7 @@ llvm_tblgen {
         "X86GenSubtargetInfo.inc",
         "X86GenCallingConv.inc",
         "X86GenRegisterBank.inc",
-        "X86GenCompressEVEXTables.inc",
+        "X86GenInstrMapping.inc",
         "X86GenGlobalISel.inc",
         "X86GenMnemonicTables.inc",
         "X86GenFoldTables.inc",
