@@ -3,6 +3,7 @@ cc_binary_host {
     defaults: ["llvm-defaults-no-generated-headers"],
     header_libs: ["llvm-headers"],
     srcs: [
+        "ARMTargetDefEmitter.cpp",
         "AsmMatcherEmitter.cpp",
         "AsmWriterEmitter.cpp",
         "Attributes.cpp",

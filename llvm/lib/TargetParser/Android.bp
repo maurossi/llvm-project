@@ -12,7 +12,11 @@ cc_library_static {
             enabled: true,
         },
     },
-    generated_headers: ["llvm-gen-riscv-target-def"],
+    generated_headers: [
+        "llvm-gen-arm-target-def",
+        "llvm-gen-aarch64-target-def",
+        "llvm-gen-riscv-target-def",
+    ],
     srcs: [
         "*.cpp",
     ],
