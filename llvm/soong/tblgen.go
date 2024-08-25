@@ -157,6 +157,8 @@ func outToGenerator(ctx android.ModuleContext, out string) string {
 		return "-gen-global-isel"
 	case strings.HasSuffix(out, "RISCVTargetParserDef.inc"):
 		return "-gen-riscv-target-def"
+	case strings.HasSuffix(out, "TargetParserDef.inc"):
+		return "-gen-arm-target-def"
 	case strings.HasSuffix(out, "X86GenCompressEVEXTables.inc"):
 		return "-gen-x86-compress-evex-tables"
 	case strings.HasSuffix(out, "X86GenMnemonicTables.inc"):
