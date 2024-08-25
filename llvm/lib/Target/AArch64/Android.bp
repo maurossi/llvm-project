@@ -12,7 +12,10 @@ cc_library_static {
 
 cc_defaults {
     name: "llvm-aarch64-defaults",
-    generated_headers: ["llvm-gen-aarch64"],
+    generated_headers: [
+        "llvm-gen-aarch64",
+        "llvm-gen-aarch64-target-def",
+    ],
     static_libs: ["llvm-aarch64-headers"],
 }
 
