@@ -1,7 +1,7 @@
 cc_library_static {
-    name: "libLLVMMCDisassembler",
+    name: "libLLVM19MCDisassembler",
     defaults: [
-        "llvm-lib-defaults",
+        "llvm19-lib-defaults",
     ],
     srcs: ["*.cpp"],
 }

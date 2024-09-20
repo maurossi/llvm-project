@@ -1,9 +1,9 @@
 cc_library_static {
-    name: "libLLVMTableGenCommon",
-    defaults: ["llvm-defaults-no-generated-headers"],
+    name: "libLLVM19TableGenCommon",
+    defaults: ["llvm19-defaults-no-generated-headers"],
     header_libs: [
-        "llvm-tblgen-headers",
-        "llvm-headers",
+        "llvm19-tblgen-headers",
+        "llvm19-headers",
     ],
     srcs: [
         "GlobalISel/*.cpp",
@@ -11,7 +11,7 @@ cc_library_static {
     ],
 
     static_libs: [
-        "libLLVMSupport",
+        "libLLVM19Support",
     ],
 
     host_ldlibs: ["-lm"],
@@ -19,8 +19,8 @@ cc_library_static {
         windows: {
             enabled: false,
         },
-        // llvm-defaults turns off host builds by default, turn it back on for
-        // modules that are used to build llvm-tblgen
+        // llvm19-defaults turns off host builds by default, turn it back on for
+        // modules that are used to build llvm19-tblgen
         host: {
             enabled: true,
         },

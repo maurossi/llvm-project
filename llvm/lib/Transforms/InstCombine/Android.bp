@@ -1,7 +1,7 @@
 cc_library_static {
-    name: "libLLVMInstCombine",
+    name: "libLLVM19InstCombine",
     defaults: [
-        "llvm-lib-defaults",
+        "llvm19-lib-defaults",
     ],
     srcs: ["*.cpp"],
 }

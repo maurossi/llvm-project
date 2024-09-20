@@ -1,7 +1,7 @@
 cc_binary_host {
-    name: "llvm-tblgen",
-    defaults: ["llvm-defaults-no-generated-headers"],
-    header_libs: ["llvm-headers"],
+    name: "llvm19-tblgen",
+    defaults: ["llvm19-defaults-no-generated-headers"],
+    header_libs: ["llvm19-headers"],
     srcs: [
         "ARMTargetDefEmitter.cpp",
         "AsmMatcherEmitter.cpp",
@@ -50,10 +50,10 @@ cc_binary_host {
     ],
 
     static_libs: [
-        "libLLVMTableGenBasic",
-        "libLLVMTableGenCommon",
-        "libLLVMTableGen",
-        "libLLVMSupport",
+        "libLLVM19TableGenBasic",
+        "libLLVM19TableGenCommon",
+        "libLLVM19TableGen",
+        "libLLVM19Support",
     ],
 
     host_ldlibs: ["-lm"],
@@ -61,8 +61,8 @@ cc_binary_host {
         windows: {
             enabled: false,
         },
-        // llvm-defaults turns off host builds by default, turn it back on for
-        // modules that are used to build llvm-tblgen
+        // llvm19-defaults turns off host builds by default, turn it back on for
+        // modules that are used to build llvm19-tblgen
         host: {
             enabled: true,
         },
@@ -82,7 +82,7 @@ cc_binary_host {
 }
 
 cc_library_headers {
-    name: "llvm-tblgen-headers",
+    name: "llvm19-tblgen-headers",
     host_supported: true,
     vendor_available: true,
     target: {

@@ -1,7 +1,7 @@
 cc_library_static {
-    name: "libLLVMCodeGenTypes",
+    name: "libLLVM19CodeGenTypes",
     defaults: [
-        "llvm-lib-defaults",
+        "llvm19-lib-defaults",
     ],
     srcs: [
         "LowLevelType.cpp",
