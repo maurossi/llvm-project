@@ -145,6 +145,8 @@ func min_tblgen_outToGenerator(ctx android.ModuleContext, out string) string {
 		return "--gen-vt"
 	case strings.HasSuffix(out, "RISCVTargetParserDef.inc"):
 		return "-gen-riscv-target-def"
+	case strings.HasSuffix(out, "TargetParserDef.inc"):
+		return "-gen-arm-target-def"
 	}
 
 	ctx.ModuleErrorf("couldn't map output file %q to a generator", out)
