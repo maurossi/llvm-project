@@ -372,6 +372,7 @@ cc_library_shared {
         "libLLVMHipStdPar",
         "libLLVMFrontendOffloading",
         "libLLVMCGData",
+        "libLLVMFrontendAtomic",
     ],
 
     export_include_dirs: ["include"],
