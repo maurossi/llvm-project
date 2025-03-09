@@ -1,8 +1,8 @@
 cc_library_static {
-    name: "libLLVMAMDGPUInfo",
+    name: "libLLVM20AMDGPUInfo",
     defaults: [
-        "llvm-lib-defaults",
-        "llvm-amdgpu-defaults",
+        "llvm20-lib-defaults",
+        "llvm20-amdgpu-defaults",
     ],
     srcs: ["*.cpp"],
 }

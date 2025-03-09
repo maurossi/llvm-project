@@ -1,14 +1,14 @@
 cc_defaults {
-    name: "llvm-defaults",
-    defaults: ["llvm-defaults-no-generated-headers"],
-    header_libs: ["llvm-headers"],
+    name: "llvm20-defaults",
+    defaults: ["llvm20-defaults-no-generated-headers"],
+    header_libs: ["llvm20-headers"],
 }
 
 // This module defines all of the defaults used to compiled llvm, except for
 // the generated headers.  It is necessary to avoid a circular dependency
 // from the tblgen tool used to generate the headers to the generated headers.
 llvm_defaults {
-    name: "llvm-defaults-no-generated-headers",
+    name: "llvm20-defaults-no-generated-headers",
 
     host_supported: true,
 
@@ -42,7 +42,7 @@ llvm_defaults {
         "-std=c++17",
     ],
 
-    header_libs: ["llvm-headers-no-generated-headers"],
+    header_libs: ["llvm20-headers-no-generated-headers"],
 
     target: {
         android: {
@@ -97,7 +97,7 @@ llvm_defaults {
 }
 
 cc_library_headers {
-    name: "llvm-headers-no-generated-headers",
+    name: "llvm20-headers-no-generated-headers",
     vendor_available: true,
     host_supported: true,
     export_include_dirs: ["include"],
@@ -118,28 +118,28 @@ cc_library_headers {
 }
 
 cc_library_headers {
-    name: "llvm-headers",
+    name: "llvm20-headers",
     vendor_available: true,
     host_supported: true,
-    header_libs: ["llvm-headers-no-generated-headers"],
-    export_header_lib_headers: ["llvm-headers-no-generated-headers"],
+    header_libs: ["llvm20-headers-no-generated-headers"],
+    export_header_lib_headers: ["llvm20-headers-no-generated-headers"],
     generated_headers: [
-        "llvm-gen-attributes",
-        "llvm-gen-intrinsics",
-        "llvm-gen-revision",
-        "llvm-gen-extension",
-        "llvm-gen-omp_gen",
-        "llvm-gen-acc_gen",
-        "llvm-gen-vt_gen",
+        "llvm20-gen-attributes",
+        "llvm20-gen-intrinsics",
+        "llvm20-gen-revision",
+        "llvm20-gen-extension",
+        "llvm20-gen-omp_gen",
+        "llvm20-gen-acc_gen",
+        "llvm20-gen-vt_gen",
     ],
     export_generated_headers: [
-        "llvm-gen-attributes",
-        "llvm-gen-intrinsics",
-        "llvm-gen-revision",
-        "llvm-gen-extension",
-        "llvm-gen-omp_gen",
-        "llvm-gen-acc_gen",
-        "llvm-gen-vt_gen",
+        "llvm20-gen-attributes",
+        "llvm20-gen-intrinsics",
+        "llvm20-gen-revision",
+        "llvm20-gen-extension",
+        "llvm20-gen-omp_gen",
+        "llvm20-gen-acc_gen",
+        "llvm20-gen-vt_gen",
     ],
     target: {
         windows: {
@@ -148,14 +148,14 @@ cc_library_headers {
     },
 }
 
-llvm_min_tblgen {
-    name: "llvm-gen-attributes",
+llvm20_min_tblgen {
+    name: "llvm20-gen-attributes",
     in: "include/llvm/IR/Attributes.td",
     outs: ["llvm/IR/Attributes.inc"],
 }
 
-llvm_min_tblgen {
-    name: "llvm-gen-intrinsics",
+llvm20_min_tblgen {
+    name: "llvm20-gen-intrinsics",
     in: "include/llvm/IR/Intrinsics.td",
     outs: [
         "llvm/IR/IntrinsicEnums.inc",
@@ -181,8 +181,8 @@ llvm_min_tblgen {
     ],
 }
 
-llvm_min_tblgen {
-    name: "llvm-gen-omp_gen",
+llvm20_min_tblgen {
+    name: "llvm20-gen-omp_gen",
     in: "include/llvm/Frontend/OpenMP/OMP.td",
     outs: [
         "llvm/Frontend/OpenMP/OMP.h.inc",
@@ -190,8 +190,8 @@ llvm_min_tblgen {
     ],
 }
 
-llvm_min_tblgen {
-    name: "llvm-gen-acc_gen",
+llvm20_min_tblgen {
+    name: "llvm20-gen-acc_gen",
     in: "include/llvm/Frontend/OpenACC/ACC.td",
     outs: [
         "llvm/Frontend/OpenMP/ACC.h.inc",
@@ -199,32 +199,32 @@ llvm_min_tblgen {
     ],
 }
 
-llvm_min_tblgen {
-    name: "llvm-gen-riscv-target-def",
+llvm20_min_tblgen {
+    name: "llvm20-gen-riscv-target-def",
     in: "lib/Target/RISCV/RISCV.td",
     outs: ["llvm/TargetParser/RISCVTargetParserDef.inc"],
 }
 
-llvm_min_tblgen {
-    name: "llvm-gen-arm-target-def",
+llvm20_min_tblgen {
+    name: "llvm20-gen-arm-target-def",
     in: "lib/Target/ARM/ARM.td",
     outs: ["llvm/TargetParser/ARMTargetParserDef.inc"],
 }
 
-llvm_min_tblgen {
-    name: "llvm-gen-aarch64-target-def",
+llvm20_min_tblgen {
+    name: "llvm20-gen-aarch64-target-def",
     in: "lib/Target/AArch64/AArch64.td",
     outs: ["llvm/TargetParser/AArch64TargetParserDef.inc"],
 }
 
-llvm_min_tblgen {
-    name: "llvm-gen-vt_gen",
+llvm20_min_tblgen {
+    name: "llvm20-gen-vt_gen",
     in: "include/llvm/CodeGen/ValueTypes.td",
     outs: ["llvm/CodeGen/GenVT.inc"],
 }
 
 genrule {
-    name: "llvm-gen-revision",
+    name: "llvm20-gen-revision",
     out: ["llvm/Support/VCSRevision.h"],
     srcs: [".git/logs/HEAD*"],
     tool_files: ["git_sha1_gen.py"],
@@ -232,15 +232,15 @@ genrule {
 }
 
 genrule {
-    name: "llvm-gen-extension",
+    name: "llvm20-gen-extension",
     out: ["llvm/Support/Extension.def"],
     srcs: [".git/logs/HEAD*"],
     tool_files: ["utils/gn/secondary/llvm/include/llvm/Support/write_extension_def.py"],
     cmd: "python $(location utils/gn/secondary/llvm/include/llvm/Support/write_extension_def.py) --output $(out)",
 }
 
-force_build_llvm_components_defaults {
-    name: "force_build_llvm_components",
+force_build_llvm20_components_defaults {
+    name: "force_build_llvm20_components",
     // Host build disabled by soong/llvm.go unless FORCE_BUILD_LLVM_COMPONENTS
     // environment variable is set
 }
@@ -248,133 +248,133 @@ force_build_llvm_components_defaults {
 // LLVM shared library build
 
 llvm_arm_static_libraries = [
-    "libLLVMARMCodeGen",
-    "libLLVMARMAsmParser",
-    "libLLVMARMAsmPrinter",
-    "libLLVMARMInfo",
-    "libLLVMARMDesc",
-    "libLLVMARMDisassembler",
-    "libLLVMARMUtils",
+    "libLLVM20ARMCodeGen",
+    "libLLVM20ARMAsmParser",
+    "libLLVM20ARMAsmPrinter",
+    "libLLVM20ARMInfo",
+    "libLLVM20ARMDesc",
+    "libLLVM20ARMDisassembler",
+    "libLLVM20ARMUtils",
 ]
 
 llvm_x86_static_libraries = [
-    "libLLVMX86CodeGen",
-    "libLLVMX86Info",
-    "libLLVMX86Desc",
-    "libLLVMX86AsmParser",
-    "libLLVMX86AsmPrinter",
-    "libLLVMX86Utils",
-    "libLLVMX86Disassembler",
+    "libLLVM20X86CodeGen",
+    "libLLVM20X86Info",
+    "libLLVM20X86Desc",
+    "libLLVM20X86AsmParser",
+    "libLLVM20X86AsmPrinter",
+    "libLLVM20X86Utils",
+    "libLLVM20X86Disassembler",
 ]
 
 llvm_mips_static_libraries = [
-    "libLLVMMipsCodeGen",
-    "libLLVMMipsInfo",
-    "libLLVMMipsDesc",
-    "libLLVMMipsAsmParser",
-    "libLLVMMipsAsmPrinter",
-    "libLLVMMipsDisassembler",
+    "libLLVM20MipsCodeGen",
+    "libLLVM20MipsInfo",
+    "libLLVM20MipsDesc",
+    "libLLVM20MipsAsmParser",
+    "libLLVM20MipsAsmPrinter",
+    "libLLVM20MipsDisassembler",
 ]
 
 llvm_aarch64_static_libraries = [
-    "libLLVMAArch64CodeGen",
-    "libLLVMAArch64Info",
-    "libLLVMAArch64Desc",
-    "libLLVMAArch64AsmParser",
-    "libLLVMAArch64AsmPrinter",
-    "libLLVMAArch64Utils",
-    "libLLVMAArch64Disassembler",
+    "libLLVM20AArch64CodeGen",
+    "libLLVM20AArch64Info",
+    "libLLVM20AArch64Desc",
+    "libLLVM20AArch64AsmParser",
+    "libLLVM20AArch64AsmPrinter",
+    "libLLVM20AArch64Utils",
+    "libLLVM20AArch64Disassembler",
 ]
 
 llvm_amdgpu_static_libraries = [
-    "libLLVMAMDGPUCodeGen",
-    "libLLVMAMDGPUInfo",
-    "libLLVMAMDGPUDesc",
-    "libLLVMAMDGPUAsmParser",
-    "libLLVMAMDGPUAsmPrinter",
-    "libLLVMAMDGPUUtils",
-    "libLLVMAMDGPUDisassembler",
+    "libLLVM20AMDGPUCodeGen",
+    "libLLVM20AMDGPUInfo",
+    "libLLVM20AMDGPUDesc",
+    "libLLVM20AMDGPUAsmParser",
+    "libLLVM20AMDGPUAsmPrinter",
+    "libLLVM20AMDGPUUtils",
+    "libLLVM20AMDGPUDisassembler",
 ]
 
 
 cc_library_shared {
     host_supported: true,
     vendor_available: true,
-    name: "libLLVM",
+    name: "libLLVM20",
     defaults: [
-        "llvm-defaults",
-        "force_build_llvm_components",
+        "llvm20-defaults",
+        "force_build_llvm20_components",
     ],
 
     whole_static_libs: [
         // pre static libraries
-        "libLLVMLinker",
-        "libLLVMipo",
-        "libLLVMDebugInfoBTF",
-        "libLLVMDebugInfoDWARF",
-        "libLLVMDebugInfoMSF",
-        "libLLVMDebugInfoPDB",
-        "libLLVMSymbolize",
-        "libLLVMIRPrinter",
-        "libLLVMIRReader",
-        "libLLVMBitWriter",
-        "libLLVMBitReader",
-        "libLLVMPasses",
-        "libLLVMDemangle",
-        "libLLVMBitstreamReader",
+        "libLLVM20Linker",
+        "libLLVM20ipo",
+        "libLLVM20DebugInfoBTF",
+        "libLLVM20DebugInfoDWARF",
+        "libLLVM20DebugInfoMSF",
+        "libLLVM20DebugInfoPDB",
+        "libLLVM20Symbolize",
+        "libLLVM20IRPrinter",
+        "libLLVM20IRReader",
+        "libLLVM20BitWriter",
+        "libLLVM20BitReader",
+        "libLLVM20Passes",
+        "libLLVM20Demangle",
+        "libLLVM20BitstreamReader",
 
         // post static libraries
-        "libLLVMLTO",
-        "libLLVMAsmPrinter",
-        "libLLVMSelectionDAG",
-        "libLLVMCodeGen",
-        "libLLVMCodeGenTypes",
-        "libLLVMDebugInfoCodeView",
-        "libLLVMObject",
-        "libLLVMScalarOpts",
-        "libLLVMAggressiveInstCombine",
-        "libLLVMInstCombine",
-        "libLLVMInstrumentation",
-        "libLLVMTransformObjCARC",
-        "libLLVMTransformUtils",
-        "libLLVMAnalysis",
-        "libLLVMTarget",
-        "libLLVMTargetParser",
-        "libLLVMGlobalISel",
-        "libLLVMMCDisassembler",
-        "libLLVMMC",
-        "libLLVMMCParser",
-        "libLLVMCore",
-        "libLLVMAsmParser",
-        "libLLVMOption",
-        "libLLVMSupport",
-        "libLLVMVectorize",
-        "libLLVMProfileData",
-        "libLLVMProfileDataCoverage",
-        "libLLVMLibDriver",
-        "libLLVMExecutionEngine",
-        "libLLVMRuntimeDyld",
-        "libLLVMMCJIT",
-        "libLLVMOrcJIT",
-        "libLLVMBinaryFormat",
-        "libLLVMMIRParser",
-        "libLLVMRemarks",
-        "libLLVMJITLink",
-        "libLLVMCoroutines",
-        "libLLVMTextAPI",
-        "libLLVMCFGuard",
-        "libLLVMFrontendOpenMP",
-        "libLLVMHelloNew",
-        "libLLVMOrcShared",
-        "libLLVMOrcTargetProcess",
-        "libLLVMInterfaceStub",
-        "libLLVMDebuginfod",
-        "libLLVMWindowsDriver",
-        "libLLVMHipStdPar",
-        "libLLVMFrontendOffloading",
-        "libLLVMCGData",
-        "libLLVMFrontendAtomic",
-        "libLLVMSandboxIR",
+        "libLLVM20LTO",
+        "libLLVM20AsmPrinter",
+        "libLLVM20SelectionDAG",
+        "libLLVM20CodeGen",
+        "libLLVM20CodeGenTypes",
+        "libLLVM20DebugInfoCodeView",
+        "libLLVM20Object",
+        "libLLVM20ScalarOpts",
+        "libLLVM20AggressiveInstCombine",
+        "libLLVM20InstCombine",
+        "libLLVM20Instrumentation",
+        "libLLVM20TransformObjCARC",
+        "libLLVM20TransformUtils",
+        "libLLVM20Analysis",
+        "libLLVM20Target",
+        "libLLVM20TargetParser",
+        "libLLVM20GlobalISel",
+        "libLLVM20MCDisassembler",
+        "libLLVM20MC",
+        "libLLVM20MCParser",
+        "libLLVM20Core",
+        "libLLVM20AsmParser",
+        "libLLVM20Option",
+        "libLLVM20Support",
+        "libLLVM20Vectorize",
+        "libLLVM20ProfileData",
+        "libLLVM20ProfileDataCoverage",
+        "libLLVM20LibDriver",
+        "libLLVM20ExecutionEngine",
+        "libLLVM20RuntimeDyld",
+        "libLLVM20MCJIT",
+        "libLLVM20OrcJIT",
+        "libLLVM20BinaryFormat",
+        "libLLVM20MIRParser",
+        "libLLVM20Remarks",
+        "libLLVM20JITLink",
+        "libLLVM20Coroutines",
+        "libLLVM20TextAPI",
+        "libLLVM20CFGuard",
+        "libLLVM20FrontendOpenMP",
+        "libLLVM20HelloNew",
+        "libLLVM20OrcShared",
+        "libLLVM20OrcTargetProcess",
+        "libLLVM20InterfaceStub",
+        "libLLVM20Debuginfod",
+        "libLLVM20WindowsDriver",
+        "libLLVM20HipStdPar",
+        "libLLVM20FrontendOffloading",
+        "libLLVM20CGData",
+        "libLLVM20FrontendAtomic",
+        "libLLVM20SandboxIR",
     ],
 
     export_include_dirs: ["include"],

@@ -1,7 +1,7 @@
 cc_library_static {
-    name: "libLLVMMIRParser",
+    name: "libLLVM20MIRParser",
     defaults: [
-        "llvm-lib-defaults",
+        "llvm20-lib-defaults",
     ],
     srcs: ["*.cpp"],
 }
