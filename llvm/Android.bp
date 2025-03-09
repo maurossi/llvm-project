@@ -22,6 +22,7 @@ llvm_defaults {
         "-W",
         "-Wno-sign-compare",
         "-Wno-unused-parameter",
+        "-Wno-unused-variable",
         "-Wno-maybe-uninitialized",
         "-Wno-missing-field-initializers",
         "-Wwrite-strings",
