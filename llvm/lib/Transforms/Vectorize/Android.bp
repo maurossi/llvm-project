@@ -3,5 +3,9 @@ cc_library_static {
     defaults: [
         "llvm-lib-defaults",
     ],
-    srcs: ["*.cpp"],
+    srcs: [
+        "*.cpp",
+        "SandboxVectorizer/*.cpp",
+        "SandboxVectorizer/Passes/*.cpp",
+    ],
 }
