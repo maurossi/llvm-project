@@ -161,6 +161,8 @@ func outToGenerator(ctx android.ModuleContext, out string) string {
 		return "-gen-riscv-target-def"
 	case strings.HasSuffix(out, "TargetParserDef.inc"):
 		return "-gen-arm-target-def"
+	case strings.HasSuffix(out, "GenTargetFeatures.inc"):
+		return "-gen-target-features"
 	case strings.HasSuffix(out, "X86GenInstrMapping.inc"):
 		return "-gen-x86-instr-mapping"
 	case strings.HasSuffix(out, "X86GenMnemonicTables.inc"):
