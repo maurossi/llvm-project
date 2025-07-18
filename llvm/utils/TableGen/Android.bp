@@ -1,7 +1,7 @@
 cc_binary_host {
-    name: "llvm-tblgen",
-    defaults: ["llvm-defaults-no-generated-headers"],
-    header_libs: ["llvm-headers"],
+    name: "llvm21-tblgen",
+    defaults: ["llvm21-defaults-no-generated-headers"],
+    header_libs: ["llvm21-headers"],
     srcs: [
         "AsmMatcherEmitter.cpp",
         "AsmWriterEmitter.cpp",
@@ -45,10 +45,10 @@ cc_binary_host {
     ],
 
     static_libs: [
-        "libLLVMTableGenBasic",
-        "libLLVMTableGenCommon",
-        "libLLVMTableGen",
-        "libLLVMSupport",
+        "libLLVM21TableGenBasic",
+        "libLLVM21TableGenCommon",
+        "libLLVM21TableGen",
+        "libLLVM21Support",
     ],
 
     host_ldlibs: ["-lm"],
@@ -56,8 +56,8 @@ cc_binary_host {
         windows: {
             enabled: false,
         },
-        // llvm-defaults turns off host builds by default, turn it back on for
-        // modules that are used to build llvm-tblgen
+        // llvm21-defaults turns off host builds by default, turn it back on for
+        // modules that are used to build llvm21-tblgen
         host: {
             enabled: true,
         },
@@ -77,7 +77,7 @@ cc_binary_host {
 }
 
 cc_library_headers {
-    name: "llvm-tblgen-headers",
+    name: "llvm21-tblgen-headers",
     host_supported: true,
     vendor_available: true,
     target: {

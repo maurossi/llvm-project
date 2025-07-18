@@ -1,7 +1,7 @@
 cc_library_static {
-    name: "libLLVMCGData",
+    name: "libLLVM21CGData",
     defaults: [
-        "llvm-lib-defaults",
+        "llvm21-lib-defaults",
     ],
     srcs: [
         "*.cpp",

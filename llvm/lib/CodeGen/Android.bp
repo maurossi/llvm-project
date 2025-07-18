@@ -1,7 +1,7 @@
 cc_library_static {
-    name: "libLLVMCodeGen",
+    name: "libLLVM21CodeGen",
     defaults: [
-        "llvm-lib-defaults",
+        "llvm21-lib-defaults",
     ],
     srcs: [
         "AggressiveAntiDepBreaker.cpp",

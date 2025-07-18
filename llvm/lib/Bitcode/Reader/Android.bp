@@ -1,7 +1,7 @@
 cc_library_static {
-    name: "libLLVMBitReader",
+    name: "libLLVM21BitReader",
     defaults: [
-        "llvm-lib-defaults",
+        "llvm21-lib-defaults",
     ],
     srcs: ["*.cpp"],
 }

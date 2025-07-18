@@ -1,14 +1,14 @@
 cc_defaults {
-    name: "llvm-defaults",
-    defaults: ["llvm-defaults-no-generated-headers"],
-    header_libs: ["llvm-headers"],
+    name: "llvm21-defaults",
+    defaults: ["llvm21-defaults-no-generated-headers"],
+    header_libs: ["llvm21-headers"],
 }
 
 // This module defines all of the defaults used to compiled llvm, except for
 // the generated headers.  It is necessary to avoid a circular dependency
 // from the tblgen tool used to generate the headers to the generated headers.
 llvm_defaults {
-    name: "llvm-defaults-no-generated-headers",
+    name: "llvm21-defaults-no-generated-headers",
 
     host_supported: true,
 
@@ -42,7 +42,7 @@ llvm_defaults {
         "-std=c++17",
     ],
 
-    header_libs: ["llvm-headers-no-generated-headers"],
+    header_libs: ["llvm21-headers-no-generated-headers"],
 
     target: {
         android: {
@@ -97,7 +97,7 @@ llvm_defaults {
 }
 
 cc_library_headers {
-    name: "llvm-headers-no-generated-headers",
+    name: "llvm21-headers-no-generated-headers",
     vendor_available: true,
     host_supported: true,
     export_include_dirs: ["include"],
@@ -118,30 +118,30 @@ cc_library_headers {
 }
 
 cc_library_headers {
-    name: "llvm-headers",
+    name: "llvm21-headers",
     vendor_available: true,
     host_supported: true,
-    header_libs: ["llvm-headers-no-generated-headers"],
-    export_header_lib_headers: ["llvm-headers-no-generated-headers"],
+    header_libs: ["llvm21-headers-no-generated-headers"],
+    export_header_lib_headers: ["llvm21-headers-no-generated-headers"],
     generated_headers: [
-        "llvm-gen-attributes",
-        "llvm-gen-intrinsics",
-        "llvm-gen-revision",
-        "llvm-gen-extension",
-        "llvm-gen-omp_gen",
-        "llvm-gen-acc_gen",
-        "llvm-gen-vt_gen",
-        "llvm-gen-runtime-libcalls",
+        "llvm21-gen-attributes",
+        "llvm21-gen-intrinsics",
+        "llvm21-gen-revision",
+        "llvm21-gen-extension",
+        "llvm21-gen-omp_gen",
+        "llvm21-gen-acc_gen",
+        "llvm21-gen-vt_gen",
+        "llvm21-gen-runtime-libcalls",
     ],
     export_generated_headers: [
-        "llvm-gen-attributes",
-        "llvm-gen-intrinsics",
-        "llvm-gen-revision",
-        "llvm-gen-extension",
-        "llvm-gen-omp_gen",
-        "llvm-gen-acc_gen",
-        "llvm-gen-vt_gen",
-        "llvm-gen-runtime-libcalls",
+        "llvm21-gen-attributes",
+        "llvm21-gen-intrinsics",
+        "llvm21-gen-revision",
+        "llvm21-gen-extension",
+        "llvm21-gen-omp_gen",
+        "llvm21-gen-acc_gen",
+        "llvm21-gen-vt_gen",
+        "llvm21-gen-runtime-libcalls",
     ],
     target: {
         windows: {
@@ -150,14 +150,14 @@ cc_library_headers {
     },
 }
 
-llvm_min_tblgen {
-    name: "llvm-gen-attributes",
+llvm21_min_tblgen {
+    name: "llvm21-gen-attributes",
     in: "include/llvm/IR/Attributes.td",
     outs: ["llvm/IR/Attributes.inc"],
 }
 
-llvm_min_tblgen {
-    name: "llvm-gen-intrinsics",
+llvm21_min_tblgen {
+    name: "llvm21-gen-intrinsics",
     in: "include/llvm/IR/Intrinsics.td",
     outs: [
         "llvm/IR/IntrinsicEnums.inc",
@@ -183,8 +183,8 @@ llvm_min_tblgen {
     ],
 }
 
-llvm_min_tblgen {
-    name: "llvm-gen-omp_gen",
+llvm21_min_tblgen {
+    name: "llvm21-gen-omp_gen",
     in: "include/llvm/Frontend/OpenMP/OMP.td",
     outs: [
         "llvm/Frontend/OpenMP/OMP.h.inc",
@@ -192,8 +192,8 @@ llvm_min_tblgen {
     ],
 }
 
-llvm_min_tblgen {
-    name: "llvm-gen-acc_gen",
+llvm21_min_tblgen {
+    name: "llvm21-gen-acc_gen",
     in: "include/llvm/Frontend/OpenACC/ACC.td",
     outs: [
         "llvm/Frontend/OpenMP/ACC.h.inc",
@@ -201,44 +201,44 @@ llvm_min_tblgen {
     ],
 }
 
-llvm_min_tblgen {
-    name: "llvm-gen-riscv-target-def",
+llvm21_min_tblgen {
+    name: "llvm21-gen-riscv-target-def",
     in: "lib/Target/RISCV/RISCV.td",
     outs: ["llvm/TargetParser/RISCVTargetParserDef.inc"],
 }
 
-llvm_min_tblgen {
-    name: "llvm-gen-arm-target-def",
+llvm21_min_tblgen {
+    name: "llvm21-gen-arm-target-def",
     in: "lib/Target/ARM/ARM.td",
     outs: ["llvm/TargetParser/ARMTargetParserDef.inc"],
 }
 
-llvm_min_tblgen {
-    name: "llvm-gen-aarch64-target-def",
+llvm21_min_tblgen {
+    name: "llvm21-gen-aarch64-target-def",
     in: "lib/Target/AArch64/AArch64.td",
     outs: ["llvm/TargetParser/AArch64TargetParserDef.inc"],
 }
 
-llvm_min_tblgen {
-    name: "llvm-gen-powerpc-target-functions",
+llvm21_min_tblgen {
+    name: "llvm21-gen-powerpc-target-functions",
     in: "lib/Target/PowerPC/PPC.td",
     outs: ["llvm/TargetParser/PPCGenTargetFeatures.inc"],
 }
 
-llvm_min_tblgen {
-    name: "llvm-gen-vt_gen",
+llvm21_min_tblgen {
+    name: "llvm21-gen-vt_gen",
     in: "include/llvm/CodeGen/ValueTypes.td",
     outs: ["llvm/CodeGen/GenVT.inc"],
 }
 
-llvm_min_tblgen {
-    name: "llvm-gen-runtime-libcalls",
+llvm21_min_tblgen {
+    name: "llvm21-gen-runtime-libcalls",
     in: "include/llvm/IR/RuntimeLibcalls.td",
     outs: ["llvm/IR/RuntimeLibcalls.inc"],
 }
 
 genrule {
-    name: "llvm-gen-revision",
+    name: "llvm21-gen-revision",
     out: ["llvm/Support/VCSRevision.h"],
     srcs: [".git/logs/HEAD*"],
     tool_files: ["git_sha1_gen.py"],
@@ -246,15 +246,15 @@ genrule {
 }
 
 genrule {
-    name: "llvm-gen-extension",
+    name: "llvm21-gen-extension",
     out: ["llvm/Support/Extension.def"],
     srcs: [".git/logs/HEAD*"],
     tool_files: ["utils/gn/secondary/llvm/include/llvm/Support/write_extension_def.py"],
     cmd: "python $(location utils/gn/secondary/llvm/include/llvm/Support/write_extension_def.py) --output $(out)",
 }
 
-force_build_llvm_components_defaults {
-    name: "force_build_llvm_components",
+force_build_llvm21_components_defaults {
+    name: "force_build_llvm21_components",
     // Host build disabled by soong/llvm.go unless FORCE_BUILD_LLVM_COMPONENTS
     // environment variable is set
 }
@@ -262,137 +262,137 @@ force_build_llvm_components_defaults {
 // LLVM shared library build
 
 llvm_arm_static_libraries = [
-    "libLLVMARMCodeGen",
-    "libLLVMARMAsmParser",
-    "libLLVMARMAsmPrinter",
-    "libLLVMARMInfo",
-    "libLLVMARMDesc",
-    "libLLVMARMDisassembler",
-    "libLLVMARMUtils",
+    "libLLVM21ARMCodeGen",
+    "libLLVM21ARMAsmParser",
+    "libLLVM21ARMAsmPrinter",
+    "libLLVM21ARMInfo",
+    "libLLVM21ARMDesc",
+    "libLLVM21ARMDisassembler",
+    "libLLVM21ARMUtils",
 ]
 
 llvm_x86_static_libraries = [
-    "libLLVMX86CodeGen",
-    "libLLVMX86Info",
-    "libLLVMX86Desc",
-    "libLLVMX86AsmParser",
-    "libLLVMX86AsmPrinter",
-    "libLLVMX86Utils",
-    "libLLVMX86Disassembler",
+    "libLLVM21X86CodeGen",
+    "libLLVM21X86Info",
+    "libLLVM21X86Desc",
+    "libLLVM21X86AsmParser",
+    "libLLVM21X86AsmPrinter",
+    "libLLVM21X86Utils",
+    "libLLVM21X86Disassembler",
 ]
 
 llvm_mips_static_libraries = [
-    "libLLVMMipsCodeGen",
-    "libLLVMMipsInfo",
-    "libLLVMMipsDesc",
-    "libLLVMMipsAsmParser",
-    "libLLVMMipsAsmPrinter",
-    "libLLVMMipsDisassembler",
+    "libLLVM21MipsCodeGen",
+    "libLLVM21MipsInfo",
+    "libLLVM21MipsDesc",
+    "libLLVM21MipsAsmParser",
+    "libLLVM21MipsAsmPrinter",
+    "libLLVM21MipsDisassembler",
 ]
 
 llvm_aarch64_static_libraries = [
-    "libLLVMAArch64CodeGen",
-    "libLLVMAArch64Info",
-    "libLLVMAArch64Desc",
-    "libLLVMAArch64AsmParser",
-    "libLLVMAArch64AsmPrinter",
-    "libLLVMAArch64Utils",
-    "libLLVMAArch64Disassembler",
+    "libLLVM21AArch64CodeGen",
+    "libLLVM21AArch64Info",
+    "libLLVM21AArch64Desc",
+    "libLLVM21AArch64AsmParser",
+    "libLLVM21AArch64AsmPrinter",
+    "libLLVM21AArch64Utils",
+    "libLLVM21AArch64Disassembler",
 ]
 
 llvm_amdgpu_static_libraries = [
-    "libLLVMAMDGPUCodeGen",
-    "libLLVMAMDGPUInfo",
-    "libLLVMAMDGPUDesc",
-    "libLLVMAMDGPUAsmParser",
-    "libLLVMAMDGPUAsmPrinter",
-    "libLLVMAMDGPUUtils",
-    "libLLVMAMDGPUDisassembler",
+    "libLLVM21AMDGPUCodeGen",
+    "libLLVM21AMDGPUInfo",
+    "libLLVM21AMDGPUDesc",
+    "libLLVM21AMDGPUAsmParser",
+    "libLLVM21AMDGPUAsmPrinter",
+    "libLLVM21AMDGPUUtils",
+    "libLLVM21AMDGPUDisassembler",
 ]
 
 
 cc_library_shared {
     host_supported: true,
     vendor_available: true,
-    name: "libLLVM",
+    name: "libLLVM21",
     defaults: [
-        "llvm-defaults",
-        "force_build_llvm_components",
+        "llvm21-defaults",
+        "force_build_llvm21_components",
     ],
 
     whole_static_libs: [
         // pre static libraries
-        "libLLVMLinker",
-        "libLLVMipo",
-        "libLLVMDebugInfoBTF",
-        "libLLVMDebugInfoDWARF",
-        "libLLVMDebugInfoDWARFLowLevel",
-        "libLLVMDebugInfoGSYM",
-        "libLLVMDebugInfoMSF",
-        "libLLVMDebugInfoPDB",
-        "libLLVMSymbolize",
-        "libLLVMIRPrinter",
-        "libLLVMIRReader",
-        "libLLVMBitWriter",
-        "libLLVMBitReader",
-        "libLLVMPasses",
-        "libLLVMDemangle",
-        "libLLVMBitstreamReader",
+        "libLLVM21Linker",
+        "libLLVM21ipo",
+        "libLLVM21DebugInfoBTF",
+        "libLLVM21DebugInfoDWARF",
+        "libLLVM21DebugInfoDWARFLowLevel",
+        "libLLVM21DebugInfoGSYM",
+        "libLLVM21DebugInfoMSF",
+        "libLLVM21DebugInfoPDB",
+        "libLLVM21Symbolize",
+        "libLLVM21IRPrinter",
+        "libLLVM21IRReader",
+        "libLLVM21BitWriter",
+        "libLLVM21BitReader",
+        "libLLVM21Passes",
+        "libLLVM21Demangle",
+        "libLLVM21BitstreamReader",
 
         // post static libraries
-        "libLLVMLTO",
-        "libLLVMAsmPrinter",
-        "libLLVMSelectionDAG",
-        "libLLVMCodeGen",
-        "libLLVMCodeGenTypes",
-        "libLLVMDebugInfoCodeView",
-        "libLLVMObject",
-        "libLLVMScalarOpts",
-        "libLLVMAggressiveInstCombine",
-        "libLLVMInstCombine",
-        "libLLVMInstrumentation",
-        "libLLVMTransformObjCARC",
-        "libLLVMTransformUtils",
-        "libLLVMAnalysis",
-        "libLLVMTarget",
-        "libLLVMTargetParser",
-        "libLLVMGlobalISel",
-        "libLLVMMCDisassembler",
-        "libLLVMMC",
-        "libLLVMMCParser",
-        "libLLVMCore",
-        "libLLVMAsmParser",
-        "libLLVMOption",
-        "libLLVMSupport",
-        "libLLVMVectorize",
-        "libLLVMProfileData",
-        "libLLVMProfileDataCoverage",
-        "libLLVMLibDriver",
-        "libLLVMExecutionEngine",
-        "libLLVMRuntimeDyld",
-        "libLLVMMCJIT",
-        "libLLVMOrcJIT",
-        "libLLVMBinaryFormat",
-        "libLLVMMIRParser",
-        "libLLVMRemarks",
-        "libLLVMJITLink",
-        "libLLVMCoroutines",
-        "libLLVMTextAPI",
-        "libLLVMCFGuard",
-        "libLLVMFrontendOpenMP",
-        "libLLVMHelloNew",
-        "libLLVMOrcShared",
-        "libLLVMOrcTargetProcess",
-        "libLLVMInterfaceStub",
-        "libLLVMDebuginfod",
-        "libLLVMWindowsDriver",
-        "libLLVMHipStdPar",
-        "libLLVMFrontendOffloading",
-        "libLLVMCGData",
-        "libLLVMFrontendAtomic",
-        "libLLVMSandboxIR",
-        "libLLVMObjectYAML",
-        "libLLVMFrontendDirective",
+        "libLLVM21LTO",
+        "libLLVM21AsmPrinter",
+        "libLLVM21SelectionDAG",
+        "libLLVM21CodeGen",
+        "libLLVM21CodeGenTypes",
+        "libLLVM21DebugInfoCodeView",
+        "libLLVM21Object",
+        "libLLVM21ScalarOpts",
+        "libLLVM21AggressiveInstCombine",
+        "libLLVM21InstCombine",
+        "libLLVM21Instrumentation",
+        "libLLVM21TransformObjCARC",
+        "libLLVM21TransformUtils",
+        "libLLVM21Analysis",
+        "libLLVM21Target",
+        "libLLVM21TargetParser",
+        "libLLVM21GlobalISel",
+        "libLLVM21MCDisassembler",
+        "libLLVM21MC",
+        "libLLVM21MCParser",
+        "libLLVM21Core",
+        "libLLVM21AsmParser",
+        "libLLVM21Option",
+        "libLLVM21Support",
+        "libLLVM21Vectorize",
+        "libLLVM21ProfileData",
+        "libLLVM21ProfileDataCoverage",
+        "libLLVM21LibDriver",
+        "libLLVM21ExecutionEngine",
+        "libLLVM21RuntimeDyld",
+        "libLLVM21MCJIT",
+        "libLLVM21OrcJIT",
+        "libLLVM21BinaryFormat",
+        "libLLVM21MIRParser",
+        "libLLVM21Remarks",
+        "libLLVM21JITLink",
+        "libLLVM21Coroutines",
+        "libLLVM21TextAPI",
+        "libLLVM21CFGuard",
+        "libLLVM21FrontendOpenMP",
+        "libLLVM21HelloNew",
+        "libLLVM21OrcShared",
+        "libLLVM21OrcTargetProcess",
+        "libLLVM21InterfaceStub",
+        "libLLVM21Debuginfod",
+        "libLLVM21WindowsDriver",
+        "libLLVM21HipStdPar",
+        "libLLVM21FrontendOffloading",
+        "libLLVM21CGData",
+        "libLLVM21FrontendAtomic",
+        "libLLVM21SandboxIR",
+        "libLLVM21ObjectYAML",
+        "libLLVM21FrontendDirective",
     ],
 
     export_include_dirs: ["include"],

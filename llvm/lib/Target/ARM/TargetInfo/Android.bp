@@ -1,8 +1,8 @@
 cc_library_static {
-    name: "libLLVMARMInfo",
+    name: "libLLVM21ARMInfo",
     defaults: [
-        "llvm-lib-defaults",
-        "llvm-arm-defaults",
+        "llvm21-lib-defaults",
+        "llvm21-arm-defaults",
     ],
     srcs: ["*.cpp"],
 }

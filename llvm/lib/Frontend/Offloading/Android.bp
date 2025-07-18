@@ -1,7 +1,7 @@
 cc_library_static {
-    name: "libLLVMFrontendOffloading",
+    name: "libLLVM21FrontendOffloading",
     defaults: [
-        "llvm-lib-defaults",
+        "llvm21-lib-defaults",
     ],
     srcs: ["*.cpp"],
 }
