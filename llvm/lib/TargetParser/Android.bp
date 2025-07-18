@@ -16,6 +16,7 @@ cc_library_static {
         "llvm-gen-arm-target-def",
         "llvm-gen-aarch64-target-def",
         "llvm-gen-riscv-target-def",
+        "llvm-gen-powerpc-target-functions",
     ],
     srcs: [
         "*.cpp",
