@@ -20,6 +20,9 @@ cc_library_static {
         "BLAKE3/blake3_neon.c",
         "BLAKE3/blake3_portable.c",
     ],
+    include_dirs: [
+        "external/llvm-project/third-party/siphash/include",
+    ],
     arch: {
         x86: {
             whole_static_libs: [
