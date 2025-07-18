@@ -143,6 +143,8 @@ func min_tblgen_outToGenerator(ctx android.ModuleContext, out string) string {
 		return "--gen-directive-impl"
 	case out == "GenVT.inc":
 		return "--gen-vt"
+	case out == "RuntimeLibcalls.inc":
+		return "-gen-runtime-libcalls"
 	case strings.HasSuffix(out, "RISCVTargetParserDef.inc"):
 		return "-gen-riscv-target-def"
 	case strings.HasSuffix(out, "TargetParserDef.inc"):
