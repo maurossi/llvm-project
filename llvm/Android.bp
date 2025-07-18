@@ -391,6 +391,7 @@ cc_library_shared {
         "libLLVMCGData",
         "libLLVMFrontendAtomic",
         "libLLVMSandboxIR",
+        "libLLVMObjectYAML",
     ],
 
     export_include_dirs: ["include"],
