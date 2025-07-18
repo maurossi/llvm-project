@@ -326,6 +326,7 @@ cc_library_shared {
         "libLLVMipo",
         "libLLVMDebugInfoBTF",
         "libLLVMDebugInfoDWARF",
+        "libLLVMDebugInfoDWARFLowLevel",
         "libLLVMDebugInfoGSYM",
         "libLLVMDebugInfoMSF",
         "libLLVMDebugInfoPDB",
