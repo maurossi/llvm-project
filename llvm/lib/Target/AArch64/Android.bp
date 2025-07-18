@@ -54,6 +54,7 @@ llvm_tblgen {
         "AArch64GenPreLegalizeGICombiner.inc",
         "AArch64GenPostLegalizeGICombiner.inc",
         "AArch64GenPostLegalizeGILowering.inc",
+        "AArch64GenSDNodeInfo.inc",
     ],
 }
 
