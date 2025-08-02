@@ -4,8 +4,9 @@ cc_library_static {
     header_libs: ["llvm21-tblgen-headers"],
     srcs: ["*.cpp"],
 
-    static_libs: [
+    whole_static_libs: [
         "libLLVM21Support",
+        "libLLVM21TableGen",
     ],
 
     host_ldlibs: ["-lm"],

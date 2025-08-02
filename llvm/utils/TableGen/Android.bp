@@ -6,13 +6,12 @@ cc_binary_host {
     name: "llvm21-min-tblgen",
     defaults: ["llvm21-defaults-no-generated-headers"],
     srcs: [
-        "TableGen.cpp",
+        "llvm-min-tblgen.cpp",
         // partial list of sources is intentional
     ],
 
-    static_libs: [
-        "libLLVM21CodeGenTypes",
-        "libLLVM21Support",
+    whole_static_libs: [
+        "libLLVM21TableGenBasic",
     ],
 
     host_ldlibs: ["-lm"],
@@ -89,8 +88,6 @@ cc_binary_host {
     static_libs: [
         "libLLVM21TableGenBasic",
         "libLLVM21TableGenCommon",
-        "libLLVM21TableGen",
-        "libLLVM21Support",
     ],
 
     host_ldlibs: ["-lm"],
