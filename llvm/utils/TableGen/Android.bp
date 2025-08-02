@@ -85,7 +85,7 @@ cc_binary_host {
         "X86RecognizableInstr.cpp",
     ],
 
-    static_libs: [
+    whole_static_libs: [
         "libLLVM21TableGenBasic",
         "libLLVM21TableGenCommon",
     ],
