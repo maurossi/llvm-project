@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package llvm
+package llvm21
 
 import (
 	"path/filepath"
@@ -25,20 +25,20 @@ import (
 )
 
 func init() {
-	android.RegisterModuleType("llvm_min_tblgen", llvmMinTblgenFactory)
+	android.RegisterModuleType("llvm21_min_tblgen", llvm21MinTblgenFactory)
 }
 
 var (
-	min_tblgen_pctx = android.NewPackageContext("android/soong/llvm_min_tblgen")
+	min_tblgen_pctx = android.NewPackageContext("android/soong/llvm21_min_tblgen")
 
-	llvmMinTblgen = min_tblgen_pctx.HostBinToolVariable("llvmMinTblgen", "llvm-min-tblgen")
+	llvm21MinTblgen = min_tblgen_pctx.HostBinToolVariable("llvm21MinTblgen", "llvm21-min-tblgen")
 
-	min_tblgenRule = min_tblgen_pctx.StaticRule("min_tblgenRule", blueprint.RuleParams{
+	min_tblgenRule21 = min_tblgen_pctx.StaticRule("min_tblgenRule21", blueprint.RuleParams{
 		Depfile:     "${out}.d",
 		Deps:        blueprint.DepsGCC,
-		Command:     "${llvmMinTblgen} ${includes} ${generator} -d ${depfile} -o ${out} ${in}",
-		CommandDeps: []string{"${llvmMinTblgen}"},
-		Description: "LLVM Min TableGen $in => $out",
+		Command:     "${llvm21MinTblgen} ${includes} ${generator} -d ${depfile} -o ${out} ${in}",
+		CommandDeps: []string{"${llvm21MinTblgen}"},
+		Description: "LLVM21 Min TableGen $in => $out",
 		Restat:      true,
 	}, "includes", "depfile", "generator")
 )
@@ -74,7 +74,7 @@ func (t *min_tblgen) GenerateAndroidBuildActions(ctx android.ModuleContext) {
 		generator := min_tblgen_outToGenerator(ctx, o)
 
 		ctx.ModuleBuild(min_tblgen_pctx, android.ModuleBuildParams{
-			Rule:   min_tblgenRule,
+			Rule:   min_tblgenRule21,
 			Input:  in,
 			Output: out,
 			Args: map[string]string{
@@ -172,7 +172,7 @@ func (t *min_tblgen) GeneratedDeps() android.Paths {
 	return t.generatedHeaders
 }
 
-func llvmMinTblgenFactory() android.Module {
+func llvm21MinTblgenFactory() android.Module {
 	t := &min_tblgen{}
 	t.AddProperties(&t.properties)
 	android.InitAndroidModule(t)

@@ -1,7 +1,7 @@
 cc_library_static {
-    name: "libLLVMHelloNew",
+    name: "libLLVM21HelloNew",
     defaults: [
-        "llvm-lib-defaults",
+        "llvm21-lib-defaults",
     ],
     srcs: ["*.cpp"],
 }

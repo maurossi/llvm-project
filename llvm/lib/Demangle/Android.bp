@@ -1,7 +1,7 @@
 cc_library_static {
-    name: "libLLVMDemangle",
+    name: "libLLVM21Demangle",
     defaults: [
-        "llvm-lib-defaults",
+        "llvm21-lib-defaults",
     ],
     srcs: ["*.cpp"],
 }

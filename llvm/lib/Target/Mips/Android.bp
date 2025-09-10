@@ -1,20 +1,20 @@
 cc_library_static {
-    name: "libLLVMMipsCodeGen",
+    name: "libLLVM21MipsCodeGen",
     defaults: [
-        "llvm-lib-defaults",
-        "llvm-mips-defaults",
+        "llvm21-lib-defaults",
+        "llvm21-mips-defaults",
     ],
     srcs: ["*.cpp"],
 }
 
 cc_defaults {
-    name: "llvm-mips-defaults",
-    generated_headers: ["llvm-gen-mips"],
-    static_libs: ["llvm-mips-headers"],
+    name: "llvm21-mips-defaults",
+    generated_headers: ["llvm21-gen-mips"],
+    static_libs: ["llvm21-mips-headers"],
 }
 
 cc_library_static {
-    name: "llvm-mips-headers",
+    name: "llvm21-mips-headers",
     vendor_available: true,
     host_supported: true,
     target: {
@@ -25,8 +25,8 @@ cc_library_static {
     export_include_dirs: ["."],
 }
 
-llvm_tblgen {
-    name: "llvm-gen-mips",
+llvm21_tblgen {
+    name: "llvm21-gen-mips",
     in: "Mips.td",
     outs: [
         "MipsGenRegisterInfo.inc",
