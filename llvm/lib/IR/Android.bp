@@ -1,7 +1,7 @@
 cc_library_static {
-    name: "libLLVMCore",
+    name: "libLLVM20Core",
     defaults: [
-        "llvm-lib-defaults",
+        "llvm20-lib-defaults",
     ],
     srcs: ["*.cpp"],
 }

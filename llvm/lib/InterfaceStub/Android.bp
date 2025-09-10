@@ -1,7 +1,7 @@
 cc_library_static {
-    name: "libLLVMInterfaceStub",
+    name: "libLLVM20InterfaceStub",
     defaults: [
-        "llvm-lib-defaults",
+        "llvm20-lib-defaults",
     ],
     srcs: [
         "*.cpp",
