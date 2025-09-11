@@ -1,10 +1,10 @@
 cc_library_static {
-    name: "libLLVMTargetParser",
+    name: "libLLVM19TargetParser",
     vendor_available: true,
-    defaults: ["llvm-defaults-no-generated-headers"],
+    defaults: ["llvm19-defaults-no-generated-headers"],
     target: {
-        // llvm-defaults turns off host builds by default, turn it back on for
-        // modules that are used to build llvm-tblgen
+        // llvm19-defaults turns off host builds by default, turn it back on for
+        // modules that are used to build llvm19-tblgen
         host: {
             enabled: true,
         },
@@ -13,9 +13,9 @@ cc_library_static {
         },
     },
     generated_headers: [
-        "llvm-gen-arm-target-def",
-        "llvm-gen-aarch64-target-def",
-        "llvm-gen-riscv-target-def",
+        "llvm19-gen-arm-target-def",
+        "llvm19-gen-aarch64-target-def",
+        "llvm19-gen-riscv-target-def",
     ],
     srcs: [
         "*.cpp",

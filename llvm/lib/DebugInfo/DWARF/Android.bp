@@ -1,7 +1,7 @@
 cc_library_static {
-    name: "libLLVMDebugInfoDWARF",
+    name: "libLLVM19DebugInfoDWARF",
     defaults: [
-        "llvm-lib-defaults",
+        "llvm19-lib-defaults",
     ],
     srcs: ["*.cpp"],
 }

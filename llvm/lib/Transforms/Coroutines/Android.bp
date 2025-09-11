@@ -1,7 +1,7 @@
 cc_library_static {
-    name: "libLLVMCoroutines",
+    name: "libLLVM19Coroutines",
     defaults: [
-        "llvm-lib-defaults",
+        "llvm19-lib-defaults",
     ],
     srcs: ["*.cpp"],
 }

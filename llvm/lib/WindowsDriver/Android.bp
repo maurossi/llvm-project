@@ -1,7 +1,7 @@
 cc_library_static {
-    name: "libLLVMWindowsDriver",
+    name: "libLLVM19WindowsDriver",
     defaults: [
-        "llvm-lib-defaults",
+        "llvm19-lib-defaults",
     ],
     srcs: ["*.cpp"],
 }

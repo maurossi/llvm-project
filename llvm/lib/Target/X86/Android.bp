@@ -1,8 +1,8 @@
 cc_library_static {
-    name: "libLLVMX86CodeGen",
+    name: "libLLVM19X86CodeGen",
     defaults: [
-        "llvm-lib-defaults",
-        "llvm-x86-defaults",
+        "llvm19-lib-defaults",
+        "llvm19-x86-defaults",
     ],
     srcs: [
         "*.cpp",
@@ -18,13 +18,13 @@ cc_library_static {
 }
 
 cc_defaults {
-    name: "llvm-x86-defaults",
-    generated_headers: ["llvm-gen-x86"],
-    static_libs: ["llvm-x86-headers"],
+    name: "llvm19-x86-defaults",
+    generated_headers: ["llvm19-gen-x86"],
+    static_libs: ["llvm19-x86-headers"],
 }
 
 cc_library_static {
-    name: "llvm-x86-headers",
+    name: "llvm19-x86-headers",
     vendor_available: true,
     host_supported: true,
     target: {
@@ -35,8 +35,8 @@ cc_library_static {
     export_include_dirs: ["."],
 }
 
-llvm_tblgen {
-    name: "llvm-gen-x86",
+llvm19_tblgen {
+    name: "llvm19-gen-x86",
     in: "X86.td",
     outs: [
         "X86GenAsmMatcher.inc",

@@ -1,7 +1,7 @@
 cc_library_static {
-    name: "libLLVMMCJIT",
+    name: "libLLVM19MCJIT",
     defaults: [
-        "llvm-lib-defaults",
+        "llvm19-lib-defaults",
     ],
     srcs: ["*.cpp"],
 }

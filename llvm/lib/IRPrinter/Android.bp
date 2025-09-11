@@ -1,7 +1,7 @@
 cc_library_static {
-    name: "libLLVMIRPrinter",
+    name: "libLLVM19IRPrinter",
     defaults: [
-        "llvm-lib-defaults",
+        "llvm19-lib-defaults",
     ],
     srcs: ["*.cpp"],
 }
