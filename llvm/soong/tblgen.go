@@ -109,6 +109,10 @@ func outToGenerator(ctx android.ModuleContext, out string) string {
 		return "-gen-pseudo-lowering"
 	case strings.HasSuffix(out, "GenDAGISel.inc"):
 		return "-gen-dag-isel"
+	case strings.HasSuffix(out, "AMDGPUGenDisassemblerTables.inc"):
+		return "-gen-disassembler --specialize-decoders-per-bitwidth"
+	case strings.HasSuffix(out, "RISCVGenDisassemblerTables.inc"):
+		return "-gen-disassembler --specialize-decoders-per-bitwidth"
 	case strings.HasSuffix(out, "GenDisassemblerTables.inc"):
 		return "-gen-disassembler"
 	case strings.HasSuffix(out, "GenSearchableTables.inc"):
