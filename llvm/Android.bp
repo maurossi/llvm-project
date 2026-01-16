@@ -402,6 +402,7 @@ cc_library_shared {
         "libLLVMSandboxIR",
         "libLLVMObjectYAML",
         "libLLVMFrontendDirective",
+        "libLLVMFrontendHLSL",
     ],
 
     export_include_dirs: ["include"],
