@@ -54,6 +54,7 @@ llvm_tblgen {
         "X86GenGlobalISel.inc",
         "X86GenMnemonicTables.inc",
         "X86GenFoldTables.inc",
+        "X86GenPreLegalizeGICombiner.inc",
     ],
 }
 
