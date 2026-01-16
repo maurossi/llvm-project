@@ -45,6 +45,7 @@ llvm_tblgen {
         "AMDGPUGenMCPseudoLowering.inc",
         "AMDGPUGenSearchableTables.inc",
         "AMDGPUGenDisassemblerTables.inc",
+        "AMDGPUGenSDNodeInfo.inc",
     ],
 }
 
