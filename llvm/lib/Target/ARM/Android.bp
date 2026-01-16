@@ -53,6 +53,7 @@ llvm_tblgen {
         "ARMGenRegisterBank.inc",
         "ARMGenGlobalISel.inc",
         "ARMGenSystemRegister.inc",
+        "ARMGenSDNodeInfo.inc",
     ],
 }
 
