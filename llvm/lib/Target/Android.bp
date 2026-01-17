@@ -1,7 +1,7 @@
 cc_library_static {
-    name: "libLLVMTarget",
+    name: "libLLVM22Target",
     defaults: [
-        "llvm-lib-defaults",
+        "llvm22-lib-defaults",
     ],
     srcs: ["*.cpp"],
 }

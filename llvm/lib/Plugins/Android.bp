@@ -1,7 +1,7 @@
 cc_library_static {
-    name: "libLLVMPassPlugin",
+    name: "libLLVM22PassPlugin",
     defaults: [
-        "llvm-lib-defaults",
+        "llvm22-lib-defaults",
     ],
     srcs: ["*.cpp"],
 }

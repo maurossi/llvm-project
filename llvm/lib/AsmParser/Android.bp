@@ -1,7 +1,7 @@
 cc_library_static {
-    name: "libLLVMAsmParser",
+    name: "libLLVM22AsmParser",
     defaults: [
-        "llvm-lib-defaults",
+        "llvm22-lib-defaults",
     ],
     srcs: ["*.cpp"],
 }

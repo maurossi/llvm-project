@@ -1,7 +1,7 @@
 cc_library_static {
-    name: "libLLVMSandboxIR",
+    name: "libLLVM22SandboxIR",
     defaults: [
-        "llvm-lib-defaults",
+        "llvm22-lib-defaults",
     ],
     srcs: ["*.cpp"],
 }

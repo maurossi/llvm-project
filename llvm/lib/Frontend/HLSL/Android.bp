@@ -1,7 +1,7 @@
 cc_library_static {
-    name: "libLLVMFrontendHLSL",
+    name: "libLLVM22FrontendHLSL",
     defaults: [
-        "llvm-lib-defaults",
+        "llvm22-lib-defaults",
     ],
     srcs: ["*.cpp"],
 }
