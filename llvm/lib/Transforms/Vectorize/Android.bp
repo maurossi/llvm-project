@@ -7,5 +7,6 @@ cc_library_static {
         "*.cpp",
         "SandboxVectorizer/*.cpp",
         "SandboxVectorizer/Passes/*.cpp",
+        "SLPVectorizer/*.cpp",
     ],
 }
