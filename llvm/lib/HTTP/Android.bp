@@ -1,0 +1,9 @@
+cc_library_static {
+    name: "libLLVMHTTP",
+    defaults: [
+        "llvm-lib-defaults",
+    ],
+    srcs: [
+        "*.cpp",
+    ],
+}
