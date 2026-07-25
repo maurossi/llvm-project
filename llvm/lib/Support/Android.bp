@@ -12,6 +12,9 @@ cc_library_static {
             enabled: true,
         },
     },
+    cflags: [
+        "-DLIBC_TYPES_CFLOAT128_IS_COMPLEX_LONG_DOUBLE",
+    ],
     srcs: [
         "*.c",
         "*.cpp",
@@ -21,6 +24,7 @@ cc_library_static {
         "BLAKE3/blake3_portable.c",
     ],
     include_dirs: [
+        "external/llvm-project/libc",
         "external/llvm-project/third-party/siphash/include",
     ],
     arch: {
