@@ -177,6 +177,8 @@ func outToGenerator(ctx android.ModuleContext, out string) string {
 		return "-gen-x86-fold-tables -asmwriternum=1"
 	case strings.HasSuffix(out, "X86GenPreLegalizeGICombiner.inc"):
 		return "-gen-global-isel-combiner -combiners=\"X86PreLegalizerCombiner\""
+	case strings.HasSuffix(out, "X86GenPostLegalizeGICombiner.inc"):
+		return "-gen-global-isel-combiner -combiners=\"X86PostLegalizerCombiner\""
 	case out == "Attributes.inc", out == "AttributesCompatFunc.inc":
 		return "-gen-attrs"
 	case out == "IntrinsicEnums.inc":
