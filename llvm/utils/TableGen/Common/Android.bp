@@ -15,6 +15,10 @@ cc_library_static {
         "libLLVMSupport",
     ],
 
+    whole_static_libs: [
+        "libLLVMCodeGenTypes",
+    ],
+
     host_ldlibs: ["-lm"],
     target: {
         windows: {
