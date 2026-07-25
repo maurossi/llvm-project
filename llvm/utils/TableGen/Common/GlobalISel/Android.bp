@@ -1,11 +1,11 @@
 cc_library_static {
-    name: "libLLVMTableGenGlobalISel",
-    defaults: ["llvm-defaults-no-generated-headers"],
-    header_libs: ["llvm-headers"],
+    name: "libLLVM23TableGenGlobalISel",
+    defaults: ["llvm23-defaults-no-generated-headers"],
+    header_libs: ["llvm23-headers"],
     srcs: ["*.cpp"],
 
     static_libs: [
-        "libLLVMSupport",
+        "libLLVM23Support",
     ],
 
     host_ldlibs: ["-lm"],
@@ -13,8 +13,8 @@ cc_library_static {
         windows: {
             enabled: false,
         },
-        // llvm-defaults turns off host builds by default, turn it back on for
-        // modules that are used to build llvm-tblgen
+        // llvm23-defaults turns off host builds by default, turn it back on for
+        // modules that are used to build llvm23-tblgen
         host: {
             enabled: true,
         },

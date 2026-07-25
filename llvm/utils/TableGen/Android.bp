@@ -3,15 +3,15 @@ cc_binary_host {
     // build llvm/include. It must not depend on TableGen, as
     // TableGen depends on this already to generate things such as
     // ValueType definitions.
-    name: "llvm-min-tblgen",
-    defaults: ["llvm-defaults-no-generated-headers"],
+    name: "llvm23-min-tblgen",
+    defaults: ["llvm23-defaults-no-generated-headers"],
     srcs: [
         "llvm-min-tblgen.cpp",
         // partial list of sources is intentional
     ],
 
     whole_static_libs: [
-        "libLLVMTableGenBasic",
+        "libLLVM23TableGenBasic",
     ],
 
     host_ldlibs: ["-lm"],
@@ -19,8 +19,8 @@ cc_binary_host {
         windows: {
             enabled: false,
         },
-        // llvm-defaults turns off host builds by default, turn it back on for
-        // modules that are used to build llvm-tblgen
+        // llvm23-defaults turns off host builds by default, turn it back on for
+        // modules that are used to build llvm23-tblgen
         host: {
             enabled: true,
         },
@@ -40,9 +40,9 @@ cc_binary_host {
 }
 
 cc_binary_host {
-    name: "llvm-tblgen",
-    defaults: ["llvm-defaults-no-generated-headers"],
-    header_libs: ["llvm-headers"],
+    name: "llvm23-tblgen",
+    defaults: ["llvm23-defaults-no-generated-headers"],
+    header_libs: ["llvm23-headers"],
     srcs: [
         "AsmMatcherEmitter.cpp",
         "AsmWriterEmitter.cpp",
@@ -89,8 +89,8 @@ cc_binary_host {
     ],
 
     whole_static_libs: [
-        "libLLVMTableGenBasic",
-        "libLLVMTableGenCommon",
+        "libLLVM23TableGenBasic",
+        "libLLVM23TableGenCommon",
     ],
 
     host_ldlibs: ["-lm"],
@@ -98,8 +98,8 @@ cc_binary_host {
         windows: {
             enabled: false,
         },
-        // llvm-defaults turns off host builds by default, turn it back on for
-        // modules that are used to build llvm-tblgen
+        // llvm23-defaults turns off host builds by default, turn it back on for
+        // modules that are used to build llvm23-tblgen
         host: {
             enabled: true,
         },
@@ -119,7 +119,7 @@ cc_binary_host {
 }
 
 cc_library_headers {
-    name: "llvm-tblgen-headers",
+    name: "llvm23-tblgen-headers",
     host_supported: true,
     vendor_available: true,
     target: {

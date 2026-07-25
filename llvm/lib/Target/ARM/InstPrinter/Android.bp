@@ -1,8 +1,8 @@
 cc_library_static {
-    name: "libLLVMARMAsmPrinter",
+    name: "libLLVM23ARMAsmPrinter",
     defaults: [
-        "llvm-lib-defaults",
-        "llvm-arm-defaults",
+        "llvm23-lib-defaults",
+        "llvm23-arm-defaults",
     ],
     srcs: ["*.cpp"],
 }

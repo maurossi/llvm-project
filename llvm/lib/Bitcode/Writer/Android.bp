@@ -1,7 +1,7 @@
 cc_library_static {
-    name: "libLLVMBitWriter",
+    name: "libLLVM23BitWriter",
     defaults: [
-        "llvm-lib-defaults",
+        "llvm23-lib-defaults",
     ],
     srcs: ["*.cpp"],
 }

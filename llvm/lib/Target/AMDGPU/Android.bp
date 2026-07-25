@@ -1,24 +1,24 @@
 cc_library_static {
-    name: "libLLVMAMDGPUCodeGen",
+    name: "libLLVM23AMDGPUCodeGen",
     defaults: [
-        "llvm-lib-defaults",
-        "llvm-amdgpu-defaults",
+        "llvm23-lib-defaults",
+        "llvm23-amdgpu-defaults",
     ],
     srcs: ["*.cpp"],
 }
 
 cc_defaults {
-    name: "llvm-amdgpu-defaults",
+    name: "llvm23-amdgpu-defaults",
     generated_headers: [
-        "llvm-gen-amdgpu",
-        "llvm-gen-amdgpuisel",
-        "llvm-gen-r600",
+        "llvm23-gen-amdgpu",
+        "llvm23-gen-amdgpuisel",
+        "llvm23-gen-r600",
     ],
-    static_libs: ["llvm-amdgpu-headers"],
+    static_libs: ["llvm23-amdgpu-headers"],
 }
 
 cc_library_static {
-    name: "llvm-amdgpu-headers",
+    name: "llvm23-amdgpu-headers",
     host_supported: true,
     vendor_available: true,
     target: {
@@ -29,8 +29,8 @@ cc_library_static {
     export_include_dirs: ["."],
 }
 
-llvm_tblgen {
-    name: "llvm-gen-amdgpu",
+llvm23_tblgen {
+    name: "llvm23-gen-amdgpu",
     in: "AMDGPU.td",
     outs: [
         "AMDGPUGenRegisterInfo.inc",
@@ -49,8 +49,8 @@ llvm_tblgen {
     ],
 }
 
-llvm_tblgen {
-    name: "llvm-gen-amdgpuisel",
+llvm23_tblgen {
+    name: "llvm23-gen-amdgpuisel",
     in: "AMDGPUGISel.td",
     outs: [
         "AMDGPUGenGlobalISel.inc",
@@ -60,8 +60,8 @@ llvm_tblgen {
     ],
 }
 
-llvm_tblgen {
-    name: "llvm-gen-r600",
+llvm23_tblgen {
+    name: "llvm23-gen-r600",
     in: "R600.td",
     outs: [
         "R600GenAsmWriter.inc",

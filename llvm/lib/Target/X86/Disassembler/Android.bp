@@ -1,8 +1,8 @@
 cc_library_static {
-    name: "libLLVMX86Disassembler",
+    name: "libLLVM23X86Disassembler",
     defaults: [
-        "llvm-lib-defaults",
-        "llvm-x86-defaults",
+        "llvm23-lib-defaults",
+        "llvm23-x86-defaults",
     ],
     srcs: ["*.cpp"],
 }

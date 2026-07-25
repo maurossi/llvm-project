@@ -1,8 +1,8 @@
 cc_library_static {
-    name: "libLLVMAArch64Desc",
+    name: "libLLVM23AArch64Desc",
     defaults: [
-        "llvm-lib-defaults",
-        "llvm-aarch64-defaults",
+        "llvm23-lib-defaults",
+        "llvm23-aarch64-defaults",
     ],
     srcs: ["*.cpp"],
 }

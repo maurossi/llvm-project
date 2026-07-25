@@ -1,7 +1,7 @@
 cc_library_static {
-    name: "libLLVMDebugInfoDWARFLowLevel",
+    name: "libLLVM23DebugInfoDWARFLowLevel",
     defaults: [
-        "llvm-lib-defaults",
+        "llvm23-lib-defaults",
     ],
     srcs: ["*.cpp"],
 }

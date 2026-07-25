@@ -1,10 +1,10 @@
 cc_library_static {
-    name: "libLLVMTargetParser",
+    name: "libLLVM23TargetParser",
     vendor_available: true,
-    defaults: ["llvm-defaults-no-generated-headers"],
+    defaults: ["llvm23-defaults-no-generated-headers"],
     target: {
-        // llvm-defaults turns off host builds by default, turn it back on for
-        // modules that are used to build llvm-tblgen
+        // llvm23-defaults turns off host builds by default, turn it back on for
+        // modules that are used to build llvm23-tblgen
         host: {
             enabled: true,
         },
@@ -13,10 +13,10 @@ cc_library_static {
         },
     },
     generated_headers: [
-        "llvm-gen-arm-target-def",
-        "llvm-gen-aarch64-target-def",
-        "llvm-gen-riscv-target-def",
-        "llvm-gen-powerpc-target-functions",
+        "llvm23-gen-arm-target-def",
+        "llvm23-gen-aarch64-target-def",
+        "llvm23-gen-riscv-target-def",
+        "llvm23-gen-powerpc-target-functions",
     ],
     srcs: [
         "*.cpp",
